@@ -1,0 +1,1227 @@
+<!doctype html>
+
+<html lang="en">
+
+<head>
+
+  <META HTTP-EQUIV="CACHE-CONTROL" CONTENT="NO-CACHE">
+  <meta http-equiv="content-type" content="text/html; charset=utf-8">
+  <meta name="viewport" constent="width=device-width, initial-scale=1.0">
+  <meta server="awardspace.com">
+
+  <style>
+    html,
+    body {
+      height: 100%;
+      border: none;
+      margin-top: 0px;
+      margin-bottom: 0px;
+    }
+
+    body {
+      background-color: black;
+      background-size: cover;
+      background-attachment: fixed;
+      background-size: 100%;
+      color: black;
+    }
+
+    h2 {
+      text-align: center;
+    }
+
+    table,
+    td {
+      border: 1px solid rgb(124, 113, 113);
+      text-align: center;
+    }
+
+    .hilite {
+      background-color: yellow;
+    }
+
+    #graphBar {
+      position: relative;
+    }
+
+    #whiteBar {
+      background-color: rgb(250, 225, 158);
+      position: absolute;
+      left: 0;
+      top: 0;
+    }
+
+    #white {
+      position: absolute;
+      top: 0;
+      left: 2mm;
+    }
+
+    #hispanicBar {
+      background-color: rgb(235, 183, 39);
+      position: absolute;
+      left: 0;
+      top: 0;
+    }
+
+    #hispanic {
+      position: absolute;
+      top: 0;
+      left: 2mm;
+    }
+
+    #blackBar {
+      background-color: rgb(109, 78, 70);
+      position: absolute;
+      left: 0;
+      top: 0;
+    }
+
+    #black {
+      position: absolute;
+      top: 0;
+      left: 2mm;
+      color: white
+    }
+
+    #otherBar {
+      background-color: pink;
+      position: absolute;
+      left: 0;
+      top: 0;
+    }
+
+    #other {
+      position: absolute;
+      top: 0;
+      left: 2mm;
+    }
+
+    #policeBar {
+      background-color: lightblue;
+      position: absolute;
+      left: 0;
+      top: 0;
+    }
+
+    #police {
+      position: absolute;
+      top: 0;
+      left: 2mm;
+      color: black;
+    }
+
+    .graph {
+      background-color: skyblue;
+      border: 2px solid black;
+      width: 205mm;
+      padding-top: 2mm;
+      padding-bottom: 2mm;
+    }
+
+    #pageData {
+      padding-left: 2mm;
+      padding-right: 2mm;
+      margin: auto;
+      overflow: auto;
+      background-image: linear-gradient(to right, burlywood, #9eff8a);
+      max-width: 210mm;
+      height: 100%;
+    }
+
+    #toc {
+      position: absolute; 
+      top: 0; 
+      height: auto;
+      background-color: white; 
+      border: 2px solid black;
+      max-width: 210mm;
+    }
+
+
+  </style>
+
+  <script>
+
+    toc = "";
+
+    function tocOn() {
+      document.getElementById('toc').addEventListener('mouseleave', tocOff, {'once' : true})
+      if (toc == '') {
+        toc = '<ul id="tocList" style="overflow: auto;">\n<li><a onclick="tocOff();" style="text-decoration: underline;">-- Close Table of Contents --</a></li>\n';
+        var h2List = document.getElementsByName('title');
+        for (var i=0; i<h2List.length; i++) {
+          if (h2List[i].id == '')
+            h2List[i].id = 'h2List' + i;
+          toc += '<li style="background-color: ' + h2List[i].getAttribute('titleColor') + ';"><a onclick="tocOff();" href="#' + h2List[i].id + '">' + h2List[i].innerText + '</a></li>\n'
+        }
+        toc += '</ul>\n';
+      }
+      document.getElementById('toc').innerHTML = toc;
+      tocResize();
+      console.log('tocOn');
+    }
+
+    function tocResize() {
+      work = document.getElementById('tocList');
+      if (work)
+        work.style.height = (window.innerHeight-50)+'px';
+      console.log('running tocResize');
+    }
+
+    function tocOff() {
+      document.getElementById('toc').innerHTML = ' Table of Contents ';
+      document.getElementById('toc').addEventListener('mouseenter', tocOn, {'once' : true})
+    }
+
+  </script>
+
+</head>
+
+<body onload="tocOff();" onresize="tocResize();">
+
+  <div id="pageData">
+
+    <h2>Arrests from <a target="news"
+        href="https://ucr.fbi.gov/crime-in-the-u.s/2017/crime-in-the-u.s.-2017/tables/table-43"> FBI crime statistics
+        2017 table 43 </a></h2>
+    <p><span class="hilite">Arrests contradicts Black Lives Matter claim of systemic police racism</span>. Murder, firearms and assault are not black tax or white privilege crimes. Simply put, police are not going to let a white murderer free or arrest a black murderer without evidence. Looking at the remaining arrest categories, you can see consistency where we would expect non-violent crimes to be higher because of racism.</P>
+  
+    <h2 name="title" titleColor="lightgreen">Line graph of first block of arrest types</h2>
+    <img src="fbi_arrests_1.png" style="height: 100mm; border: 2px solid black; margin: auto; display: block;">
+
+    <br/>
+
+    <div class="graph">
+      <div id="title" name="title" class="update" style="text-align: center;">Arrests: Murder and nonnegligent manslaughter</div>
+      <div id="source" style="text-align: center;">
+        <a target="news" href="https://ucr.fbi.gov/crime-in-the-u.s/2017/crime-in-the-u.s.-2017/tables/table-43">
+          Source: FBI crime statistics 2017 table 43</a></div>
+
+      <div style="position: relative;">&nbsp;
+        <div id="blackBar" class="update" style="width: 200mm;">&nbsp;</div>
+        <div id="black" class="update"> 115 per million &nbsp; 68% (actual 5,025 black &nbsp; &nbsp; 46%)</div>
+      </div>
+
+      <div style="position: relative;">&nbsp;
+        <div id="whiteBar" class="update" style="width: 37mm;">&nbsp;</div>
+        <div id="white" class="update"> 21 per million &nbsp; 12% (actual 4,188 white &nbsp; &nbsp; 38%)</div>
+      </div>
+
+      <div style="position: relative;">&nbsp;
+        <div id="hispanicBar" class="update" style="width: 42mm;">&nbsp;</div>
+        <div id="hispanic" class="update"> 24 per million &nbsp; 14% (actual 1,462 hispanic &nbsp; &nbsp; 13%)
+        </div>
+      </div>
+
+      <div style="position: relative;">&nbsp;
+        <div id="otherBar" class="update" style="width: 17mm;">&nbsp;</div>
+        <div id="other" class="update"> 10 per million &nbsp; 6% (actual 255 other &nbsp; &nbsp; 2%)</div>
+      </div>
+    </div>
+
+    <div class="arrests" offense="Rape" black="5182" white="12187" hispanic="3787" other="694">
+
+      <br>
+      <div class="graph">
+        <div id="title" name="title" class="update" style="text-align: center;">Arrests: Rape</div>
+        <div id="source" style="text-align: center;">
+          <a target="news" href="https://ucr.fbi.gov/crime-in-the-u.s/2017/crime-in-the-u.s.-2017/tables/table-43">
+            Source: FBI crime statistics 2017 table 43</a></div>
+
+        <div style="position: relative;">&nbsp;
+          <div id="blackBar" class="update" style="width: 200mm;">&nbsp;</div>
+          <div id="black" class="update"> 119 per million &nbsp; 44% (actual 5,182 black &nbsp; &nbsp; 24%)</div>
+        </div>
+
+        <div style="position: relative;">&nbsp;
+          <div id="whiteBar" class="update" style="width: 103mm;">&nbsp;</div>
+          <div id="white" class="update"> 61 per million &nbsp; 23% (actual 12,187 white &nbsp; &nbsp; 56%)</div>
+        </div>
+
+        <div style="position: relative;">&nbsp;
+          <div id="hispanicBar" class="update" style="width: 106mm;">&nbsp;</div>
+          <div id="hispanic" class="update"> 63 per million &nbsp; 23% (actual 3,787 hispanic &nbsp; &nbsp; 17%)
+          </div>
+        </div>
+
+        <div style="position: relative;">&nbsp;
+          <div id="otherBar" class="update" style="width: 44mm;">&nbsp;</div>
+          <div id="other" class="update"> 26 per million &nbsp; 10% (actual 694 other &nbsp; &nbsp; 3%)</div>
+        </div>
+      </div>
+
+    </div>
+
+    <div class="arrests" offense="Aggravated assault" black="101513" white="188087" hispanic="61107" other="13341">
+
+      <br>
+      <div class="graph">
+        <div id="title" name="title" class="update" style="text-align: center;">Arrests: Aggravated assault</div>
+        <div id="source" style="text-align: center;">
+          <a target="news" href="https://ucr.fbi.gov/crime-in-the-u.s/2017/crime-in-the-u.s.-2017/tables/table-43">
+            Source: FBI crime statistics 2017 table 43</a></div>
+
+        <div style="position: relative;">&nbsp;
+          <div id="blackBar" class="update" style="width: 200mm;">&nbsp;</div>
+          <div id="black" class="update"> 2,325 per million &nbsp; 48% (actual 101,513 black &nbsp; &nbsp; 28%)
+          </div>
+        </div>
+
+        <div style="position: relative;">&nbsp;
+          <div id="whiteBar" class="update" style="width: 82mm;">&nbsp;</div>
+          <div id="white" class="update"> 949 per million &nbsp; 20% (actual 188,087 white &nbsp; &nbsp; 52%)
+          </div>
+        </div>
+
+        <div style="position: relative;">&nbsp;
+          <div id="hispanicBar" class="update" style="width: 87mm;">&nbsp;</div>
+          <div id="hispanic" class="update"> 1,017 per million &nbsp; 21% (actual 61,107 hispanic &nbsp; &nbsp; 17%)</div>
+        </div>
+
+        <div style="position: relative;">&nbsp;
+          <div id="otherBar" class="update" style="width: 44mm;">&nbsp;</div>
+          <div id="other" class="update"> 508 per million &nbsp; 11% (actual 13,341 other &nbsp; &nbsp; 4%)</div>
+        </div>
+      </div>
+
+    </div>
+
+    <div class="arrests" offense="Weapons; carrying, possessing, etc." black="56143" white="68787" hispanic="23125"
+      other="3079">
+
+      <br>
+      <div class="graph">
+        <div id="title" name="title" class="update" style="text-align: center;">Arrests: Weapons; carrying, possessing, etc.</div>
+        <div id="source" style="text-align: center;">
+          <a target="news" href="https://ucr.fbi.gov/crime-in-the-u.s/2017/crime-in-the-u.s.-2017/tables/table-43">
+            Source: FBI crime statistics 2017 table 43</a></div>
+
+        <div style="position: relative;">&nbsp;
+          <div id="blackBar" class="update" style="width: 200mm;">&nbsp;</div>
+          <div id="black" class="update"> 1,286 per million &nbsp; 60% (actual 56,143 black &nbsp; &nbsp; 37%)
+          </div>
+        </div>
+
+        <div style="position: relative;">&nbsp;
+          <div id="whiteBar" class="update" style="width: 54mm;">&nbsp;</div>
+          <div id="white" class="update"> 347 per million &nbsp; 16% (actual 68,787 white &nbsp; &nbsp; 46%)</div>
+        </div>
+
+        <div style="position: relative;">&nbsp;
+          <div id="hispanicBar" class="update" style="width: 60mm;">&nbsp;</div>
+          <div id="hispanic" class="update"> 385 per million &nbsp; 18% (actual 23,125 hispanic &nbsp; &nbsp; 15%)
+          </div>
+        </div>
+
+        <div style="position: relative;">&nbsp;
+          <div id="otherBar" class="update" style="width: 18mm;">&nbsp;</div>
+          <div id="other" class="update"> 117 per million &nbsp; 5% (actual 3,079 other &nbsp; &nbsp; 2%)</div>
+        </div>
+      </div>
+
+    </div>
+
+    <div class="arrests" offense="Violent crime" black="151744" white="236590" hispanic="79078" other="15902">
+
+      <br>
+      <div class="graph">
+        <div id="title" name="title" class="update" style="text-align: center;">Arrests: Violent crime</div>
+        <div id="source" style="text-align: center;">
+          <a target="news" href="https://ucr.fbi.gov/crime-in-the-u.s/2017/crime-in-the-u.s.-2017/tables/table-43">
+            Source: FBI crime statistics 2017 table 43</a></div>
+
+        <div style="position: relative;">&nbsp;
+          <div id="blackBar" class="update" style="width: 200mm;">&nbsp;</div>
+          <div id="black" class="update"> 3,476 per million &nbsp; 53% (actual 151,744 black &nbsp; &nbsp; 31%)
+          </div>
+        </div>
+
+        <div style="position: relative;">&nbsp;
+          <div id="whiteBar" class="update" style="width: 69mm;">&nbsp;</div>
+          <div id="white" class="update"> 1,193 per million &nbsp; 18% (actual 236,590 white &nbsp; &nbsp; 49%)
+          </div>
+        </div>
+
+        <div style="position: relative;">&nbsp;
+          <div id="hispanicBar" class="update" style="width: 76mm;">&nbsp;</div>
+          <div id="hispanic" class="update"> 1,316 per million &nbsp; 20% (actual 79,078 hispanic &nbsp; &nbsp; 16%)</div>
+        </div>
+
+        <div style="position: relative;">&nbsp;
+          <div id="otherBar" class="update" style="width: 35mm;">&nbsp;</div>
+          <div id="other" class="update"> 606 per million &nbsp; 9% (actual 15,902 other &nbsp; &nbsp; 3%)</div>
+        </div>
+      </div>
+
+    </div>
+
+    <div class="arrests" offense="Robbery" black="40024" white="32128" hispanic="12722" other="1612">
+
+      <br>
+      <div class="graph">
+        <div id="title" name="title" class="update" style="text-align: center;">Arrests: Robbery</div>
+        <div id="source" style="text-align: center;">
+          <a target="news" href="https://ucr.fbi.gov/crime-in-the-u.s/2017/crime-in-the-u.s.-2017/tables/table-43">
+            Source: FBI crime statistics 2017 table 43</a></div>
+
+        <div style="position: relative;">&nbsp;
+          <div id="blackBar" class="update" style="width: 200mm;">&nbsp;</div>
+          <div id="black" class="update"> 917 per million &nbsp; 68% (actual 40,024 black &nbsp; &nbsp; 46%)</div>
+        </div>
+
+        <div style="position: relative;">&nbsp;
+          <div id="whiteBar" class="update" style="width: 35mm;">&nbsp;</div>
+          <div id="white" class="update"> 162 per million &nbsp; 12% (actual 32,128 white &nbsp; &nbsp; 37%)</div>
+        </div>
+
+        <div style="position: relative;">&nbsp;
+          <div id="hispanicBar" class="update" style="width: 46mm;">&nbsp;</div>
+          <div id="hispanic" class="update"> 212 per million &nbsp; 16% (actual 12,722 hispanic &nbsp; &nbsp; 15%)
+          </div>
+        </div>
+
+        <div style="position: relative;">&nbsp;
+          <div id="otherBar" class="update" style="width: 13mm;">&nbsp;</div>
+          <div id="other" class="update"> 61 per million &nbsp; 5% (actual 1,612 other &nbsp; &nbsp; 2%)</div>
+        </div>
+      </div>
+
+    </div>
+
+    <div class="arrests" offense="Burglary" black="46227" white="104671" hispanic="24873" other="4072">
+
+      <br>
+      <div class="graph">
+        <div id="title" name="title" class="update" style="text-align: center;">Arrests: Burglary</div>
+        <div id="source" style="text-align: center;">
+          <a target="news" href="https://ucr.fbi.gov/crime-in-the-u.s/2017/crime-in-the-u.s.-2017/tables/table-43">
+            Source: FBI crime statistics 2017 table 43</a></div>
+
+        <div style="position: relative;">&nbsp;
+          <div id="blackBar" class="update" style="width: 200mm;">&nbsp;</div>
+          <div id="black" class="update"> 1,059 per million &nbsp; 49% (actual 46,227 black &nbsp; &nbsp; 26%)
+          </div>
+        </div>
+
+        <div style="position: relative;">&nbsp;
+          <div id="whiteBar" class="update" style="width: 100mm;">&nbsp;</div>
+          <div id="white" class="update"> 528 per million &nbsp; 24% (actual 104,671 white &nbsp; &nbsp; 58%)
+          </div>
+        </div>
+
+        <div style="position: relative;">&nbsp;
+          <div id="hispanicBar" class="update" style="width: 78mm;">&nbsp;</div>
+          <div id="hispanic" class="update"> 414 per million &nbsp; 19% (actual 24,873 hispanic &nbsp; &nbsp; 14%)
+          </div>
+        </div>
+
+        <div style="position: relative;">&nbsp;
+          <div id="otherBar" class="update" style="width: 29mm;">&nbsp;</div>
+          <div id="other" class="update"> 155 per million &nbsp; 7% (actual 4,072 other &nbsp; &nbsp; 2%)</div>
+        </div>
+      </div>
+
+    </div>
+
+    <div class="arrests" offense="Larceny-theft" black="215650" white="501231" hispanic="78921" other="23665">
+
+      <br>
+      <div class="graph">
+        <div id="title" name="title" class="update" style="text-align: center;">Arrests: Larceny-theft</div>
+        <div id="source" style="text-align: center;">
+          <a target="news" href="https://ucr.fbi.gov/crime-in-the-u.s/2017/crime-in-the-u.s.-2017/tables/table-43">
+            Source: FBI crime statistics 2017 table 43</a></div>
+
+        <div style="position: relative;">&nbsp;
+          <div id="blackBar" class="update" style="width: 200mm;">&nbsp;</div>
+          <div id="black" class="update"> 4,940 per million &nbsp; 51% (actual 215,650 black &nbsp; &nbsp; 26%)
+          </div>
+        </div>
+
+        <div style="position: relative;">&nbsp;
+          <div id="whiteBar" class="update" style="width: 102mm;">&nbsp;</div>
+          <div id="white" class="update"> 2,528 per million &nbsp; 26% (actual 501,231 white &nbsp; &nbsp; 61%)
+          </div>
+        </div>
+
+        <div style="position: relative;">&nbsp;
+          <div id="hispanicBar" class="update" style="width: 53mm;">&nbsp;</div>
+          <div id="hispanic" class="update"> 1,314 per million &nbsp; 14% (actual 78,921 hispanic &nbsp; &nbsp; 10%)</div>
+        </div>
+
+        <div style="position: relative;">&nbsp;
+          <div id="otherBar" class="update" style="width: 36mm;">&nbsp;</div>
+          <div id="other" class="update"> 901 per million &nbsp; 9% (actual 23,665 other &nbsp; &nbsp; 3%)</div>
+        </div>
+      </div>
+
+    </div>
+
+    <div class="arrests" offense="Motor vehicle theft" black="21415" white="46621" hispanic="14525" other="2581">
+
+      <br>
+      <div class="graph">
+        <div id="title" name="title" class="update" style="text-align: center;">Arrests: Motor vehicle theft</div>
+        <div id="source" style="text-align: center;">
+          <a target="news" href="https://ucr.fbi.gov/crime-in-the-u.s/2017/crime-in-the-u.s.-2017/tables/table-43">
+            Source: FBI crime statistics 2017 table 43</a></div>
+
+        <div style="position: relative;">&nbsp;
+          <div id="blackBar" class="update" style="width: 200mm;">&nbsp;</div>
+          <div id="black" class="update"> 491 per million &nbsp; 46% (actual 21,415 black &nbsp; &nbsp; 25%)</div>
+        </div>
+
+        <div style="position: relative;">&nbsp;
+          <div id="whiteBar" class="update" style="width: 96mm;">&nbsp;</div>
+          <div id="white" class="update"> 235 per million &nbsp; 22% (actual 46,621 white &nbsp; &nbsp; 55%)</div>
+        </div>
+
+        <div style="position: relative;">&nbsp;
+          <div id="hispanicBar" class="update" style="width: 99mm;">&nbsp;</div>
+          <div id="hispanic" class="update"> 242 per million &nbsp; 23% (actual 14,525 hispanic &nbsp; &nbsp; 17%)
+          </div>
+        </div>
+
+        <div style="position: relative;">&nbsp;
+          <div id="otherBar" class="update" style="width: 40mm;">&nbsp;</div>
+          <div id="other" class="update"> 98 per million &nbsp; 9% (actual 2,581 other &nbsp; &nbsp; 3%)</div>
+        </div>
+      </div>
+
+    </div>
+
+    <div class="arrests" offense="Arson" black="1788" white="5051" hispanic="1073" other="247">
+
+      <br>
+      <div class="graph">
+        <div id="title" name="title" class="update" style="text-align: center;">Arrests: Arson</div>
+        <div id="source" style="text-align: center;">
+          <a target="news" href="https://ucr.fbi.gov/crime-in-the-u.s/2017/crime-in-the-u.s.-2017/tables/table-43">
+            Source: FBI crime statistics 2017 table 43</a></div>
+
+        <div style="position: relative;">&nbsp;
+          <div id="blackBar" class="update" style="width: 200mm;">&nbsp;</div>
+          <div id="black" class="update"> 41 per million &nbsp; 44% (actual 1,788 black &nbsp; &nbsp; 22%)</div>
+        </div>
+
+        <div style="position: relative;">&nbsp;
+          <div id="whiteBar" class="update" style="width: 122mm;">&nbsp;</div>
+          <div id="white" class="update"> 25 per million &nbsp; 27% (actual 5,051 white &nbsp; &nbsp; 62%)</div>
+        </div>
+
+        <div style="position: relative;">&nbsp;
+          <div id="hispanicBar" class="update" style="width: 88mm;">&nbsp;</div>
+          <div id="hispanic" class="update"> 18 per million &nbsp; 19% (actual 1,073 hispanic &nbsp; &nbsp; 13%)
+          </div>
+        </div>
+
+        <div style="position: relative;">&nbsp;
+          <div id="otherBar" class="update" style="width: 44mm;">&nbsp;</div>
+          <div id="other" class="update"> 9 per million &nbsp; 10% (actual 247 other &nbsp; &nbsp; 3%)</div>
+        </div>
+      </div>
+
+    </div>
+
+    <div class="arrests" offense="Property crime" black="285080" white="657574" hispanic="119392" other="30565">
+
+      <br>
+      <div class="graph">
+        <div id="title" name="title" class="update" style="text-align: center;">Arrests: Property crime</div>
+        <div id="source" style="text-align: center;">
+          <a target="news" href="https://ucr.fbi.gov/crime-in-the-u.s/2017/crime-in-the-u.s.-2017/tables/table-43">
+            Source: FBI crime statistics 2017 table 43</a></div>
+
+        <div style="position: relative;">&nbsp;
+          <div id="blackBar" class="update" style="width: 200mm;">&nbsp;</div>
+          <div id="black" class="update"> 6,530 per million &nbsp; 50% (actual 285,080 black &nbsp; &nbsp; 26%)
+          </div>
+        </div>
+
+        <div style="position: relative;">&nbsp;
+          <div id="whiteBar" class="update" style="width: 102mm;">&nbsp;</div>
+          <div id="white" class="update"> 3,317 per million &nbsp; 26% (actual 657,574 white &nbsp; &nbsp; 60%)
+          </div>
+        </div>
+
+        <div style="position: relative;">&nbsp;
+          <div id="hispanicBar" class="update" style="width: 61mm;">&nbsp;</div>
+          <div id="hispanic" class="update"> 1,988 per million &nbsp; 15% (actual 119,392 hispanic &nbsp; &nbsp; 11%)</div>
+        </div>
+
+        <div style="position: relative;">&nbsp;
+          <div id="otherBar" class="update" style="width: 36mm;">&nbsp;</div>
+          <div id="other" class="update"> 1,164 per million &nbsp; 9% (actual 30,565 other &nbsp; &nbsp; 3%)</div>
+        </div>
+      </div>
+
+    </div>
+
+    <br/>
+
+    <h2 name="title" titleColor="lightgreen">Line graph of second block of arrest types</h2>
+    <img src="fbi_arrests_2.png" style="height: 100mm; border: 2px solid black; margin: auto; display: block;">
+
+    <br/>
+
+    <div class="arrests" offense="Other assaults" black="258542" white="534188" hispanic="118922" other="29941">
+
+      <br>
+      <div class="graph">
+        <div id="title" name="title" class="update" style="text-align: center;">Arrests: Other assaults</div>
+        <div id="source" style="text-align: center;">
+          <a target="news" href="https://ucr.fbi.gov/crime-in-the-u.s/2017/crime-in-the-u.s.-2017/tables/table-43">
+            Source: FBI crime statistics 2017 table 43</a></div>
+
+        <div style="position: relative;">&nbsp;
+          <div id="blackBar" class="update" style="width: 200mm;">&nbsp;</div>
+          <div id="black" class="update"> 5,922 per million &nbsp; 50% (actual 258,542 black &nbsp; &nbsp; 27%)
+          </div>
+        </div>
+
+        <div style="position: relative;">&nbsp;
+          <div id="whiteBar" class="update" style="width: 91mm;">&nbsp;</div>
+          <div id="white" class="update"> 2,694 per million &nbsp; 23% (actual 534,188 white &nbsp; &nbsp; 57%)
+          </div>
+        </div>
+
+        <div style="position: relative;">&nbsp;
+          <div id="hispanicBar" class="update" style="width: 67mm;">&nbsp;</div>
+          <div id="hispanic" class="update"> 1,980 per million &nbsp; 17% (actual 118,922 hispanic &nbsp; &nbsp; 13%)</div>
+        </div>
+
+        <div style="position: relative;">&nbsp;
+          <div id="otherBar" class="update" style="width: 39mm;">&nbsp;</div>
+          <div id="other" class="update"> 1,140 per million &nbsp; 10% (actual 29,941 other &nbsp; &nbsp; 3%)
+          </div>
+        </div>
+      </div>
+
+    </div>
+
+    <div class="arrests" offense="Forgery and counterfeiting" black="13980" white="28130" hispanic="5333" other="1093">
+
+      <br>
+      <div class="graph">
+        <div id="title" name="title" class="update" style="text-align: center;">Arrests: Forgery and counterfeiting</div>
+        <div id="source" style="text-align: center;">
+          <a target="news" href="https://ucr.fbi.gov/crime-in-the-u.s/2017/crime-in-the-u.s.-2017/tables/table-43">
+            Source: FBI crime statistics 2017 table 43</a></div>
+
+        <div style="position: relative;">&nbsp;
+          <div id="blackBar" class="update" style="width: 200mm;">&nbsp;</div>
+          <div id="black" class="update"> 320 per million &nbsp; 54% (actual 13,980 black &nbsp; &nbsp; 29%)</div>
+        </div>
+
+        <div style="position: relative;">&nbsp;
+          <div id="whiteBar" class="update" style="width: 89mm;">&nbsp;</div>
+          <div id="white" class="update"> 142 per million &nbsp; 24% (actual 28,130 white &nbsp; &nbsp; 58%)</div>
+        </div>
+
+        <div style="position: relative;">&nbsp;
+          <div id="hispanicBar" class="update" style="width: 56mm;">&nbsp;</div>
+          <div id="hispanic" class="update"> 89 per million &nbsp; 15% (actual 5,333 hispanic &nbsp; &nbsp; 11%)
+          </div>
+        </div>
+
+        <div style="position: relative;">&nbsp;
+          <div id="otherBar" class="update" style="width: 26mm;">&nbsp;</div>
+          <div id="other" class="update"> 42 per million &nbsp; 7% (actual 1,093 other &nbsp; &nbsp; 2%)</div>
+        </div>
+      </div>
+
+    </div>
+
+    <div class="arrests" offense="Fraud" black="29556" white="63908" hispanic="8836" other="2533">
+
+      <br>
+      <div class="graph">
+        <div id="title" name="title" class="update" style="text-align: center;">Arrests: Fraud</div>
+        <div id="source" style="text-align: center;">
+          <a target="news" href="https://ucr.fbi.gov/crime-in-the-u.s/2017/crime-in-the-u.s.-2017/tables/table-43">
+            Source: FBI crime statistics 2017 table 43</a></div>
+
+        <div style="position: relative;">&nbsp;
+          <div id="blackBar" class="update" style="width: 200mm;">&nbsp;</div>
+          <div id="black" class="update"> 677 per million &nbsp; 55% (actual 29,556 black &nbsp; &nbsp; 28%)</div>
+        </div>
+
+        <div style="position: relative;">&nbsp;
+          <div id="whiteBar" class="update" style="width: 95mm;">&nbsp;</div>
+          <div id="white" class="update"> 322 per million &nbsp; 26% (actual 63,908 white &nbsp; &nbsp; 61%)</div>
+        </div>
+
+        <div style="position: relative;">&nbsp;
+          <div id="hispanicBar" class="update" style="width: 43mm;">&nbsp;</div>
+          <div id="hispanic" class="update"> 147 per million &nbsp; 12% (actual 8,836 hispanic &nbsp; &nbsp; 8%)
+          </div>
+        </div>
+
+        <div style="position: relative;">&nbsp;
+          <div id="otherBar" class="update" style="width: 28mm;">&nbsp;</div>
+          <div id="other" class="update"> 96 per million &nbsp; 8% (actual 2,533 other &nbsp; &nbsp; 2%)</div>
+        </div>
+      </div>
+
+    </div>
+
+    <div class="arrests" offense="Embezzlement" black="4683" white="7441" hispanic="1248" other="313">
+
+      <br>
+      <div class="graph">
+        <div id="title" name="title" class="update" style="text-align: center;">Arrests: Embezzlement</div>
+        <div id="source" style="text-align: center;">
+          <a target="news" href="https://ucr.fbi.gov/crime-in-the-u.s/2017/crime-in-the-u.s.-2017/tables/table-43">
+            Source: FBI crime statistics 2017 table 43</a></div>
+
+        <div style="position: relative;">&nbsp;
+          <div id="blackBar" class="update" style="width: 200mm;">&nbsp;</div>
+          <div id="black" class="update"> 107 per million &nbsp; 60% (actual 4,683 black &nbsp; &nbsp; 34%)</div>
+        </div>
+
+        <div style="position: relative;">&nbsp;
+          <div id="whiteBar" class="update" style="width: 71mm;">&nbsp;</div>
+          <div id="white" class="update"> 38 per million &nbsp; 21% (actual 7,441 white &nbsp; &nbsp; 54%)</div>
+        </div>
+
+        <div style="position: relative;">&nbsp;
+          <div id="hispanicBar" class="update" style="width: 39mm;">&nbsp;</div>
+          <div id="hispanic" class="update"> 21 per million &nbsp; 12% (actual 1,248 hispanic &nbsp; &nbsp; 9%)
+          </div>
+        </div>
+
+        <div style="position: relative;">&nbsp;
+          <div id="otherBar" class="update" style="width: 22mm;">&nbsp;</div>
+          <div id="other" class="update"> 12 per million &nbsp; 7% (actual 313 other &nbsp; &nbsp; 2%)</div>
+        </div>
+      </div>
+
+    </div>
+
+    <div class="arrests" offense="Stolen property; buying, receiving, possessing" black="25585" white="48607"
+      hispanic="11351" other="2285">
+
+      <br>
+      <div class="graph">
+        <div id="title" name="title" class="update" style="text-align: center;">Arrests: Stolen property; buying, receiving,
+          possessing</div>
+        <div id="source" style="text-align: center;">
+          <a target="news" href="https://ucr.fbi.gov/crime-in-the-u.s/2017/crime-in-the-u.s.-2017/tables/table-43">
+            Source: FBI crime statistics 2017 table 43</a></div>
+
+        <div style="position: relative;">&nbsp;
+          <div id="blackBar" class="update" style="width: 200mm;">&nbsp;</div>
+          <div id="black" class="update"> 586 per million &nbsp; 53% (actual 25,585 black &nbsp; &nbsp; 29%)</div>
+        </div>
+
+        <div style="position: relative;">&nbsp;
+          <div id="whiteBar" class="update" style="width: 84mm;">&nbsp;</div>
+          <div id="white" class="update"> 245 per million &nbsp; 22% (actual 48,607 white &nbsp; &nbsp; 55%)</div>
+        </div>
+
+        <div style="position: relative;">&nbsp;
+          <div id="hispanicBar" class="update" style="width: 65mm;">&nbsp;</div>
+          <div id="hispanic" class="update"> 189 per million &nbsp; 17% (actual 11,351 hispanic &nbsp; &nbsp; 13%)
+          </div>
+        </div>
+
+        <div style="position: relative;">&nbsp;
+          <div id="otherBar" class="update" style="width: 30mm;">&nbsp;</div>
+          <div id="other" class="update"> 87 per million &nbsp; 8% (actual 2,285 other &nbsp; &nbsp; 3%)</div>
+        </div>
+      </div>
+
+    </div>
+
+    <div class="arrests" offense="Vandalism" black="40861" white="99818" hispanic="21549" other="5255">
+
+      <br>
+      <div class="graph">
+        <div id="title" name="title" class="update" style="text-align: center;">Arrests: Vandalism</div>
+        <div id="source" style="text-align: center;">
+          <a target="news" href="https://ucr.fbi.gov/crime-in-the-u.s/2017/crime-in-the-u.s.-2017/tables/table-43">
+            Source: FBI crime statistics 2017 table 43</a></div>
+
+        <div style="position: relative;">&nbsp;
+          <div id="blackBar" class="update" style="width: 200mm;">&nbsp;</div>
+          <div id="black" class="update"> 936 per million &nbsp; 47% (actual 40,861 black &nbsp; &nbsp; 24%)</div>
+        </div>
+
+        <div style="position: relative;">&nbsp;
+          <div id="whiteBar" class="update" style="width: 107mm;">&nbsp;</div>
+          <div id="white" class="update"> 503 per million &nbsp; 25% (actual 99,818 white &nbsp; &nbsp; 60%)</div>
+        </div>
+
+        <div style="position: relative;">&nbsp;
+          <div id="hispanicBar" class="update" style="width: 77mm;">&nbsp;</div>
+          <div id="hispanic" class="update"> 359 per million &nbsp; 18% (actual 21,549 hispanic &nbsp; &nbsp; 13%)
+          </div>
+        </div>
+
+        <div style="position: relative;">&nbsp;
+          <div id="otherBar" class="update" style="width: 43mm;">&nbsp;</div>
+          <div id="other" class="update"> 200 per million &nbsp; 10% (actual 5,255 other &nbsp; &nbsp; 3%)</div>
+        </div>
+      </div>
+
+    </div>
+
+    <div class="arrests" offense="Prostitution and commercialized vice" black="10605" white="15812" hispanic="5093"
+      other="1812">
+
+      <br>
+      <div class="graph">
+        <div id="title" name="title" class="update" style="text-align: center;">Arrests: Prostitution and commercialized vice</div>
+        <div id="source" style="text-align: center;">
+          <a target="news" href="https://ucr.fbi.gov/crime-in-the-u.s/2017/crime-in-the-u.s.-2017/tables/table-43">
+            Source: FBI crime statistics 2017 table 43</a></div>
+
+        <div style="position: relative;">&nbsp;
+          <div id="blackBar" class="update" style="width: 200mm;">&nbsp;</div>
+          <div id="black" class="update"> 243 per million &nbsp; 51% (actual 10,605 black &nbsp; &nbsp; 32%)</div>
+        </div>
+
+        <div style="position: relative;">&nbsp;
+          <div id="whiteBar" class="update" style="width: 66mm;">&nbsp;</div>
+          <div id="white" class="update"> 80 per million &nbsp; 17% (actual 15,812 white &nbsp; &nbsp; 47%)</div>
+        </div>
+
+        <div style="position: relative;">&nbsp;
+          <div id="hispanicBar" class="update" style="width: 70mm;">&nbsp;</div>
+          <div id="hispanic" class="update"> 85 per million &nbsp; 18% (actual 5,093 hispanic &nbsp; &nbsp; 15%)
+          </div>
+        </div>
+
+        <div style="position: relative;">&nbsp;
+          <div id="otherBar" class="update" style="width: 57mm;">&nbsp;</div>
+          <div id="other" class="update"> 69 per million &nbsp; 14% (actual 1,812 other &nbsp; &nbsp; 5%)</div>
+        </div>
+      </div>
+
+    </div>
+
+    <div class="arrests" offense="Sex offenses (actual except rape and prostitution)" black="9355" white="26615"
+      hispanic="7632" other="1548">
+
+      <br>
+      <div class="graph">
+        <div id="title" name="title" class="update" style="text-align: center;">Arrests: Sex offenses (actual except rape and prostitution)
+        </div>
+        <div id="source" style="text-align: center;">
+          <a target="news" href="https://ucr.fbi.gov/crime-in-the-u.s/2017/crime-in-the-u.s.-2017/tables/table-43">
+            Source: FBI crime statistics 2017 table 43</a></div>
+
+        <div style="position: relative;">&nbsp;
+          <div id="blackBar" class="update" style="width: 200mm;">&nbsp;</div>
+          <div id="black" class="update"> 214 per million &nbsp; 40% (actual 9,355 black &nbsp; &nbsp; 21%)</div>
+        </div>
+
+        <div style="position: relative;">&nbsp;
+          <div id="whiteBar" class="update" style="width: 125mm;">&nbsp;</div>
+          <div id="white" class="update"> 134 per million &nbsp; 25% (actual 26,615 white &nbsp; &nbsp; 59%)</div>
+        </div>
+
+        <div style="position: relative;">&nbsp;
+          <div id="hispanicBar" class="update" style="width: 119mm;">&nbsp;</div>
+          <div id="hispanic" class="update"> 127 per million &nbsp; 24% (actual 7,632 hispanic &nbsp; &nbsp; 17%)
+          </div>
+        </div>
+
+        <div style="position: relative;">&nbsp;
+          <div id="otherBar" class="update" style="width: 55mm;">&nbsp;</div>
+          <div id="other" class="update"> 59 per million &nbsp; 11% (actual 1,548 other &nbsp; &nbsp; 3%)</div>
+        </div>
+      </div>
+
+    </div>
+    <div class="arrests" offense="Drug abuse violations" black="342513" white="889030" hispanic="201858" other="31117">
+
+      <br>
+      <div class="graph">
+        <div id="title" name="title" class="update" style="text-align: center;">Arrests: Drug abuse violations</div>
+        <div id="source" style="text-align: center;">
+          <a target="news" href="https://ucr.fbi.gov/crime-in-the-u.s/2017/crime-in-the-u.s.-2017/tables/table-43">
+            Source: FBI crime statistics 2017 table 43</a></div>
+
+        <div style="position: relative;">&nbsp;
+          <div id="blackBar" class="update" style="width: 200mm;">&nbsp;</div>
+          <div id="black" class="update"> 7,846 per million &nbsp; 46% (actual 342,513 black &nbsp; &nbsp; 23%)
+          </div>
+        </div>
+
+        <div style="position: relative;">&nbsp;
+          <div id="whiteBar" class="update" style="width: 114mm;">&nbsp;</div>
+          <div id="white" class="update"> 4,484 per million &nbsp; 27% (actual 889,030 white &nbsp; &nbsp; 61%)
+          </div>
+        </div>
+
+        <div style="position: relative;">&nbsp;
+          <div id="hispanicBar" class="update" style="width: 86mm;">&nbsp;</div>
+          <div id="hispanic" class="update"> 3,361 per million &nbsp; 20% (actual 201,858 hispanic &nbsp; &nbsp; 14%)</div>
+        </div>
+
+        <div style="position: relative;">&nbsp;
+          <div id="otherBar" class="update" style="width: 30mm;">&nbsp;</div>
+          <div id="other" class="update"> 1,185 per million &nbsp; 7% (actual 31,117 other &nbsp; &nbsp; 2%)</div>
+        </div>
+      </div>
+
+    </div>
+
+    <br/>
+
+    <h2 name="title" titleColor="lightgreen">Line graph of third block of arrest types</h2>
+    <img src="fbi_arrests_3.png" style="height: 100mm; border: 2px solid black; margin: auto; display: block;">
+    
+    <br/>
+
+    <div class="arrests" offense="Gambling" black="1294" white="955" hispanic="382" other="244">
+
+      <br>
+      <div class="graph">
+        <div id="title" name="title" class="update" style="text-align: center;">Arrests: Gambling</div>
+        <div id="source" style="text-align: center;">
+          <a target="news" href="https://ucr.fbi.gov/crime-in-the-u.s/2017/crime-in-the-u.s.-2017/tables/table-43">
+            Source: FBI crime statistics 2017 table 43</a></div>
+
+        <div style="position: relative;">&nbsp;
+          <div id="blackBar" class="update" style="width: 200mm;">&nbsp;</div>
+          <div id="black" class="update"> 30 per million &nbsp; 60% (actual 1,294 black &nbsp; &nbsp; 45%)</div>
+        </div>
+
+        <div style="position: relative;">&nbsp;
+          <div id="whiteBar" class="update" style="width: 33mm;">&nbsp;</div>
+          <div id="white" class="update"> 5 per million &nbsp; 10% (actual 955 white &nbsp; &nbsp; 33%)</div>
+        </div>
+
+        <div style="position: relative;">&nbsp;
+          <div id="hispanicBar" class="update" style="width: 40mm;">&nbsp;</div>
+          <div id="hispanic" class="update"> 6 per million &nbsp; 12% (actual 382 hispanic &nbsp; &nbsp; 13%)
+          </div>
+        </div>
+
+        <div style="position: relative;">&nbsp;
+          <div id="otherBar" class="update" style="width: 60mm;">&nbsp;</div>
+          <div id="other" class="update"> 9 per million &nbsp; 18% (actual 244 other &nbsp; &nbsp; 8%)</div>
+        </div>
+      </div>
+
+    </div>
+
+    <div class="arrests" offense="Offenses against the family and children" black="20106" white="46926" hispanic="6674"
+      other="4624">
+
+      <br>
+      <div class="graph">
+        <div id="title" name="title" class="update" style="text-align: center;">Arrests: Offenses against the family and children
+        </div>
+        <div id="source" style="text-align: center;">
+          <a target="news" href="https://ucr.fbi.gov/crime-in-the-u.s/2017/crime-in-the-u.s.-2017/tables/table-43">
+            Source: FBI crime statistics 2017 table 43</a></div>
+
+        <div style="position: relative;">&nbsp;
+          <div id="blackBar" class="update" style="width: 200mm;">&nbsp;</div>
+          <div id="black" class="update"> 461 per million &nbsp; 47% (actual 20,106 black &nbsp; &nbsp; 26%)</div>
+        </div>
+
+        <div style="position: relative;">&nbsp;
+          <div id="whiteBar" class="update" style="width: 103mm;">&nbsp;</div>
+          <div id="white" class="update"> 237 per million &nbsp; 24% (actual 46,926 white &nbsp; &nbsp; 60%)</div>
+        </div>
+
+        <div style="position: relative;">&nbsp;
+          <div id="hispanicBar" class="update" style="width: 48mm;">&nbsp;</div>
+          <div id="hispanic" class="update"> 111 per million &nbsp; 11% (actual 6,674 hispanic &nbsp; &nbsp; 9%)
+          </div>
+        </div>
+
+        <div style="position: relative;">&nbsp;
+          <div id="otherBar" class="update" style="width: 76mm;">&nbsp;</div>
+          <div id="other" class="update"> 176 per million &nbsp; 18% (actual 4,624 other &nbsp; &nbsp; 6%)</div>
+        </div>
+      </div>
+
+    </div>
+
+    <div class="arrests" offense="Driving under the influence" black="105585" white="617443" hispanic="140918"
+      other="32698">
+
+      <br>
+      <div class="graph">
+        <div id="title" name="title" class="update" style="text-align: center;">Arrests: Driving under the influence</div>
+        <div id="source" style="text-align: center;">
+          <a target="news" href="https://ucr.fbi.gov/crime-in-the-u.s/2017/crime-in-the-u.s.-2017/tables/table-43">
+            Source: FBI crime statistics 2017 table 43</a></div>
+
+        <div style="position: relative;">&nbsp;
+          <div id="blackBar" class="update" style="width: 155mm;">&nbsp;</div>
+          <div id="black" class="update"> 2,419 per million &nbsp; 27% (actual 105,585 black &nbsp; &nbsp; 12%)
+          </div>
+        </div>
+
+        <div style="position: relative;">&nbsp;
+          <div id="whiteBar" class="update" style="width: 200mm;">&nbsp;</div>
+          <div id="white" class="update"> 3,114 per million &nbsp; 34% (actual 617,443 white &nbsp; &nbsp; 69%)
+          </div>
+        </div>
+
+        <div style="position: relative;">&nbsp;
+          <div id="hispanicBar" class="update" style="width: 151mm;">&nbsp;</div>
+          <div id="hispanic" class="update"> 2,346 per million &nbsp; 26% (actual 140,918 hispanic &nbsp; &nbsp; 16%)</div>
+        </div>
+
+        <div style="position: relative;">&nbsp;
+          <div id="otherBar" class="update" style="width: 80mm;">&nbsp;</div>
+          <div id="other" class="update"> 1,245 per million &nbsp; 14% (actual 32,698 other &nbsp; &nbsp; 4%)
+          </div>
+        </div>
+      </div>
+
+    </div>
+
+    <div class="arrests" offense="Liquor laws" black="22095" white="122929" hispanic="15704" other="12261">
+
+      <br>
+      <div class="graph">
+        <div id="title" name="title" class="update" style="text-align: center;">Arrests: Liquor laws</div>
+        <div id="source" style="text-align: center;">
+          <a target="news" href="https://ucr.fbi.gov/crime-in-the-u.s/2017/crime-in-the-u.s.-2017/tables/table-43">
+            Source: FBI crime statistics 2017 table 43</a></div>
+
+        <div style="position: relative;">&nbsp;
+          <div id="blackBar" class="update" style="width: 163mm;">&nbsp;</div>
+          <div id="black" class="update"> 506 per million &nbsp; 27% (actual 22,095 black &nbsp; &nbsp; 13%)</div>
+        </div>
+
+        <div style="position: relative;">&nbsp;
+          <div id="whiteBar" class="update" style="width: 200mm;">&nbsp;</div>
+          <div id="white" class="update"> 620 per million &nbsp; 33% (actual 122,929 white &nbsp; &nbsp; 71%)
+          </div>
+        </div>
+
+        <div style="position: relative;">&nbsp;
+          <div id="hispanicBar" class="update" style="width: 84mm;">&nbsp;</div>
+          <div id="hispanic" class="update"> 261 per million &nbsp; 14% (actual 15,704 hispanic &nbsp; &nbsp; 9%)
+          </div>
+        </div>
+
+        <div style="position: relative;">&nbsp;
+          <div id="otherBar" class="update" style="width: 151mm;">&nbsp;</div>
+          <div id="other" class="update"> 467 per million &nbsp; 25% (actual 12,261 other &nbsp; &nbsp; 7%)</div>
+        </div>
+      </div>
+
+    </div>
+
+    <div class="arrests" offense="Drunkenness" black="41073" white="212908" hispanic="57521" other="34004">
+
+      <br>
+      <div class="graph">
+        <div id="title" name="title" class="update" style="text-align: center;">Arrests: Drunkenness</div>
+        <div id="source" style="text-align: center;">
+          <a target="news" href="https://ucr.fbi.gov/crime-in-the-u.s/2017/crime-in-the-u.s.-2017/tables/table-43">
+            Source: FBI crime statistics 2017 table 43</a></div>
+
+        <div style="position: relative;">&nbsp;
+          <div id="blackBar" class="update" style="width: 145mm;">&nbsp;</div>
+          <div id="black" class="update"> 941 per million &nbsp; 22% (actual 41,073 black &nbsp; &nbsp; 12%)</div>
+        </div>
+
+        <div style="position: relative;">&nbsp;
+          <div id="whiteBar" class="update" style="width: 166mm;">&nbsp;</div>
+          <div id="white" class="update"> 1,074 per million &nbsp; 25% (actual 212,908 white &nbsp; &nbsp; 62%)
+          </div>
+        </div>
+
+        <div style="position: relative;">&nbsp;
+          <div id="hispanicBar" class="update" style="width: 148mm;">&nbsp;</div>
+          <div id="hispanic" class="update"> 958 per million &nbsp; 22% (actual 57,521 hispanic &nbsp; &nbsp; 17%)
+          </div>
+        </div>
+
+        <div style="position: relative;">&nbsp;
+          <div id="otherBar" class="update" style="width: 200mm;">&nbsp;</div>
+          <div id="other" class="update"> 1,295 per million &nbsp; 30% (actual 34,004 other &nbsp; &nbsp; 10%)
+          </div>
+        </div>
+      </div>
+
+    </div>
+
+    <div class="arrests" offense="Disorderly conduct" black="87094" white="172098" hispanic="24687" other="14472">
+
+      <br>
+      <div class="graph">
+        <div id="title" name="title" class="update" style="text-align: center;">Arrests: Disorderly conduct</div>
+        <div id="source" style="text-align: center;">
+          <a target="news" href="https://ucr.fbi.gov/crime-in-the-u.s/2017/crime-in-the-u.s.-2017/tables/table-43">
+            Source: FBI crime statistics 2017 table 43</a></div>
+
+        <div style="position: relative;">&nbsp;
+          <div id="blackBar" class="update" style="width: 200mm;">&nbsp;</div>
+          <div id="black" class="update"> 1,995 per million &nbsp; 52% (actual 87,094 black &nbsp; &nbsp; 29%)
+          </div>
+        </div>
+
+        <div style="position: relative;">&nbsp;
+          <div id="whiteBar" class="update" style="width: 87mm;">&nbsp;</div>
+          <div id="white" class="update"> 868 per million &nbsp; 23% (actual 172,098 white &nbsp; &nbsp; 58%)
+          </div>
+        </div>
+
+        <div style="position: relative;">&nbsp;
+          <div id="hispanicBar" class="update" style="width: 41mm;">&nbsp;</div>
+          <div id="hispanic" class="update"> 411 per million &nbsp; 11% (actual 24,687 hispanic &nbsp; &nbsp; 8%)
+          </div>
+        </div>
+
+        <div style="position: relative;">&nbsp;
+          <div id="otherBar" class="update" style="width: 55mm;">&nbsp;</div>
+          <div id="other" class="update"> 551 per million &nbsp; 14% (actual 14,472 other &nbsp; &nbsp; 5%)</div>
+        </div>
+      </div>
+
+    </div>
+
+    <div class="arrests" offense="Vagrancy" black="5148" white="12609" hispanic="2195" other="696">
+
+      <br>
+      <div class="graph">
+        <div id="title" name="title" class="update" style="text-align: center;">Arrests: Vagrancy</div>
+        <div id="source" style="text-align: center;">
+          <a target="news" href="https://ucr.fbi.gov/crime-in-the-u.s/2017/crime-in-the-u.s.-2017/tables/table-43">
+            Source: FBI crime statistics 2017 table 43</a></div>
+
+        <div style="position: relative;">&nbsp;
+          <div id="blackBar" class="update" style="width: 200mm;">&nbsp;</div>
+          <div id="black" class="update"> 118 per million &nbsp; 48% (actual 5,148 black &nbsp; &nbsp; 25%)</div>
+        </div>
+
+        <div style="position: relative;">&nbsp;
+          <div id="whiteBar" class="update" style="width: 108mm;">&nbsp;</div>
+          <div id="white" class="update"> 64 per million &nbsp; 26% (actual 12,609 white &nbsp; &nbsp; 61%)</div>
+        </div>
+
+        <div style="position: relative;">&nbsp;
+          <div id="hispanicBar" class="update" style="width: 63mm;">&nbsp;</div>
+          <div id="hispanic" class="update"> 37 per million &nbsp; 15% (actual 2,195 hispanic &nbsp; &nbsp; 11%)
+          </div>
+        </div>
+
+        <div style="position: relative;">&nbsp;
+          <div id="otherBar" class="update" style="width: 46mm;">&nbsp;</div>
+          <div id="other" class="update"> 27 per million &nbsp; 11% (actual 696 other &nbsp; &nbsp; 3%)</div>
+        </div>
+      </div>
+
+    </div>
+
+    <div class="arrests" offense="All other offenses (actual except traffic)" black="700984" white="1750366" hispanic="335002"
+      other="89492">
+
+      <br>
+      <div class="graph">
+        <div id="title" name="title" class="update" style="text-align: center;">Arrests: All other offenses (actual except traffic)</div>
+        <div id="source" style="text-align: center;">
+          <a target="news" href="https://ucr.fbi.gov/crime-in-the-u.s/2017/crime-in-the-u.s.-2017/tables/table-43">
+            Source: FBI crime statistics 2017 table 43</a></div>
+
+        <div style="position: relative;">&nbsp;
+          <div id="blackBar" class="update" style="width: 200mm;">&nbsp;</div>
+          <div id="black" class="update"> 16,057 per million &nbsp; 47% (actual 700,984 black &nbsp; &nbsp; 24%)
+          </div>
+        </div>
+
+        <div style="position: relative;">&nbsp;
+          <div id="whiteBar" class="update" style="width: 110mm;">&nbsp;</div>
+          <div id="white" class="update"> 8,829 per million &nbsp; 26% (actual 1,750,366 white &nbsp; &nbsp; 61%)
+          </div>
+        </div>
+
+        <div style="position: relative;">&nbsp;
+          <div id="hispanicBar" class="update" style="width: 69mm;">&nbsp;</div>
+          <div id="hispanic" class="update"> 5,577 per million &nbsp; 16% (actual 335,002 hispanic &nbsp; &nbsp; 12%)</div>
+        </div>
+
+        <div style="position: relative;">&nbsp;
+          <div id="otherBar" class="update" style="width: 42mm;">&nbsp;</div>
+          <div id="other" class="update"> 3,408 per million &nbsp; 10% (actual 89,492 other &nbsp; &nbsp; 3%)
+          </div>
+        </div>
+      </div>
+
+    </div>
+
+    <div class="arrests" offense="Suspicion" black="148" white="250" hispanic="44" other="271">
+
+      <br>
+      <div class="graph">
+        <div id="title" name="title" class="update" style="text-align: center;">Arrests: Suspicion</div>
+        <div id="source" style="text-align: center;">
+          <a target="news" href="https://ucr.fbi.gov/crime-in-the-u.s/2017/crime-in-the-u.s.-2017/tables/table-43">
+            Source: FBI crime statistics 2017 table 43</a></div>
+
+        <div style="position: relative;">&nbsp;
+          <div id="blackBar" class="update" style="width: 60mm;">&nbsp;</div>
+          <div id="black" class="update"> 3 per million &nbsp; 20% (actual 148 black &nbsp; &nbsp; 21%)</div>
+        </div>
+
+        <div style="position: relative;">&nbsp;
+          <div id="whiteBar" class="update" style="width: 20mm;">&nbsp;</div>
+          <div id="white" class="update"> 1 per million &nbsp; 7% (actual 250 white &nbsp; &nbsp; 35%)</div>
+        </div>
+
+        <div style="position: relative;">&nbsp;
+          <div id="hispanicBar" class="update" style="width: 20mm;">&nbsp;</div>
+          <div id="hispanic" class="update"> 1 per million &nbsp; 7% (actual 44 hispanic &nbsp; &nbsp; 6%)</div>
+        </div>
+
+        <div style="position: relative;">&nbsp;
+          <div id="otherBar" class="update" style="width: 200mm;">&nbsp;</div>
+          <div id="other" class="update"> 10 per million &nbsp; 67% (actual 271 other &nbsp; &nbsp; 38%)</div>
+        </div>
+      </div>
+
+    </div>
+
+    <div class="arrests" offense="Curfew and loitering law violations" black="9523" white="13156" hispanic="4127"
+      other="807">
+
+      <br>
+      <div class="graph">
+        <div id="title" name="title" class="update" style="text-align: center;">Arrests: Curfew and loitering law violations</div>
+        <div id="source" style="text-align: center;">
+          <a target="news" href="https://ucr.fbi.gov/crime-in-the-u.s/2017/crime-in-the-u.s.-2017/tables/table-43">
+            Source: FBI crime statistics 2017 table 43</a></div>
+
+        <div style="position: relative;">&nbsp;
+          <div id="blackBar" class="update" style="width: 200mm;">&nbsp;</div>
+          <div id="black" class="update"> 218 per million &nbsp; 57% (actual 9,523 black &nbsp; &nbsp; 34%)</div>
+        </div>
+
+        <div style="position: relative;">&nbsp;
+          <div id="whiteBar" class="update" style="width: 61mm;">&nbsp;</div>
+          <div id="white" class="update"> 66 per million &nbsp; 17% (actual 13,156 white &nbsp; &nbsp; 48%)</div>
+        </div>
+
+        <div style="position: relative;">&nbsp;
+          <div id="hispanicBar" class="update" style="width: 63mm;">&nbsp;</div>
+          <div id="hispanic" class="update"> 69 per million &nbsp; 18% (actual 4,127 hispanic &nbsp; &nbsp; 15%)
+          </div>
+        </div>
+
+        <div style="position: relative;">&nbsp;
+          <div id="otherBar" class="update" style="width: 28mm;">&nbsp;</div>
+          <div id="other" class="update"> 31 per million &nbsp; 8% (actual 807 other &nbsp; &nbsp; 3%)</div>
+        </div>
+      </div>
+
+    </div>
+
+    <div id="toc"></div>
+
+  </div>
+</body>
+
+</html>

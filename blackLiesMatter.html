@@ -1,0 +1,1692 @@
+<!doctype html>
+
+<html lang="en">
+
+<head>
+  <title>Black Lies Matter</title>
+
+  <META HTTP-EQUIV="CACHE-CONTROL" CONTENT="NO-CACHE">
+  <meta http-equiv="content-type" content="text/html; charset=utf-8">
+  <meta name="viewport" constent="width=device-width, initial-scale=1.0">
+  <meta server="awardspace.com">
+
+  <style>
+    html,
+    body {
+      height: 100%;
+      border: none;
+      margin-top: 0px;
+      margin-bottom: 0px;
+    }
+
+    body {
+      background-color: black;
+      background-size: cover;
+      background-attachment: fixed;
+      background-size: 100%;
+      color: black;
+    }
+
+    h2 {
+      text-align: center;
+    }
+
+    table,
+    td {
+      border: 1px solid rgb(124, 113, 113);
+      text-align: center;
+    }
+
+    .hilite {
+      background-color: yellow;
+    }
+
+    #graphBar {
+      position: relative;
+      margin-bottom: 6px;
+    }
+
+    #whiteBar {
+      background-color: rgb(250, 225, 158);
+      position: absolute;
+      left: 0;
+      top: 0;
+    }
+
+    #white {
+      position: absolute;
+      top: 0;
+      left: 2mm;
+    }
+
+    #hispanicBar {
+      background-color: rgb(235, 183, 39);
+      position: absolute;
+      left: 0;
+      top: 0;
+    }
+
+    #hispanic {
+      position: absolute;
+      top: 0;
+      left: 2mm;
+    }
+
+    #blackBar {
+      background-color: rgb(109, 78, 70);
+      position: absolute;
+      left: 0;
+      top: 0;
+    }
+
+    #black {
+      position: absolute;
+      top: 0;
+      left: 2mm;
+      color: white
+    }
+
+    #otherBar {
+      background-color: pink;
+      position: absolute;
+      left: 0;
+      top: 0;
+    }
+
+    #other {
+      position: absolute;
+      top: 0;
+      left: 2mm;
+    }
+
+    #policeBar {
+      background-color: lightblue;
+      position: absolute;
+      left: 0;
+      top: 0;
+    }
+
+    #police {
+      position: absolute;
+      top: 0;
+      left: 2mm;
+      color: black;
+    }
+
+    #title {
+      text-align: center;
+      font-size: 5mm;
+      font-weight: bold;
+    }
+
+    .graph {
+      background-color: skyblue;
+      border: 2px solid black;
+      width: 205mm;
+      padding-top: 2mm;
+      padding-bottom: 2mm;
+    }
+
+    #pageData {
+      padding-left: 2mm;
+      padding-right: 2mm;
+      margin: auto;
+      overflow: auto;
+      background-image: linear-gradient(to right, burlywood, #9eff8a);
+      max-width: 210mm;
+      height: 100%;
+    }
+
+    #toc {
+      position: absolute; 
+      top: 0; 
+      height: auto;
+      background-color: white; 
+      border: 2px solid black;
+      max-width: 210mm;
+    }
+
+  </style>
+
+  <script>
+
+    toc = "";
+    function tocOn() {
+      document.getElementById('toc').addEventListener('mouseleave', tocOff, {'once' : true})
+      if (toc == '') {
+        toc = '<ul id="tocList" style="overflow: auto;">\n<li><a onclick="tocOff();" style="text-decoration: underline;">-- Close Table of Contents --</a></li>\n';
+        var h2List = document.getElementsByTagName('h2');
+        for (var i=0; i<h2List.length; i++) {
+          if (h2List[i].id == '')
+            h2List[i].id = 'h2List' + i;
+          toc += '<li><a onclick="tocOff();" href="#' + h2List[i].id + '">' + h2List[i].innerText + '</a></li>\n'
+        }
+        toc += '</ul>\n';
+      }
+      document.getElementById('toc').innerHTML = toc;
+      tocResize();
+      console.log('tocOn');
+    }
+
+    function tocResize() {
+      work = document.getElementById('tocList');
+      if (work)
+        work.style.height = (window.innerHeight-50)+'px';
+      console.log('running tocResize');
+    }
+
+    function tocOff() {
+      document.getElementById('toc').innerHTML = '&nbsp; Table of Contents &nbsp;';
+      document.getElementById('toc').addEventListener('mouseenter', tocOn, {'once' : true})
+    }
+
+    function tableOfContents() {
+      if (document.getElementById('tableOfContents').innerHTML != "")
+        return;
+
+      var toc = document.getElementById('tableOfContents');
+      toc.style.padding = '2mm';
+      toc.innerHTML = '<h2 id="tocHeader">Table of Contents</h2><ul>\n';
+      var h2List = document.getElementsByTagName('h2');
+      for (var i=0; i<h2List.length; i++) {
+        if (h2List[i].id == 'tocHeader')
+          continue;
+        if (h2List[i].id == '')
+          h2List[i].id = 'h2List' + i;
+        toc.innerHTML += '<li><a href="#' + h2List[i].id + '">' + h2List[i].innerText + '</a></li>\n'
+      }
+      toc.innerHTML += '</ul>\n';
+    }
+
+    // Function to support quiz
+    count = 0;
+    count2 = 0;
+    function quizButton(e, cnt) {
+      if (e.parentElement.id !=  'answers' ) {
+        document.getElementById('status' ).innerHTML =
+          ' <span style="background-color: pink;">' 
+        ' Invalid selections</span>' ;
+        return;
+      }
+      count2++;
+      if (cnt == count) {
+        count++;
+        document.getElementById('status' ).innerHTML =
+          ' <span style="background-color: lightgreen;">' 
+          + e.innerText +
+          ' is correct</span>';
+        e.innerHTML += '<br/>' + e.getAttribute('murders');
+        document.getElementById('correct').innerHTML += e.outerHTML;
+        e.outerHTML = '';
+        if (count == 10) // last entry
+          document.getElementById('status').innerHTML +=
+            '<p><span class="hilite">You took ' + count2 +
+            ' out of 38 possible clicks.</span></p>';
+      } else
+        document.getElementById('status').innerHTML =
+          '<span style="background-color: pink;">'
+          + e.innerText +
+          ' is  incorrect</span>';
+    }
+  </script>
+
+</head>
+
+<body onload="tocOff();" onresize="tocResize();">
+
+  <div id="pageData">
+<template>
+https://openjustice.doj.ca.gov/exploration/stop-data
+https://www.latimes.com/local/lanow/la-me-lapd-searches-20190605-story.html
+https://www.theguardian.com/us-news/2020/jan/02/california-police-black-stops-force
+http://lapd-assets.lapdonline.org/assets/pdf/PR91%20Aug20.pdf
+https://www.sanfranciscopolice.org/your-sfpd/published-reports/demographics
+https://www.census.gov/quickfacts/fact/table/US/PST045219
+https://babylonbee.com/news/the-babylon-bee-purchases-competing-satire-site-cnn-for-12-billion?utm_content=buffere3089&utm_medium=social&utm_source=twitter.com&utm_campaign=buffer
+https://www.bjs.gov/content/pub/pdf/cpp15.pdf
+https://www.foxnews.com/sports/obama-advised-lebron-james-nba-season-boycott
+https://www.facebook.com/203805062990264/videos/1482585365236665/
+
+3 black women say it's getting worse and they are getting ready for it but this is the first time it's happened
+https://losangeles.cbslocal.com/2020/08/30/racist-rant-caught-on-camera-black-women-dockweiler-beach/
+</template>
+
+    <h1 id="top" style="text-align: center;">
+      Obama and Biden - hate crime hoaxes<br/>
+      Their hate crime hoaxes - Black Lies Matter</h1>
+
+    <p>These traitors to the USA had to hide their responsibility for BLM riots, lootings, arson and terrorism because their oath says they will "insure domestic tranquility". Of the facts below, the most dispicable is the fraudulent academic research paper which the National Institute of Healh (NIH) funded instead of the Department of Justice (DOJ). No one realizes it's fraudulent because no one has read it. They have News agencies use fraudulent research paper to say "systemic police racism is killing black people" and "police are systemic racists".</p>
+
+    <p>To quickly go to a section in this web page, place your mouse on "Table of contents" above left and select a topic.</p>
+
+    <h2>The penalties for violating the U.S. Constitution</h2>
+
+    <p>Several cities and states won't be able to afford police after paying . Defunding police is probably irrelevant now.</p>
+
+    <p>Sadly for states and cities that fully supported "Black Lives Matter", they are in for a rude awakening. Sadly for for black people in those states and cities, their situation is going to get worse because of "Black Lives Matter". Please congradulate Obama and Biden for their success in creating the American nightmare.</p>
+
+    <p>Consider the clauses "deny to any person within its jurisdiction the equal protection of the law" and "insure domestic tranquility". They are more than just words and the penalties aren't obvious.</p>
+
+    <ol>
+    <li>Portland, Seattle, Chicago, New York and other cities refused to protect people and their property. These cities can expect a deluge of lawyers to claim trillions of dollars in pain, suffering, property damage, injury and loss of life. </li>
+    <li>Oregon, Washington, Illinois, New York and other states refused to protect people and property in those cities. The attorney general for those states failed to remind mayors that their actions are unconstitutional. These states can expect a deluge of lawyers to claim trillions of dollars in pain, suffering, property damage, injury and loss of life.</li>
+    <li>Several state and city laws are now unconstitutional because of every citizen has the right of "equal protection under the law". If they arrests you, then they can be sued for false arrest on constitutional grounds. Laws must be enforced equally. </li>
+      <ul>
+        <li>Arson, vandalism, grafitti, rioting and more could be very difficult or impossible to prosecute in Oregon and Washington. Worse yet, these states could be sued for false arrest on constitutional grounds.</li>
+        <li>Each of the protesters in the <a href="https://www.cnbc.com/2020/05/29/hundreds-block-silicon-valley-highway-over-floyd-killing.html" target="news">Black Lives Matter protest on California hwy 101</a> is by law <a href="https://www.law.cornell.edu/wex/false_imprisonment" target="news">False imprisonment</a> of thousands of California drivers that the CHP and San Jose police did not arrest. In violation of the constitution, the CHP spokesperson said they would only escort them off of the freeway without charging any of the unlawful protest. California is the worst constitutional rights violator in the U.S. and this violation will go unpunished like all the others. If anyone wants to walk in the freeway, please do it safefly but if you are arrested, be sure to sue California for false arrest. Remind them you have the same constitutional rights as the protesters.</li>
+      </ul>
+    <li>All congresspeople signed a legal document stating they will support and defend the U.S. Constitution for all U.S. citizens. They were required to speak out against unlawful protests, riots, arson, murder and other unlawful acts. They could be sued for breach of contract with judgements for pain, suffering, property damage, injury and loss of life. </li>
+    <li>Amazingly, Trump protected the federal government by offering troops to enforce laws.</li>
+
+      
+      
+    https://www.senate.gov/artandhistory/history/common/briefing/Oath_Office.htm    
+      
+      
+      . For politicians, these are the hardeIn the name of "Black Lives Matter", Some states and cities have to ignore the constitution. </p>
+
+    <p>Several cities and states are going to be shocked when they realize that "Black Lives Matter" exclusion amendment, these are undeniable rights for every U.S Citizen. "Lawful protest"  </p>
+
+    <p>Expect cities and states to go bankrupt because they violated citizens rights guaranteed by the constitution. </p>
+      
+    <p>Cities that Portland, Seattle, Chicago, New York and many others are financially responsible because they refused to enforce laws for specific groups of people. State governments are financially responsible because they allowed their cities to ignore the constitution. Amazingly, Trump spared US taxpayers trillions by offering to send in federal troops.</p>  
+      
+    <p>For politicians, supporting and defending the U.S. Constitution can make them very unpopular. Regardless, their only true obligation is to Support and defend the U.S. Constitution. From the president down to lawyers, police and military are required to take an oath swearing they will protect and defend the U.S. Constitution. Supporting and defending the constitution can be so painful that "We the People" require congresspeople to sign a legal document that says they will protect and defend the U.S. Constitution.</p>
+   <
+
+    <p>  Proof and reputable documentation are below that prove lies and inuendo by Obama and Biden are the direct cause.</p>
+
+    <h2>Biden is still ignoring the constitution</h2>
+
+    <p>Biden is no longer obligated to his oath but Senator Kamala Harris is clearly ignoring her oath. Having worked as the San Francisco district attorney, she knows from the <a target="news" href="https://www.lakegenevanews.net/news/local/crime-and-courts/video_f976b67b-d206-547d-8592-4a6d76dbc945.html">first video</a> that the officers were justified in shooting and will be found innocent if this goes to trial. The officers knew 3 kids were in the car and that people were gathering around the car. Once Jacob Blake entered the car, he is has weapons and is endanger the public the officer's swore to protect. Jacob Black could use the car as a weapon. He could have used the kids as hostages which he was already endangering by not complying with armed police. Innocent bystanders in front of the car could have been injured. A police chase would have endangered the kids and the public. </p>
+
+    https://www.reuters.com/article/us-usa-election-harris/kamala-harris-condemns-looting-violence-in-wake-of-police-shooting-idUSKBN25N344
+
+
+
+    <h2>Send me REAL facts showing "systemic racism"</h2>
+
+    <p>Prove me wrong with facts. It's important this web page is impartial and unbiased. I would be excited to include REAL evidence proving "systemic racism in America" because I could not find anything to justify "Burning America". Send the details and the trusted website where it can be easily verified to <a target="news" href="mailto:blackliesmatter@protonmail.com"> BlackLiesMatter@protonmail.com</a>. I will gladly include them among the REAL facts I included below that clearly shows "systemic racism in America" is a myth.</p>  
+
+    <p>From the facts I could find, there is absolutely no proof for "systemic racism". These facts below show the black community is in denial about racism today. Some racism exists but nothing to justify riots and looting. <a target="news"
+      href="http://psychology.iresearchnet.com/social-psychology/attitudes/motivated-reasoning/#:~:text=Motivated%20reasoning%20is%20a%20form,or%20endorse%20a%20preferred%20conclusion.">
+      Motivated justification</a> and<a target="news"
+      href="https://www.psycholoytoday.com/us/blog/after-service/201705/the-science-behind-why-people-follow-the-crowd">
+      Crowd mentality</a> allows irrational people to believe rumors such as "systemic racism". They are well known psychological terms where most people justify their beliefs without any valid proof. It's how BLM supporters believe they are different from <a target="news" href="https://en.wikipedia.org/wiki/Kristallnacht">NAZI Germany's kristallnacht</a>.</p>
+
+    <h2>What I hope you to take away from this web page</h2>
+    <ul>
+      <li>Obama and Biden caused the BLM and ANTIFA riots and looting. They tried to hide their involvement.</li>
+      <li>Obama and Biden broke their oath to defend the constitution.</li>
+      <li>Systemic racism does not exist. Some people are just racist.</li>
+      <li>Black people need to take speak out when their rights are violated. If you experience racism, then report it to HR, the EEOC or the department that handles racism. You are protected by law from retaliation. It's not the responsibility of white people to protect your rights when you won't protect them.</li>
+      <li>People will fear black people as long as they are above the law. </li>
+    </ul>
+      
+    <h2>2019, the year some racism became "systemic racism by white people and police"</h2>
+
+    <p>Before 2019, there was nothing to prove "systemic racism". Riots were relatively mild, short term and isolated. 2019 is the year fraudulent research papers started to appear from the Obama and Biden adminstration. Their involvement in the riots, looting and arson has gone unnoticed. As you read thru the facts below, keep in mind this has cost billions of dollars. ANTIFA was absent from riots prior to 2019. In fact, these fraudulent papers and news articles made this an international problem.</p>
+
+    <h2>Victim mentality in Black people</h2>
+
+    <p>After Ferguson, Obama and Biden could not prove racism so they felt escalating BLM from "racism" to "systemic racism" was needed to fix black lives. They did not understand victim mentality. Many black people feel they are racism victims and won't stand up for their rights.  </p>
+
+    <p style="text-align: center;"><span class="hilite" style="border: 2px solid black;">
+      &nbsp; If all you look for is racism, then racism is the only thing you will find &nbsp; </span></p>
+
+    <p>Michelle Obama clearly has victim mentality. <a target="news" href="https://www.dailymail.co.uk/femail/ article-8674571/Michelle-Obama-says-woman-cut-line-Lady-didnt-apologize.html">She says "white people don't see me" and "she's rudely ignored when in incognito".</a> Most rude people are narcissists (not racist). Never expect an apology from a narcissist. As for getting upset with people ignoring her when petting her dog, this is narcissistic because she needs to be the center of attention. White people get ignored too. Dogs draw attention and if you want to be part of that attention, then simply tell them your dog's name to start a conversation.</p>
+
+    
+
+    <h2>"racism" is not "systemic racism"</h2>
+
+    <p>Some racism will always exists because that is human nature that we work on reducing. 9/11 focused racism on the middle east but time has greatly reduced that racism.</p>
+
+    <p></p>
+
+
+    <h2>Obama's and Biden's - The evil within</h2>
+
+    <h2>Obama and Biden - Stabbing America in the back</h2>
+
+    <p>TwitterNIH research paper</p>
+
+    <p>Before leaving office, Obama and Biden had universities write research papers to falsely say systemic police racism is unfairly killing black people. To avoid incriminating themselves, these research papers were released in 2019. Anyone who actually read those papers, would realize the intent was to enrage black. It's clear they were extremely successful at causing riots, looting and rage. They succeeded in creating an environment that mimicks the rise of Nazi Germany (E.g. <a target="news" href="https://www.pbs.org/wgbh/americanexperience/features/nazis-news-1938/">"Night of glass"</a>).</p>
+
+
+    <h2>Jacob Blake - Do you actually agree with <a href="https://twitter.com/JoeBiden/status/1298697722304888833?ref_src=twsrc%5Etfw">Biden</a>,  and the NBA? </h2>
+
+    <p>They demand justice for Jacob Blake but what would have happened to innocent bystanders.</p>
+
+    <p>You've seen the first video. Pretend you are the officer and you must decide when to shoot. You don't know if there's a gun or other weapon. Jacob's 3 kids are in the back seat. There are several innocent people (including kids) moving towards the car. A good parent would never endanger their children. Do you allow Jacob to grab a gun turning this into a gunfight? Do you allow Jacob to grab a knife and allow him to use his kids as hostages? Do you allow Jacob to drive away and start a police chase with his kids in the car? It's very sad he was shot but he could not be allowed to enter the car.</p>
+    
+    https://currently.att.yahoo.com/att/jacob-blake-woke-following-shooting-094237657.html
+    https://www.today.com/video/kamala-harris-officer-in-jacob-blake-shooting-should-be-charged-90781253529
+
+    <p style="text-align: center;"><img src="father_uses_baby.jpg"></p>
+
+    <h2>News agencies now </h2>
+    https://www.forbes.com/sites/lisettevoytko/2020/08/17/how-the-murder-of-5-year-old-cannon-hinnant-became-a-conservative-controversy-about-race/#2a4996bf5b67
+    https://meaww.com/cannon-hinnant-killing-facebook-group-supported-murder-suspect-darius-sessoms-20-k-members
+
+    <h2>Obama and Biden atrocities</h2>
+
+    <p style="text-align: center;">
+      <img src="obama_biden.jpg" style="width: 200cm; border: 2px solid;">
+    </p>
+  
+    <p>Blacks are angry because 2019 introduced 3 research papers that blacks believe are facts and real proof that police are killing based systemic racism. These research papers were clearly requested by the Obama administration to empower his task force </p>
+    <p>The only thing different between the police shooting a black man in Ferguson and now is that Obama created fake proof and lies that police are racially killing black and hispanic people. Before Obama requested the NIH have a paper written that specifically says police are racist regardless of the real facts. He had the Washington Post use this paper to write lies saying that police are racist.</p>
+
+    <p>These lies have caused riots, terrorized Americans and destroyed property. They have slandered the police and placed them in great danger. </p>
+
+    <h2>Motivated justification</h2>
+
+    <h2>Linch mobs and vigilante justice</h2>
+
+
+    <h2>Most people believe in the lies they are told</h2>
+
+    <p>Unlike the news media, I want you to verify the facts trusted sources that I provide. If you find errors or facts that I left out, please email me at <a target="news" href="mailto:blackliesmatter@protonmail.com">Email BlackLiesMatter@protonmail.com</a> describing the error and where I can find the trusted resource for those facts. I will fix those errors.</p>
+
+    <p>Unlike the news media, I give you all the numbers so you can decide.</p>
+    
+    <h2>Black people are killed twice the rate of "ALL" other races.</h2>
+    
+    <p>For the Washington Post to say "twice the rate of white", they had to lie about the hispanic population. No one notices the problem with the following Washington Post graph:</p>
+
+    <p style="text-align: center;"><img src="washington_post_graph_original.png"></p>
+
+
+
+    <p style="text-align: center;"><a target="news" href="mailto:blackliesmatter@protonmail.com">Email BlackLiesMatter@protonmail.com</a> &nbsp; &nbsp; Free use <a target="news" href="https://opensource.org/licenses/Apache-2.0">Apache v2 license</a></p>
+
+    <h2>Racism against the police is still racism<br/>
+      You're racist because of "Black Lives Matter" deception</h2>
+
+    <p><a target="news" href="https://www.washingtonpost.com/graphics/investigations/police-shootings-database/">The Washington Post does not want you to realize</a> that <span class="hilite">police are murdered at 90 times the rate of unarmed blacks killed by police</span> and 15 times the rate of armed blacks killed by police. The Washington Post felt black violence is irrelevant and that blacks being killed by police at 2 times the rate of white people clearly does not imply systemic police racism and excessive police violence.</p>
+
+    <p style="text-align: center;">
+      <img src="only_black_lives_matter.png" style="width: 55%; height: 60mm; border: 2px solid black; ">
+
+      <img src="washington_post_graph.png" style="width: 40%; height: 60mm; border: 2px solid black;">
+    </p>
+
+    <h2>Summary of the police killing database and police deaths website</h2>
+
+    <table style="background-color: white;">
+      <tr>
+        <td colspan="7" style="text-align: center;">Deaths by Police</td>
+      </tr>
+      <tr>
+        <td> </td>
+        <td style='text-align: center;'>2015</td>
+        <td style='text-align: center;'>2016</td>
+        <td style='text-align: center;'>2017</td>
+        <td style='text-align: center;'>2018</td>
+        <td style='text-align: center;'>2019</td>
+        <td>total</td>
+      </tr>
+      <tr>
+        <td> Black people <br /> Rate per million </td>
+        <td> 305 <br /> 7.0 </td>
+        <td> 279 <br /> 6.4 </td>
+        <td> 276 <br /> 6.3 </td>
+        <td> 257 <br /> 5.9 </td>
+        <td> 259 <br /> 5.9 </td>
+        <td> 1376 <br/> 32 </td>
+      </tr>
+      <tr>
+        <td> White people <br /> Rate per million </td>
+        <td> 544  <br /> 2.8 </td>
+        <td> 532 <br /> 2.7 </td>
+        <td> 505 <br /> 2.6 </td>
+        <td> 490 <br /> 2.5 </td>
+        <td> 406 <br /> 2.0 </td>
+        <td> 2477 <br /> 13 </td>
+      </tr>
+      <tr>
+        <td> Hispanic people <br /> Rate per million </td>
+        <td> 195 <br /> 3.2 </td>
+        <td> 194 <br /> 3.2 </td>
+        <td> 225 <br /> 3.7 </td>
+        <td> 187 <br /> 3.1 </td>
+        <td> 182 <br /> 3.0 </td>
+        <td> 983 <br /> 16 </td>
+      </tr>
+    </table>
+
+    <p>
+      <span class='hilite'>Data source:</span>
+        SELECT race, substring(date,1,4), count(name)
+        FROM mappingPoliceViolence.org
+        where substr(date,1,4) >= 2015
+        group by race, substring(date,1,4);
+    </p>
+
+    <table style="background-color: white;">
+      <tr>
+        <td colspan="7" style="text-align: center;">Unarmed Deaths by Police</td>
+      </tr>
+      <tr>
+        <td> </td>
+        <td style='text-align: center;'>2015</td>
+        <td style='text-align: center;'>2016</td>
+        <td style='text-align: center;'>2017</td>
+        <td style='text-align: center;'>2018</td>
+        <td style='text-align: center;'>2019</td>
+        <td>total</td>
+      </tr>
+      <tr>
+        <td> Black people <br/> Rate per million</td>
+        <td> 61 <br /> 1.4 </td>
+        <td> 49 <br />  1.1 </td>
+        <td> 35 <br /> 0.8 </td>
+        <td> 29 <br /> 0.7 </td>
+        <td> 26 <br /> 0.6 </td>
+        <td> 200 <br/> 4.6 </td>
+      </tr>
+      <tr>
+        <td> White people <br/> Rate per million</td>
+        <td> 65 <br /> 0.3 </td>
+        <td> 81 <br /> 0.4 </td>
+        <td> 39 <br /> 0.2 </td>
+        <td> 74 <br /> 0.4 </td>
+        <td> 51 <br /> 0.3 </td>
+        <td> 310 <br/> 1.6 </td>
+      </tr>
+      <tr>
+        <td> Hispanic people <br/> Rate per million</td>
+        <td> 42 <br /> 0.7 </td>
+        <td> 34 <br /> 0.6 </td>
+        <td> 32 <br /> 0.5 </td>
+        <td> 32 <br /> 0.5 </td>
+        <td> 27 <br /> 0.4 </td>
+        <td> 167 <br/> 2.8 </td>
+      </tr>
+    </table>
+    select * from mappingPoliceViolence_org as t0 
+    left join (SELECT state, agency, race, count(id) FROM mappingPoliceViolence_org 
+      where agency not like 'u.s.%'
+               group by state, agency, race) as t1 
+    on t0.state = t1.state and t0.agency = t1.agency
+    <p>
+      <span class="hilite"> Data source:</span>
+        SELECT race, substring(date,1,4), count(name)
+        FROM mappingPoliceViolence.org
+        where (unarmed = 'unarmed' or unarmed like 'un%' or unarmed = '')
+        and alleged_threat_level != 'attack'
+        and substr(date,1,4) >= 2015
+        group by race, substring(date,1,4);
+    </p>
+
+    <table style="background-color: white;">
+      <tr>
+        <td colspan="7" style="text-align: center;">Police officers feloniously murdered</td>
+      </tr>
+      <tr>
+        <td> </td>
+        <td style='text-align: center;'>2015</td>
+        <td style='text-align: center;'>2016</td>
+        <td style='text-align: center;'>2017</td>
+        <td style='text-align: center;'>2018</td>
+        <td style='text-align: center;'>2019</td>
+        <td>total</td>
+      </tr>
+      <tr>
+        <td>&nbsp; <br/> Rate per million police </td>
+        <td> 54 <br/> 68 </td>
+        <td> 81 <br/> 101 </td>
+        <td> 56 <br/> 70 </td>
+        <td> 65 <br/> 81 </td>
+        <td> 54 <br/> 68 </td>
+        <td> 315 <br/> 394 </td>
+      </tr>
+    </table>
+
+    <p><Span class="hilite">Data source:</Span>  
+      <a href="odmp.org"> http://odmp.org </a></td>
+    </p>
+
+    <p>Of the 800,000 police officers, very few officers choose to take someones life each
+      year. For unarmed suspects, the number goes down by around a factor of 10.
+      While these numbers are tragic, they tell us that officers
+      make the correct decision most of the time in a situation that is
+      extremely fluid.</p>
+
+    <h2>Black Lives Matter is not about saving black lives</h2>
+
+    <p>Black Lives Matter has lost sight of their true goal. If they were truly about saving and improving black lives, then they would support gun control. 7,000 black people are murdered by gun each year. You would save more lives in 1 year than you could possibly save in 100 years by defunding police.</p>
+
+    <div class="graph">
+      <div id="title" class="update">Save 7,000 black lives each year by making guns illegal</div> 
+      <div id="title" class="update">Male murder victims 2017</div> 
+      <div id="source" style="text-align: center;">
+        <a target="news" href="https://www.cdc.gov/nchs/data/nvsr/nvsr68/nvsr68_09-508.pdf">
+        Source: CDC deaths: final data for 2017</a></div>
+      
+      <br>   
+      <div id="graphBar">&nbsp;
+        <div id="blackBar" class="update" style="width: 200mm;">&nbsp;</div>
+        <div id="black" class="update"> 346 black men (gun) per million &nbsp; 80% &nbsp; &nbsp; &nbsp; &nbsp; (real 7,546  &nbsp; 61%)</div>
+      </div>
+    
+      <div id="graphBar">&nbsp;
+        <div id="whiteBar" class="update" style="width: 14mm;">&nbsp;</div>
+        <div id="white" class="update"> 25 white men (gun) per million &nbsp; 6% &nbsp; &nbsp; &nbsp; &nbsp; (real 2466  &nbsp; 20%) </div>
+      </div>
+      <br>
+      <div id="graphBar">&nbsp;
+        <div id="blackBar" class="update" style="width: 29mm;">&nbsp;</div>
+        <div id="white" class="update" style="margin-left: 30mm;"> 50 black men (not gun) per million &nbsp; 11% &nbsp; &nbsp; &nbsp; &nbsp; (real 1097 &nbsp; 9%)</div>""
+      </div>
+    
+      <div id="graphBar">&nbsp;&nbsp;
+        <div id="whiteBar" class="update" style="width: 8mm;">&nbsp;</div>
+        <div id="white" class="update">14 white men (no gun) per million &nbsp; 3% &nbsp; &nbsp; &nbsp; &nbsp; (real 1349 &nbsp; 11%)</div>
+      </div>
+    
+      <br><div id="title">For racial equality, 31,663 more white men need to be murdered by gun each year</div>
+    
+    </div>
+
+    <p><table class="hilite" style="border: 2px solid black; margin: 0 auto"> <tr><td>
+      &nbsp; Most wars only last 5 years &nbsp;<br/>
+      &nbsp; Around 45,000 black people are murdered over a 5 year period &nbsp;<br/>
+      &nbsp; Only World War II and the Civil War had significantly more American deaths &nbsp;
+    </td></tr></table></p>
+
+    <h2>Why don't blacks use black privilege and use their American rights?</h2>
+
+    <p>George Floyd could not speak out for himself so protesting made his voice heard. What excuse does any living person have for not making their voice heard. <span class="hilite">Democracy has given black people huge privileges that aren't available to white men.</span> EEOC, the NO FEAR ACT, laws that prohibit discrimination in the workplace and Company HR departments trained to discourage and deal with all forms of discrimination. Over 95% of those claiming discriminatiion never bothered to personally resolve the discrimination.</p>
+
+    <p><span class="hilite"><a target="news" href="https://www.flexyourrights.org/faqs/how-to-report-police-misconduct/">Always file police misconduct reports!!!</a> </span> Abusing police accomplishes very little except to show your anger. If you really want to solve abusive police problem, <a target="news" href="https://www.flexyourrights.org/faqs/how-to-report-police-misconduct/">there must be a pattern of misconduct which these will demonstrate</a>. Maybe you won't get satisfaction but eventually bad police will be exposed.</p>
+
+    <h2>Some black people stand against Black Lives Matter</h2>
+
+    <p>You'll see facts and data below but you need to hear first hand from some black conservatives.  <a target="news" href="https://theofficertatum.com/">Ex-officer Tatum</a> has a large following, is a public speaker and appears on news programs. The following video is 2 hours where he and 3 guests discuss current topics such as Black Lives Matter. They speak about children and babies being murdered. Violence and the hardships of living in a black community that cannot be fixed by Black Lives Matter. While watching the video, I want you to think about his friends. If he has 1,000 white male friends, then he expects 1 will be murdered during his life but if he has 1,000 black male friends, then he expects 27 to be murdered during his life.</p>
+
+    <iframe width="540" height="302" src="https://www.youtube.com/embed/YQXA-QKgJvo" frameborder="0"  allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+
+    <p>Americans want to help the black community but nothing will help until the black community is willing to fix the violence.</p>
+
+    <p>A few famous black people talk about racism.</p>
+
+    <iframe width="560" height="315" src="https://www.youtube.com/embed/TQEbUMX1uug" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+
+    <h2>My fact finding turned into lies, deceit and conspiracy</h2>
+
+    <p>Like you, I was disgusted by George Floyd's death which made me more sensitive to Black Lives Matter. I trusted the news media reports until I saw that Washington Post graph (republished by news agencies around the world such as the German news program Tagesschau). I found an obvious error that started me checking some of the facts.</p>
+
+    <p style="text-align: center;"><span class="hilite" style="border: 2px solid black; font-size: x-large;">&nbsp; 1/2 truth + 1/2 truth &#x2260; truth &nbsp;</span> </p>
+
+    <p><span class="hilite"> One error turned into an avalanche of deception.</span> I found that Black Lives Matter is completely deceiving us. Lies of omission are still lies. Nearly everyone is participating in the deception:</p>
+
+    <ul>
+      <li>Black people: An example is the <a target="news" href="https://www.kmbc.com/article/protesters-calling-for-end-to-racial-discrimination-at-kansas-city-va-medical-center/32867533">100 black VA hospital employee's demanding management be fired because of black discrimination at the hospital</a>. Any reported discrimination will be vigorously handled by the <a target="news"
+        href="https://www.va.gov/ORM/HPP.asp">"Office of Resolution Management, Diversity & Inclusion"</a> and protected by the "NO FEAR ACT". How can black employee's blame management when they couldn't be bothered to report discrimination!</li>
+      <li>Companies: Apple CEO declaring he will fight discrimination within Apple but he obviously never discussed Apples policies with the HR department. The <a target="news" href="https://www.eeoc.gov/">EEOC</a> requires companies eliminate all forms of discrimination. I know for a fact that most companies take this very seriously.</li>
+      <li>Universities: their deceptions were the most appalling. These so called scholars write research papers specifically to be used by Black Lies Matter. For example, the research paper <a target="news"
+        href="https://www.ncbi.nlm.nih.gov/pmc/articles/PMC6708348/">"Risk of being killed by police use of
+        force"</a> says it's about "risk" but the only risk discussed is being black! Apparently having a gun is not a risk factor.</li>
+      <li>News media: They use exagerated number like 1,200 black deaths instead of saying 40 unarmed black deaths each year or 250 armed black deaths each year. They are using horribly flawed information to specifically prove Black Lies Matter.</li>
+    </ul>
+    <p>The truth is that racism is being blown out of proportion by black people. Sadly there are bad people in the world and racism exists but the destruction of democracy and America is being led by lies and deceit that are far more destructive. <span class="hilite"> I'm appalled we can't get truthful information because people are too passionate about Black Lives Matter.</span></p> 
+      
+      
+    <p>To help you find the complete truth, I've included data, facts, information and sources.</p>
+
+    <h2>Let the book burning begin</h2>
+    
+    <p style="text-align: center;"> <img src="nazi_flag.png" style="height: 20mm; border: 2px solid black;"> </p>
+    <p>To hell with American liberties, freedoms and democracy. Black people will re-write history when libraries and schools re-open. For now, black people will settle for the destruction or removal of statues and memorials. They'll settle for the removal or destruction of art that they deem inappropriate. They will soon <a target="news" href="https://www.cnn.com/2020/07/07/tech/facebook-civil-rights-meeting/index.htmlcensor"> Facebook postings they deem inappropriate while spreading hate about police, their families and white America.</a> They'll settle for censoring social media for anything the deem inappropriate. They'll settle for dictating company polices to meet their requirements. </p>
+
+    <p style="text-align: center;"><span class="hilite" style="border: 2px solid black;">&nbsp; When did black people earn the right to rule the country and rewrite american history! &nbsp;</span> </p>
+
+    <p style="text-align: center;">
+      <video autoplay="" loop="" muted="" width="50%">
+        <source src="pelosi_taking_knee.mp4" type="video/mp4">
+        Your browser does not support the video tag
+      </video>
+    </p>
+
+    <h2>The Washington Post falsely claims "overwhelming evidence"</h2>
+    
+    <p>The Washington Post ignores it's motto "Democracy dies in Darkness" because they are diehard Black Lives Matter supporters. Articles like <a target="news" href="https://www.washingtonpost.com/opinions/if-you-dont-believe-systemic-racism-is-real-explain-these-statistics/2020/06/12/ce0dff6e-acc7-11ea-94d2-d7bc43b26bf9_story.html">"If you don't believe systemic racism is real, then explain these statistics"</a> claim "overwhelming evidence" but I'll show much of this evidence is either fabricated or woefully incomplete.</p>
+
+    <div style="text-align: center;"><span class="hilite">This graph is used by news outlets throughout the world.</span></div>
+    <p>From this graph, you clearly see black and hispanic genocide by the police.</p>
+
+    <img src="washington_post_graph.png" style="height: 100mm; border: 2px solid black; margin: auto; display: block;">
+
+    <p>Really sly. Their fact checkers ignored the hispanic population error. After using the correct population, Hispanics are very similar to whites and other races are lower than whites. Simalarly, they never mention on the graph that the numbers are 5 years total. Are they saying police are only racist against black people? Even worse, are they only racist against black men?</p>
+
+    <div class="graph" style="background-color: white;">
+      <div id="title" class="update" style="text-align: center;">
+        People killed by police</div>
+      <br />
+
+      <div id="graphBar">&nbsp;
+        <div id="blackBar" style="width: 200mm;">&nbsp;</div>
+        <div id="black"> 31 Black people per million &nbsp; &nbsp; &nbsp; &nbsp; (real 1362 = 272 per year)</div>
+      </div>
+
+      <div id="graphBar">&nbsp;
+        <div id="whiteBar" style="width: 84mm;">&nbsp;</div>
+        <div id="white"> 13 White people per million &nbsp; &nbsp; &nbsp; &nbsp; (real 2462 = 492 per year)</div>
+      </div>
+
+      <div id="graphBar">&nbsp;
+        <div id="hispanicBar" style="width: 103mm;">&nbsp;</div>
+        <div id="hispanic"> 16 Hispanic people per million &nbsp; &nbsp; &nbsp; &nbsp; (real 956 = 191 per year)</div>
+      </div>
+
+      <div id="graphBar">&nbsp;
+        <div id="otherBar" style="width: 52mm;">&nbsp;</div>
+        <div id="other"> 8 other people per million &nbsp; &nbsp; &nbsp; &nbsp; (real 215 = 43 per year)</div>
+      </div>
+    </div>
+
+    <p>80% of the people killed by police are armed and considered dangerous. New York is reducing it's police force which will put police lives in a lot more danger. Black people can expect their situation to get worse because police won't be willing to take the risk.</p>
+
+    <div class="graph" style="background-color: white;">
+      <div id="title" class="update" style="text-align: center;">
+        People killed by police</div>
+      <br />
+
+      <div id="graphBar">&nbsp;
+        <div id="blackBar" style="width: 200mm;">&nbsp;</div>
+        <div id="black"> 31 Black people per million &nbsp; &nbsp; &nbsp; &nbsp; (real 1362 = 272 per year)</div>
+      </div>
+
+      <div id="graphBar">&nbsp;
+        <div id="whiteBar" style="width: 84mm;">&nbsp;</div>
+        <div id="white"> 13 White people per million &nbsp; &nbsp; &nbsp; &nbsp; (real 2462 = 492 per year)</div>
+      </div>
+
+      <div id="graphBar">&nbsp;
+        <div id="hispanicBar" style="width: 103mm;">&nbsp;</div>
+        <div id="hispanic"> 16 Hispanic people per million &nbsp; &nbsp; &nbsp; &nbsp; (real 956 = 191 per year)</div>
+      </div>
+
+      <div id="graphBar">&nbsp;
+        <div id="otherBar" style="width: 52mm;">&nbsp;</div>
+        <div id="other"> 8 other people per million &nbsp; &nbsp; &nbsp; &nbsp; (real 215 = 43 per year)</div>
+      </div>
+
+      <br/>
+
+      <div id="graphBar">&nbsp;
+        <div id="blackBar" style="width: 155mm;">&nbsp;</div>
+        <div id="black"> 24  armed Black people per million &nbsp; &nbsp; &nbsp; &nbsp; (real 1056 = 211 per year)</div>
+      </div>
+
+      <div id="graphBar">&nbsp;
+        <div id="whiteBar" style="width: 65mm;">&nbsp;</div>
+        <div id="white"> 10 armed White people per million &nbsp; &nbsp; &nbsp; &nbsp; (real 1965 = 393 per year)</div>
+      </div>
+
+      <div id="graphBar">&nbsp;
+        <div id="hispanicBar" style="width: 77mm;">&nbsp;</div>
+        <div id="hispanic"> 12 armed Hispanic people per million &nbsp; &nbsp; &nbsp; &nbsp; (real 726 = 145 per year)</div>
+      </div>
+
+      <div id="graphBar">&nbsp;
+        <div id="otherBar" style="width: 39mm;">&nbsp;</div>
+        <div id="other"> 6 other armed people per million &nbsp; &nbsp; &nbsp; &nbsp; (real 167 = 33 per year)</div>
+      </div>
+
+      <br/>
+
+      <div id="graphBar">&nbsp;
+        <div id="blackBar" style="width: 32mm;">&nbsp;</div>
+        <div id="white" style="margin-left: 45mm;"> 5 unarmed Black people per million &nbsp; &nbsp; &nbsp; &nbsp; (real 220 = 44 per year)</div>
+      </div>
+
+      <div id="graphBar">&nbsp;
+        <div id="whiteBar" style="width: 13mm;">&nbsp;</div>
+        <div id="white"> 2 unarmed White people per million &nbsp; &nbsp; &nbsp; &nbsp; (real 317 = 63 per year)</div>
+      </div>
+
+      <div id="graphBar">&nbsp;
+        <div id="hispanicBar" style="width: 13mm;">&nbsp;</div>
+        <div id="hispanic"> 2 unarmed Hispanic people per million &nbsp; &nbsp; &nbsp; &nbsp; (real 139 = 28 per year)</div>
+      </div>
+
+      <div id="graphBar">&nbsp;
+        <div id="otherBar" style="width: 6mm;">&nbsp;</div>
+        <div id="other"> 1 other unarmed person per million &nbsp; &nbsp; &nbsp; &nbsp; (real 23 = 5 per year)</div>
+      </div>
+    </div>
+
+    <p>Everyone forget's police are involved. In the previous graph 80% of the people killed by police had a weapon (armed). George Floyd would be in the 20% that did not have a weapon (unarmed). More important is to consider police that die and get injured in these confrontations.</p>
+
+    <p><table class="hilite" style="border: 2px solid black; margin: 0 auto"> <tr><td>
+      &nbsp; 45,000 black people were murdered during this time &nbsp;<br/>
+      &nbsp; only world war II and the civil war had significantly more American deaths
+    </td></tr></table></p>
+
+    <div class="graph" style="background-color: white;">
+      <div id="title" class="update" style="text-align: center;">
+        Only Black Lives Matter<br/>
+        People killed by police versus murdered police</div>
+      <br />
+
+      <div id="graphBar">&nbsp;
+        <div id="blackBar" style="width: 15mm;">&nbsp;</div>
+        <div id="white" style="margin-left: 15mm;"> 31 Black people per million &nbsp; &nbsp; &nbsp; &nbsp; (real 1362 = 272 per year)</div>
+      </div>
+
+      <div id="graphBar">&nbsp;
+        <div id="whiteBar" style="width: 6mm;">&nbsp;</div>
+        <div id="white"> 13 White people per million &nbsp; &nbsp; &nbsp; &nbsp; (real 2462 = 492 per year)</div>
+      </div>
+
+      <div id="graphBar">&nbsp;
+        <div id="hispanicBar" style="width: 8mm;">&nbsp;</div>
+        <div id="hispanic"> 16 Hispanic people per million &nbsp; &nbsp; &nbsp; &nbsp; (real 956 = 191 per year)</div>
+      </div>
+
+      <div id="graphBar">&nbsp;
+        <div id="otherBar" style="width: 4mm;">&nbsp;</div>
+        <div id="other"> 8 other people per million &nbsp; &nbsp; &nbsp; &nbsp; (real 215 = 43 per year)</div>
+      </div>
+      
+      <br/>
+
+      <div id="graphBar">&nbsp;
+        <div id="blackBar" style="width: 2mm;">&nbsp;</div>
+        <div id="white" style="margin-left: 5mm;"> 5 unarmed Black people killed by police per million &nbsp; &nbsp; &nbsp; &nbsp; (real 220 = 44 per year)</div>
+      </div>
+
+      <div id="graphBar">&nbsp;
+        <div id="whiteBar" style="width: 1mm;">&nbsp;</div>
+        <div id="white"> 2 unarmed White people killed by police per million &nbsp; &nbsp; &nbsp; &nbsp; (real 317 = 393 per year)</div>
+      </div>
+
+      <div id="graphBar">&nbsp;
+        <div id="hispanicBar" style="width: 1mm;">&nbsp;</div>
+        <div id="hispanic"> 2 unarmed Hispanic people killed by police per million &nbsp; &nbsp; &nbsp; &nbsp; (real 139 = 145 per year)</div>
+      </div>
+
+      <div id="graphBar">&nbsp;
+        <div id="otherBar" style="width: 1mm;">&nbsp;</div>
+        <div id="other"> 1 other unarmed person killed by police per million &nbsp; &nbsp; &nbsp; &nbsp; (real 23 = 5 per year)</div>
+      </div>
+
+      <br/>
+
+      <div id="graphBar">&nbsp;
+        <div id="policeBar" class="update" style="width: 200mm;">&nbsp;</div>
+        <div id="police">450 Police murdered per million &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; (315 actual = 63 per year)</div>
+      </div>
+
+    </div>
+
+    <p>Black Lives Matter insisted these graphs be per capita for 2015 to 2019. Dividing these numbers by 5 makes them much smaller and using real numbers per year puts it more into perspective. Let's look at a few.</p>
+
+    <p><span class="hilite">
+    272 armed and 44 unarmed black people killed by police each year<br/>
+    Because of Ferguson, unarmed black deaths fell from 2015 to 2019 (61, 49, 35, 29 and 26).<br/>
+    492 armed and 63 unarmed white people killed by police each year
+    </span></p>
+
+    <p>Here are the data sources. If you can multiply and divide, then you can verify the numbers from these sources. Decide for yourself if you can trust Black Lives Matter.</p>
+    <div style="margin: 2mm; background-color: lightblue;">
+      <p style="font-weight: bolder; font-size: large;">Sources:</p>
+      <p>Important note: The mapping police violence database appears to be better researched than Washington Post database.</p>
+      <p>Important note: Just like the Washington Post graph, these graphs are for 2015 to 2019.</p>
+      <p>multiple FBI reports 2015 to 2019:
+        <a target="news"
+          href="https://www.fbi.gov/news/pressrel/press-releases/fbi-releases-2019-statistics-on-law-enforcement-officers-killed-in-the-line-of-duty">
+          statistics on law enforcement officers killed in the line of duty</a></p>
+
+      <p>select race, count(distinct(name))
+        <br/>from `mappingPoliceViolence.org` 
+        <br/>where date>=2015 and date<=2019
+        <br/>group by race
+        <br/>
+        <br/>select race, count(distinct(name))
+        <br/>from `mappingPoliceViolence.org` 
+        <br/>where unarmed not like 'Un%' and date>=2015 and date<=2019 
+        <br/>group by race;
+        <br/>
+        <br/>select race, count(distinct(name))
+        <br/>from `mappingPoliceViolence.org` 
+        <br/>where unarmed like 'Unarmed' and date>=2015 and date<=2019 
+        <br/>group by race;</p>
+    </div>
+
+    <h2>
+      <a target="news" href="https://www.latimes.com/science/story/2019-08-15/police-shootings-are-a-leading-cause-of-death-for-black-men">LA times 2019: "Getting killed by police is a leading cause of death for young black men in America"</a></h2>
+  
+      <img src="latimes_2019_young_black_men.png" style="height: 100mm; border: 2px solid black; margin: auto; display: block;">
+  
+      <ul>
+        <li>As a Black Lives supporter, you are outraged that so many young black people are killed by police</li>
+        <li>A sensible person is horrified that for black men between 25 to 30 years old, <span class="hilite"> the #1
+            cause of death is MURDER.</span></li>
+        <li>A sensible person is horrified that the <span class="hilite">#1 cause of death for black children is
+            MURDER.</span></li>
+        <li>A sensible person is horrified that <span class="hilite">35% of the black children deaths are MURDER</span>
+        </li>
+        <li>A sensible person finds that <span class="hilite">unarmed black people killed by police" is not considered a
+            leading cause of death.</span>.</li>
+        <li>A sensible person is concerned you are only outraged by armed black deaths which is tragic but a lot more
+          understandable than unarmed black deaths.</li>
+        <li>How many 25 year old black men die from heart atack which is 4 times more likely than being killed by police
+        </li>
+      </ul>
+      <p>Additional source: <a target="news"
+          href="https://www.cdc.gov/healthequity/lcod/men/2017/nonhispanic-black/index.htm">CDC health equity</a>.</p>
+  
+    <h2>Black arrests are NOT based on race</h2>
+
+    <p>Violent crimes such as murder exclude the possibility of racism, black tax and white privilege. Since all other types of crime follow the same pattern for black and white people, the police are arresting black people based on crimes and NOT "systemic police racism". Decide for yourself by looking at all the <a target="news" href="blm_fbi_arrests.html">FBI arrests data and graphs</a>.
+ 
+    <p>This small quick look shows proof that hispanics and other races don't experience excessive discrimination claimed by black people.<p>
+
+    <img src="violent_crime_arrests.png" style="height: 50%;">
+
+    <p>Source: <a target="news" href="blm_fbi_arrests.html">FBI arrests data and graphs</a></p>
+
+  <h2>Conspiracy, ignorance, fact, fiction or opinion</h2>
+
+  <p style="text-align: center;"><span class="hilite" style="border: 2px solid black;">
+      &nbsp; If all you look for is racism, then racism is the only thing you will find &nbsp; </span></p>
+
+  <p>To this point, you've seen errors that could be claimed as mistakes or not relevant even though they clearly are relevant. There is so called evidence that has clearly been fabricated. Some of the authors could probably be sued for libel by the police since there is absolutely no evidence of systemic police racism. You can decide for yourself.</p>
+
+  <p>Obama, Universities, professors, the Washington Post and various governmental departments appear to have participated in denying Americancs of their liberties, destory democracy and causing riots. Most hid their contributions to create this situation.</p>
+  
+  <h2>Conspiracy or ignorance? Research paper 2019<br/><a target="news" href="https://www.ncbi.nlm.nih.gov/pmc/articles/PMC6708348/">"Risk of being killed by police use of force"</a></h2> 
+  
+      <p>Anyone claiming police racism from this research paper has committed libel. The word "Racism" has been intentionally omitted. The only conclusion claimed is "nontrivial lifetime risk of being killed by police". A single death is never considered trivial. It is the reader who interprets this as racism.  </p>
+      
+      There is little doubt that this paper is a conspiracy. The only conclusion drawn was specifically for black people.</p>
+      
+      <p>Curious that professors from 3 universities considered race and age are the only risk factors. Children could easily name more risk factors such as guns.<p>
+      
+      <p>Curious how they manipulate the numbers. For instance, life course means to divide by 70 years to get a yearly number. Confusing numbers are used heavily in this paper.</p>
+
+      <p>Curious this paper does not mention 80% had weapons.</p>
+
+      <p>Curious this paper talks about police violence but does not mention black violence. For instance, over the "life course" of a black boy, 1 in 37 will be murdered. Talk to 2 classroom's of black children about risk, and you must tell the boys one of them will be murdered.</p>
+
+      <p>Curious that the NIH sponsored this research paper.</p>
+      
+      <p>Curious this paper came out 2 years after Obama was president.</p>
+        
+      <p>Curious that the media's most used supporting documentation is this research paper which does not prove a single thing or come to a real conclusion about race or racism.</p>
+      
+      <p>Is this paper criminally responsibile for the riots and destruction that is occurring today? At the very least, it should be held criminally responsible for inciting civil disobedience, libel against every police officer who is not racist and endangering a democratically appointed police force.</p>
+
+      <h2>Conspiracy or ignorancce <br/> 1 in every 1,000 black boys can expect to be killed by police </h2>
+
+      <p>As Black Lives Matter puts it, "Over the life course, about 1 in every 1,000 black men can expect to be killed by
+        police". Clearly this must be black genocide by the police. You can hold your head high because you are fighting
+        the good fight. Black boys should run up and thank you for saving so many black lives.</p>
+  
+      <div class="graph">
+        <div id="title" class="update" style="text-align: center;">
+          Over the life course, you can expect to be killed
+          <br />Source: <a target="news"
+            href="https://www.cdc.gov/nchs/data/nvsr/nvsr68/nvsr68_09-508.pdf">
+            Source: CDC NVSR Deaths: Final Data</a>
+        </div>
+  
+        <br />
+  
+        <div id="graphBar">&nbsp;
+          <div id="blackBar" class="update" style="width: 8mm;">&nbsp;</div>
+          <div id="white" style="margin-left: 10mm;"> 1 in every 1,000 black boys can expect to be killed by police (As
+            stated by Black Lives Matter)</div>
+        </div>
+  
+        <div id="graphBar">&nbsp;
+          <div id="blackBar" class="update" style="width: 1mm;">&nbsp;</div>
+          <div id="white" style="margin-left: 10mm;">1 in every 12,000 average black boys can expect to be killed by police (never carried a gun during life time)
+          </div>
+        </div>
+  
+        <div id="graphBar">&nbsp;
+          <div id="blackBar" class="update" style="width: 200mm;">&nbsp;</div>
+          <div id="black" style="margin-left: 10mm;"> 1 in every 37 black boys can expect to be murdered</div>
+        </div>
+  
+        <div id="graphBar">&nbsp;
+          <div id="blackBar" class="update" style="width: 100mm;">&nbsp;</div>
+          <div id="black" style="margin-left: 10mm;"> 1 in every 74 black boys murder won't be solved</div>
+        </div>
+  
+        <div id="graphBar">&nbsp;
+          <div id="whiteBar" class="update" style="width: 8mm;">&nbsp;</div>
+          <div id="white" style="margin-left: 10mm;">1 in every 1,000 white boys can expect to be murdered</div>
+        </div>
+      </div>
+  
+      <p>Most people have tunnel vision and only see the obvious. Black Lives Matter tells the parts of the truth they
+        want you too see. Systemic police racism is proven by "Over the life course, about 1 in every 1,000 black men can
+        expect to be killed by police".</p>
+      <ul>
+        <li>They say "over the life course" instead of simply saying "over 70 years".</li>
+        <li>"black men" should have been "black boys" but that would raise questions.</li>
+        <li>They left out the word "average" black boy so they could say 1 in 1,000. 80% of these deaths were due to
+          attacking the officer. These are NOT the black men you can save. Disarming police will definitely reduce these
+          black deaths but it will increase police deaths.</li>
+        <li>The average black boy won't have a gun in his lifetime, so his risk is 1 in 12,000. These are the black boys /
+          men you are trying to save. </li>
+        <li>You ignored that 1 in 37 black boys will be murdered. That's 324 in 12,000. Be proud because you saved 1 black
+          man from the police and allowed 324 black men get murdered. You should be really proud you reduced the police
+          force which will result in more murder. Be proud the life you saved is now being murdered.</li>
+        <li>35% to 50% of the murders go unsolved. You should be really proud you reduced the police force and allowed
+          more murders to go unsolved.</li>
+        <li>1 in 1,000 white boys will be murdered. Who is the racist here because 27 black boys will be murdered for 1
+          murdered white.</li>
+      </ul>
+  
+      <p>Black Lives Matter usually tells the truth. You need to <span class="hilite"> decide if it's a complete truth you
+          can trust. Ask yourself if your blaming racism when the problem is violence.</span></p>
+  
+      <h2>Conspiracy or ignorance? Research paper 2020:<br/> <a target="news"
+          href="https://www.nature.com/articles/s41562-020-0858-1">racial disparities in police stops across the
+          United States</a></h2>
+
+      <p>Curious this research paper never mentions <a target="news" href="https://www.bjs.gov/content/pub/pdf/cpp15.pdf">US DOJ: contacts between public and police, 2015</a> which has actual conclusions about racial disparities.</p>  
+
+      <p>Anyone claiming police racism from this research paper has committed libel. Again, the word "Racism" has been intentionally omitted. The word "suggest" occurs 21 times which tells you they cannot draw any conclusion. The only conclusion claimed is "Creating a national database of traffic stops" but they never say anything about the database requirements or the information needed in the database. They say "‘veil of darkness’ masks one’s race" to insinuate police racism when it could just as easily be reduced fear, possibly police shift change or many other possible inferences.</p>
+
+      <p>Curious this paper was published 3 years after Obama was president.</p>
+
+      <p>Curious that multiple Obama advisers graduated from Stanford University.</p>
+
+      <p>Curious that these researchers are located at Standford University in Palo Alto but never compared policing between Palo Alto and East Palo Alto. East Palo Alto was the murder capital of the USA for a period of time. East Palo Alto currently has 4.3 times the violence of Palo Alto. Since black people have a lot of violence, these researchers could have easily gained first hand insight of the effect of violence on an officer's decisions and demeanor.<a target="news" href="https://www.neighborhoodscout.com/ca/palo-alto/crime">Palo alto violent crimes is 1 in 901</a> versus <a target="news" href="https://www.neighborhoodscout.com/ca/east-palo-alto/crime">East Palo Alto violent crimes is 1 in 209</a>. More than 4.3 times the violence per capita.</p>
+
+      <p>Curious that for a research paper to be published, it requires a conclusion which they had to fabricate. They couldn't bother describing what that database needed. Why did so many professors bother to publish this paper, especially now that Black Lives Matter has become front page news?</p>
+
+      <p>This paper was written specifically to falsely support Black Lives Matter. This paper is not about how police choose who to stop. It is specifically trying to imply police are stopping blacks more often than whites so you will conclude racism. The simple fact is the #1 cause of black men under 44 is MURDER. You will see black communities have pandemic violence which requires more police who will be stopping more people.</p>
+
+      <h2>Conspiracy or ignorance? research paper 2019: <br/> <a target="news" href="https://www.sciencedirect.com/science/article/abs/pii/S0027968419301300?via%3Dihub">"Racial Residential Segregation and Black-White Disparities in Fatal Police Shootings"</a></h2>
+
+      <p>Anyone claiming police racism from this research paper has committed libel. Again, the word "Racism" has been intentionally omitted.</p>
+
+      <p>The conclusion is flawed: "Efforts to ameliorate the problem of fatal police violence must move beyond the individual level and consider the interaction between law enforcement officers and the neighborhoods that they police".
+        
+      <p>First flaw "neighborhood violence" is ignored when talking about police violence. Black neighborhoods are inherently dangerous because of pandemic black violence. 1 in 37 black boys will be murdered in an average life time. For black males under 44, the #1 cause of death is murder. Arrests for black murderers is 4.5 the rate of white murderers.</p>
+
+      <p>The second flaw is "neighborhood interaction". The first priority is officer safety in gun obsessed neighborhoods. 80% of the black male murder victims were shot by gun. Black people are arrested for firearms 3 times the rate of white people. These are not white privilege, black tax or racist crimes.</p>
+      
+      <p>Curious this paper came out 2 years after Obama left office.</p>
+
+      <h2>Clearly consipiracy by president Obama <br/> <a target="news" href="https://www.usccr.gov/pubs/2018/11-15-Police-Force.pdf">United States Commission on Civil Rights <br/> 
+        briefing report requested by president Obama <br 
+        Police use of force: <br/> Examination of Modern Policing Practices</a></h2>
+
+      <p>This is clearly a political manuever from Obama while he was president! This is the smoking gun that shows Obama is responsible for the fabrication of false data proving Black Lives Matter. He's responsible for excessive severity and length of the riots and mayhem.</p>
+ 
+      <p><a target="news" href="https://www.usccr.gov/calendar/trnscrpt/Police-Practices-and-Use-of-Force_04-20-2015.pdf">The first transcript for this commission states that Obama formed a task force in December 2014 and 3 months later the US CCR formed this commission which retained some of the task force members.</a></p>
+
+      <p>Curious this briefing report came out 5 months after Obama left office so that Trumps name would be on the report. There is clearly intent from Obama.</p>
+
+      <p>Briefing reports are not evidence. Briefing reports contain conflicting information because there are so many participants in creating it. They are mostly opinion with some facts. They are intended for nonexpert's to gain an understanding of the subject. In this case, policing practices with over 200 pages. They are not obligated to ensure validity of any testimony nor will they ensure conflicting facts are resolved.</p>
+
+      <p style="text-align: center;"><span class="hilite">If all you ever look for is racism, then racisim is all you will ever find</span></p>
+      
+      <p>The statement "In 2009, prior to the <implementation of de-escalation training, <span class="hilite"> the Dallas Police Department received 147 excessive force complaints</span>. In 2014, there were only 53, and by 2016, the number of excessive force complaints had dropped to 21.". </p>
+
+      <p>The most egregious and shameful error is "excessive force complaints". The briefing says 69% of blacks say police aren't held accountable. They hide the number really well with statements like "In 2009, prior to the implementation of de-escalation training, the Dallas Police Department received 147 excessive force complaints. In 2014, there were only 53, and by 2016, the number of excessive force complaints had dropped to 21.". <span class="hilite">Dallas has 250,000 black people. We should expect 172,500 complaints filed (69%). Even 1% would be 2,500 complaints filed but Dallas actual had 147 complaints filed according to this briefing. Notice the sentence that states this fact is about "de-escalation training"!</span> Notice they lowered filed complaints by 126 out of 147. They don't want anyone thinking about the reporting system!</p>
+        
+        
+        
+        Curious is they specifically say 69% blacks say police are not held accountable but the briefing never talks specifically about how well or badly the complaint process works.  </p>
+
+ 
+      <p>Explain how Curious that this report never shows "excessive force complaints" forms. The report say's 70% of the blacks say officers aren't held accountable. use of force is a problema survey in the report says 70% of the blacks say officers are not held accountable but another section vaguely mentions "excessive force complaints" says  most blacks experience </p>
+        
+      <p>The commission found "shows consistent patterns of racial disparity" for 800,000 officers from 543 white deaths versus 305 black deaths in 2015. </p>
+
+      <p>Curious this briefing came out in 2018 after Obama left office.</p>
+
+      <p>This document cannot be used as evidence because it is based on hundreds of opinions without verifying the reliability of those opinions. Because this document is opinion based, many of the facts conflict. Statements are made without any supporting evidence There is a lot of conflicting points of view This document is referenced as evidence but a large portion is opinions from a wide range of people. Some facts are included but they are often conflicting with each other. This is a policy recommendation document so that politicians can see various points of view on this subject. It points to various supporting material but never states the reliability of the source of the information.</p>
+
+      <p>"Researchers have also found the lack of national data and lack of mandated police reporting to be
+        critical issues when trying to determine if there are systemic patterns of police using excessive
+        force against civilians."
+      
+        various sources show consistent patterns of racial disparities in police use of force. For instance,
+Guardian reporters found that although most police-involved killings in 2016 involved white
+people, death rates were much higher for black, Latino, and Native American people based on their
+percentage of the overall population
+      </p>
+
+      <p>4,000 whites arrested for murder versus 4,000 blacks. FBI reports show murders are usually same race crimes. Clearly the same number of arrests is correct since 7,768 whites and 7858 blacks were murdered for 2015.</p>
+
+      <p></p>
+
+      <h2>Conspiracy or coincidence?<br/> Ex-president Obama</h2>
+      
+      <p>I don't have any direct evidence linking Obama to a conspiracy but there are too many coincidenses to ignore the possibility. Research papers and the Washington Post are directly responsible for spreading so much misleading information that has resulted in dissolution of democratically appointed police, denying Americans of their liberties and freedom's, falsely accusing police of racism, intentionally inciting riots, inciting civil unrest and other criminal activities.</p>
+
+      <p>Curious that multiple research papers were published before George Floyds death but a couple years after Obama left office. Also realize that no research papers before Obama's presidency hinted specifically to systemic racism.</p>
+
+      <p>Notice that during the Obama administration, the Washington Post located in Washington DC became a very active supporter of Black Lives Matter.</p>
+
+      <p>Obama felt that Black lives Matter is more important than truth and liberties. <a target="news"
+          href="http://psychology.iresearchnet.com/social-psychology/attitudes/motivated-reasoning/#:~:text=Motivated%20reasoning%20is%20a%20form,or%20endorse%20a%20preferred%20conclusion.">
+          Motivated justification</a> and<a target="news"
+          href="https://www.psycholoytoday.com/us/blog/after-service/201705/the-science-behind-why-people-follow-the-crowd">
+          Crowd mentality</a> gave him the justification to knowingly plant fabricated evidence in support of Black
+        Lives Matter.</p>
+
+      <p><span class="hilite">If Obama feels justified to exagerate information to support Black Lives Matter, then you must seriously question the morality of people who feel equally justified. The end result has been the destruction of democracy, Riots and protesting are lasting weeks longer than Ferguson. It has destroyed "innocent until proven guilty".</p>
+
+      <h2>Conspiracy or ignorance? Washington Post article:<br><a target="news" href="https://www.washingtonpost.com/opinions/if-you-dont-believe-systemic-racism-is-real-explain-these-statistics/2020/06/12/ce0dff6e-acc7-11ea-94d2-d7bc43b26bf9_story.html">"If you don’t believe systemic racism is real, explain these statistics"</a>. </h2>
+          
+      <p>It's appalling that the Washington Post was once a prestigious paper but can't do balanced reporting. They fully support Black Lives Matter but never mention the cost it has taken on democracy. Below, I discuss losing the freedom of speech, the demise of democracy and the loss of liberties we hold so dear. They are not capable understanding the research papers they claim as overwhelming evidence. Their fact checkers can't even check facts or maybe they can but they needed to prove a point.</p>
+
+      <h2>Conspiracy or ignorance?<br>racial inequality by failing to hire Black people</h2>
+
+      <p>Apple's black employee <a target="news" href="https://www.usatoday.com/story/money/2020/06/17/george-floyd-protests-black-lives-matter-employees-corporate-america-racism/3195685001/">Tanya Faison says Apple is "failing to hire, promote or fairly pay Black people and people of color"</a>. This is a sentiment of many black people.</p>
+
+      <p>Most black people <a target="news" href="https://www.psychologytoday.com/us/blog/between-the-lines/201801/what-we-mean-when-we-talk-about-entitlement">feel entitlement</a>. In Tanya's case, she feels Apple's CEO Tim Cook must be part of the Black Lives Matter solution which has nothing to do with Apple. If she bothered to ask HR about diversity and discrimination policies, she would have found they are religously enforced.</p>
+
+      <p>Similarly at Facebook, management decided that freedom of speech outweighed the deletion of Trumps posts. Facebook employee's who support Black Lives Matter are using their entitlement to <a target="news" href="https://www.nytimes.com/2020/06/01/technology/facebook-employee-protest-trump.html">stage a virtual walkout</a>.</p>
+
+      <p>Companies don't want employee's who feel entitlement. Look at mega-corporations in silicon valley (e.g. Apple, Google, Facebook, Twitter, Oracle, Intel and ...). They hire asians using H1B visas to avoid hiring black people because of their entitlement. They are not being racist. Employee's are hired to do a job, not dictate corporate policy.</p>
+
+      <p>By law, companies must have a diverse staff. Since entitlement does not work well in company culture, black people are often excluded because they are a bad fit. H1B visas are a hassle but mega-corporations get employee's who fit into their culture. Black people need to lose their entitlement to become more employable.</p>
+  
+      <div class="graph">
+        <div id="title" class="update" style="text-align: center;">
+          Silicon valley black population versus USA black population
+          <br />Source: <a target="news"
+            href="https://en.wikipedia.org/wiki/Santa_Clara_County,_California">
+            Source: Wikipedia Santa Clara county</a>
+          and <a target="news" href="https://www.census.gov/quickfacts/fact/table/US/PST045219">USA census</a>
+        </div>
+  
+        <br />
+  
+        <div id="graphBar">&nbsp;
+          <div id="blackBar" class="update" style="width: 85mm;">&nbsp;</div>
+          <div id="black">USA blacks 13.4% = 43,984,096</div>
+        </div>
+  
+        <div id="graphBar">&nbsp;
+          <div id="otherBar" class="update" style="width: 37mm;">&nbsp;</div>
+          <div id="other">USA asians 5.9% = 19,366,132</div>
+        </div>
+  
+        <br/>
+  
+        <div id="graphBar">&nbsp;
+          <div id="blackBar" class="update" style="width: 15mm;">&nbsp;</div>
+          <div id="white" style="margin-left: 15mm;">Santa Clara County blacks 2.4% = 42,331</div>
+        </div>
+  
+        <div id="graphBar">&nbsp;
+          <div id="otherBar" class="update" style="width: 200mm;">&nbsp;</div>
+          <div id="other">Santa Clara county asians 31.7% = 565,466</div>
+        </div>
+      </div>
+ 
+
+      <h2>Conspiracy or ignorance?<br>racial inequality by failing to hire, promote or fairly pay Black people</h2>
+
+      <p>Most <span class="hilite">company HR departments are trained and prepared to deal immediately with any type of discrimination</span>. They are required by law to discourage all discrimination and they take it very seriously. In addition, employee's can file a discrimination complaint with the <a target="news" href="www.eeoc.gov">EEOC</a>. It will be investigated and corrective action will be taken where necessary. To avoid dealing with the EEOC, most companies go to great lengths to discourage all discrimination. Anyone filing a discrimination complaint is protected from retaliation. </p>
+
+      <p>As for <span class="hilite"> governmental agencies, they have similar similar protections for discrimination</span>. For example, the VA has the <a target="news" href="https://www.va.gov/ORM/HPP.asp">"Office of Resolution Management, Diversity & Inclusion"</a> which will
+      seriously and vigorously handle that claim. Their only job is to deal with discrimination claims. Anyone filing a claim is protected from retaliation by the "NO FEAR ACT".</p>
+
+      <h2>Conspiracy or ignorance: <br/> Black privilege and white guilt</h2>
+      
+      <p>White privilege and the black tax has not existed for years. Instead, look at Apple and you easily <a target="news" href="https://www.usatoday.com/story/money/2020/06/17/george-floyd-protests-black-lives-matter-employees-corporate-america-racism/3195685001/"> see black privilege and white guilt</a>. Apple's black employee Tanya faison is addament that Apple must play a role in Black Lives Matter and she certainly has not looked into a single corporate policy with regards to discrimination and diversity. CEO Tim Cook is yielding to black pressure to take action when his company already has policies in place to handle diversity and discrimination. </p>
+
+
+      <h2>Conspiracy or ignorance? <br/> Americans denied their constitutional rights</h2>
+
+      <p>The fifth amendment to the American constitution is "due process of law". Americans can't hold Black Lives Matter accountable in
+        court. There is no organization or person to be held culpable for crimes of this organization. <span class="hilite"> There are thousands
+        of criminal acts that will never be prosecuted.</span></p>
+  
+      <p>Police officers are being fired without any due process. Obviously, the lead officer was in the wrong in
+        killing George Floyd. The other officers were there but the extent of their participation is in question. They
+        were in the impossible situation of not having any control but being held resposible. Any choice they made was
+        going to be wrong. They were fired without any due process of the law.</p>
+
+      <p>Democracy is being ignored. The destruction and removal anything Black Lives Matter deems unacceptable. E.g. statues being removed without public approval.  </p>
+        
+
+      <p>At the demand of Black Lives Matter, governmental agencies ignore due process and innocent until proven guilty.</p>
+  
+      <h2>Conspiracy or ignorance? <br/> overthrow of democratically appointed police force</h2>
+  
+      <p>Black Lives Matter is making false accusations against the police. They claim "systemic police racism" and black genocide by the police. <span class="hilite"> Black Lives Matter can't be prosecuted for slander, libel, and defamation of character</span>. I'm not a
+        lawyer but I suspect there are many other laws being broken.</p>
+        
+      <h2>Stop being white guilted into believing bad information</h2>
+      <p><a target="news"
+          href="https://www.usatoday.com/story/money/2020/06/17/george-floyd-protests-black-lives-matter-employees-corporate-america-racism/3195685001/">
+          Companies are declaring again they will fight systemic racism in their work place and around the world.</a>
+        These CEO's and presidents can't be bothered to ask about their company policies. Instead, they take responsibility which re-enforces black entitlement. These CEO's and presidents are not helping to make black people more employable. Instead, they are making the problem worse.</p>
+
+        <h2>Passionate people are dangerous</h2>
+
+  <p>Black Lies Matter is resulting in useless bureaucracy on top of existing bureaucracy that will only be more
+    confusing. This will never help black people who can't use the existing bureaucracy.</p>
+
+  <p>You must be leary of people who are too passionate. Passion allows a normally trustworthy person to be
+    untrustworthy (knowingly or unknowingly). "Black Lives Matter" enflames such great passion that you must view everything with extreme suspicion and choose with great care what you trust. I ask you to scrutinize everything about "Black Lives Matter". Sources are given as much as possible so you can decide for yourself. Typically, you must take a
+    person at their word because they don't include sources.</p>
+
+    <h2 style="text-align: center;">Most powerful political party is now "Black Lives Matter"</h2>
+
+    <p style="text-align: center;">
+      <video autoplay loop muted height="200mm">
+        <source src="pelosi_taking_knee.mp4" type="video/mp4">
+        Your browser does not support the video tag
+      </video>
+    </p>
+
+    <p>6 California police officers shot in 2019 without a word from Nancy Pelosi. "Black Lives Matter" easily forces
+      her to show them respect.</p>
+
+    <p style="text-align: center;">
+      <span class="hilite" style="text-align: center; border: 2px solid black;">
+        &nbsp; If racism is all you ever look for, then racism is all you will ever find &nbsp;</span>
+    </p>
+
+    <p>Standing against racism is a noble cause but noble causes can go horribly wrong. The world must never forget the
+      noble cause "common good" known as the <span class="hilite">NAZI political party</span>.</p>
+
+    <p><a target="news" href="https://youtu.be/l7aQ02YX7qo">Fox news: Carlson Tucker</a> talks about the transition to a
+      political party. This political party has great virtues but it also has great flaws.
+      It is unorganized without any real leadership. It's a mob that is changing American politics. There is great risk
+      for misuse and abuse.
+    </p>
+
+    <h2>Police aren't committing black genocide<br/>
+      This is pandemic violence within the black community</h2>
+
+    <p>As you've seen, police are not killing black people because of their race. Sadly, the black
+      community has been dealing with pandemic violence for years. The exhaustion of dealing with this violence has them
+      lashing out at anyone they can blame. The police were intentionally given as the lamb to this slaughter.</p>
+
+  <h2><a target="news"
+      href="https://www.nbcnews.com/news/us-news/4-police-officers-san-jose-put-leave-over-racist-anti-n1232344">San
+      Jose Policemen fired for exercising their freedom of speech</a></h2>
+
+  <p>Where is the ACLU for this agregious denial of their freedom of speech. They lost their jobs for speaking their
+    mind. Many may not like what these police officer said but are we saying there is absolutely no merrit? Look at some of
+    their their remarks which may be offensive but actually have value. Worse yet, these were private posts and
+    someone did a screen copy to post these on the internet.</p>
+
+  <p><span class="hilite" style="border: 2px solid black;"> &nbsp; Black Lives Matter protestors are the "enemy"
+      &nbsp; </span></p>
+
+  <p>For police officers, protestors are the enemy. Police are losing their rights, asked to take
+    more risk and risk jail for making the wrong decision in very difficult circumstances. How are they not the enemy?</p>
+
+  <p><span class="hilite" style="border: 2px solid black;"> &nbsp; Black Lives Matter protestors are "un-american"
+      &nbsp; </span></p>
+
+  <p>Look at the ACLU section above. People in this movement specifically abuse our rights to achieve their goals.
+    Additionally, these policemen lost their jobs because they exercised their freedom of speech by government
+    officials who don't want to anger these protestors. Denying people their civil liberties is un-american.</p>
+
+  <p><span class="hilite" style="border: 2px solid black;"> &nbsp; Black Lives Matter protestors are "racist idiots"
+      &nbsp; </span></p>
+
+  <p>Protestors are certainly racist against all police. They want to put the police into more danger. Every
+    questionable decision now results in immediate criminal charges without looking at the evidence. Many are willing
+    to abuse policemen without cause.</p>
+
+  <p>The real question is whether protestors are idiots. They ignore that 1 in every 37 black boys will be murdered.
+    They ignore that police die 30 times the rate of black men. They ignore violence in the black community (e.g.
+    9,000 murders per year). They ignore they could save 7,000 black people murdered by gun each year by supporting
+    gun control. They ignore that there are existing solutions against racism. Protestors ignore there is always 2
+    sides to any conflict and they are guilty of ignoring the other side. Protestors are certainly ignorant. As for
+    being idiots, the jury is still out. Source: these items are discussed below in detail.</p>
+
+  <p><span class="hilite" style="border: 2px solid black;"> &nbsp; “Black lives don’t really matter.” and “I say
+      re-purpose the hijabs into nooses.” &nbsp; </span></p>
+
+  <p>These are very racist and derogotory but remember that "Black Lives Matter" is equally racist and derogotory.
+    This phrase now evokes white lives don't matter and white people will need to die for their cause. It's very close
+    to being libel because it identifies all police as being un-american. Clearly black people feel there is meaning
+    associated to the confederate flag so they must agree that Black Lives Matter has meaning to white people.
+    Legally, all postings regarding "Black Lives matter" must be censored if they censor opposing points of view.</p>
+
+    <h2>We've established that Protestors are ignorant<br />
+      They should be part of the solution instead of complainers</h2>
+
+    <p>Protestors need to be the solution instead of demanding others be the solution. Make a meaningful contribution!
+      Look at some examples how protesting is often meaningless.</p>
+
+    <p>If you are protesting for the <a target="news"
+        href="https://fox4kc.com/news/protest-expands-over-discrimination-claims-at-kansas-citys-va-medical-center/?fbclid=IwAR00-tKUHQVpwcb3sS7iUhDFNEFp9I6B0xuQn0osi27HtE_LuR8Y9W3ZvGA">100
+        black people who claim discrimination at Kansas city VA medical center</a> then <span class="hilite">help these
+        black people report this discrimination</span> to the <a target="news"
+        href="https://www.va.gov/ORM/HPP.asp">"Office of Resolution Management, Diversity & Inclusion"</a> which will
+      seriously and vigorously handle that claim. Their only job is to deal with discrimination claims. If the black
+      person is afraid of retaliation, then teach them about how the <span class="hilite">"NO FEAR ACT"</span> protects
+      them.</p>
+
+    <p>If discrimination within any federal agency is not being handled correctly, then <span class="hilite">demand the
+        office of diversity and inclusion do their job correctly</span>. This is their one and only job. Stop demanding
+      a complete change in management when the office of diversity and inclusion can't do their job correctly. You are
+      being the racist that you are fighting.</p>
+
+    <p>If you are protesting the police, then <span class="hilite">reduce the need for police to confront black
+        people</span>. You could demand gun control because 7,000 black people are killed by guns each year. You could
+      support gun control because 56,000 black people are arrested for weapons each year. You could save black children
+      from being murdered (#1 cause of death at 35% of the black child deaths). You could save thousands of black people
+      under 45 years old by finding a solution to MURDER (#1 cause of death for black people under 45 years old).</p>
+
+    <p>If you are protesting racism within white people, then teach black people <span class="hilite">how to ask instead
+        of demand</span> change. Below, I mention the black teaching assistant who doesn't realize "Some white people
+      may have to die" is a very bad thing.</p>
+
+    <p>If you are protesting companies , then help black people understand how to <span class="hilite">deal with racism
+        in their company</span>. Rarely will companies tolerate racism in their workplace. Black employee's like Apple's
+      Tanya Faison says <a target="news"
+        href="https://www.usatoday.com/story/money/2020/06/17/george-floyd-protests-black-lives-matter-employees-corporate-america-racism/3195685001/">"she’s
+        skeptical of these expressions of solidarity from corporations that for years stayed silent on systemic racism
+        while perpetuating racial inequality by failing to hire, promote or fairly pay Black people and people of
+        color"</a>. Most companies have procedures for discouraging racism. Clearly someone needs to talk to her about
+      <a target="news"
+        href="https://www.%41pple.com/diversity/#:~:text=Apple%20is%20a%20multigenerational%20company%20with%20employees%20from%2018%20to%2087.&text=Employees%20under%2030%20represent%20a,17%20percent%20are%20underrepresented%20minorities.">diversity
+        at Apple</a>. These companies have worked hard for years but black people see this as "years of silence" and
+      "systemic racism".</p>
+
+    <p>You could teach black people the <span class="hilite">difference between real and perceived racism</span>. Tanya
+      did not state a single act of racism against her at Apple. She does not say how often or how Apple did not take
+      any steps to correct the situation. She just says there is "system racism" at Apple and that we must take here
+      word for it. The psychology terms
+      <a target="news"
+        href="http://psychology.iresearchnet.com/social-psychology/attitudes/motivated-reasoning/#:~:text=Motivated%20reasoning%20is%20a%20form,or%20endorse%20a%20preferred%20conclusion.">Motivated
+        justification</a>
+      and
+      <a target="news"
+        href="https://www.psycholoytoday.com/us/blog/after-service/201705/the-science-behind-why-people-follow-the-crowd">Crowd
+        mentality</a> explains how our perception is different from reality.</p>
+
+    <h2>Black people protest but never take real action</h2>
+
+    <p>Real american's use the court to protect their rights. If you are experiencing discrimination that is not being resolved, then be a real american and protect your rights against discrimination. While you have the right to protest, it is nothing more than blaming others and telling them to fix the problem. Racism will only end when black people empower themselves instead of entitling themselves. Use the courts to protect everyone from discrimination.</p>
+
+    <p>Most blacks believe <a target="news" href="https://www.usatoday.com/story/money/2020/06/17/george-floyd-protests-black-lives-matter-employees-corporate-america-racism/3195685001/">"for years stayed silent on systemic racism while perpetuating racial inequality"</a>. This is ignorance and black entitlement.</p>
+    
+    <p><span class="hilite">Black people are in complete denial about the monumental achievements against discrimination.</span> They think america has stayed silent for years. They can't admit any progress otherwise they would not have anyone to blame for their problems within the black community such as pandemic Violence. Violence so pandemic that blacks are murdered about 5 times the white murder rate.</p> 
+      
+    <p>Most company HR departments have been trained to deal with discrimination. They have company policies to quickly and effectively deal with all discrimination. There are laws to ensure companies eradicate all discrimination and ensure they have a diverse workforce. If companies fail to comply, then anyone who experiences discrimination needs to file a complaint with the <a target="news" href="www.eeoc.gov">EEOC.GOV</a>. This government agency's only job is to eradicate discrimination and they will take the appropriate action for all claims of discrimination. In fact, there is a law that protects anyone who files a complaint from retaliation.</p>
+
+    <p>All government agencies are required by law to resolve all issues involving discrimination. Each has a department to correct all discrimination.  For instance, the VA has <a target="news"
+      href="https://www.va.gov/ORM/HPP.asp">"Office of Resolution Management, Diversity & Inclusion"</a> Anyone who files a complaint is protected by the "NO FEAR ACT".  </p>
+
+    <h2>Today's meaning of "racism" and "Black Lives Matter"</h2>
+
+    <p>Today, "racism" or "Black Lives Matter" evokes black genocide by police and police brutality. Are we blaming a
+      group of people for the sins of a few? Are we denying democratic rights? Are we supressing freedom of speech? Are
+      we supporting brutality and terrorism? Have we forgotten why "innocent until proven guilty" exists?</p>
+
+    <p style="text-align: center;"><span class="hilite" style="border: 2px solid black;">
+        &nbsp; We have become the racist we fight. &nbsp;
+      </span></p>
+
+    <p>I ask you to consider what you are saying by using the words "racism" and "Black Lives Matter" in todays world.
+      Below is a quick list of facts and effects. Americans support your freedom to embrace "Black Lives Matter" but
+      <span class="hilite">we hold you responsible for immorality caused by your choice</span>. Ignorance is not an
+      excuse.</p>
+
+      <h2>Social media makes You, a leader of the <br/> "Black Lives Matter" political party</h2>
+
+      <p>Social media and the internet has given you a powerful voice. Every share you make has your powerful of approval.
+        Look at the facts below and ask yourself if you share any guilt.</p>
+  
+      <h2>If and when you realize "Black Lives Matter" has
+        <br />crossed the line that must never be crossed
+      </h2>
+  
+      <p>Be vigilant as a supporter of "Black Lives Matter" because you've accepted that responsibility. Always ask if
+        lines have been crossed that should never be crossed. Ask yourself if you are guilty of not speaking against
+        something that has become far worse than racism.
+      </p>
+
+    <h2>Should ACLU be renamed BACLU?</h2>
+
+    <p>ACLU.org states they are the nation’s premier defender of the rights enshrined in the U.S. Constitution.
+      The ACLU has protected American liberties for 100 years and in last 3 months, the ACLU has ignored the loss of
+      liberties they fought to ensure and we hold dear.</p>
+
+    <p>Where is the ACLU when in the name of "Black Lives Matter", millions could have their Freedom of speech denied,
+      be censored, denied the opportunity for a fair trial and probably denied other freedoms and rights.</p>
+
+    <p>An avid believer in Freedom of speech, <a target="news"
+        href="https://www.adweek.com/digital/here-are-all-the-brands-not-advertising-on-facebook/">Facebook management
+        is being extorted by several companies to suppress controversial posts!</a> Even some facebook employee's have
+      stated "There isn't a neutral position on racism". Facebook management is correct that employee's can't be trusted
+      with such decisions. The ACLU must speak out in support of Facebook Management otherwise it will be like twitter
+      and others that suppress whatever they deem inappropriate.</p>
+
+    <p>The opposite is Twitter which ignores freedom of speech.</p>
+
+    <p>Google is extorting companies to remove disparaging "Black Lives Matter" content but they must leave Black Lives
+      Matter content.</p>
+    <iframe width="531" height="299" src="https://www.youtube.com/embed/mxSZwDhIHDw" frameborder="0"
+      allow="accelerometer; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+
+    <p>The ACLU is a racist organization. Don't they realize that the research papers only state "more blacks than white
+      per capita"! By saying black people, they are ignoring "WHITE people are also being murdered and brutalized by
+      police with near impunity". There is no evidence that demonstrates only black people are mistreated. For that
+      matter, there is no evidence supporting "impunity". 1 in 1,000 is not impunity. 1 in 38 is impunity. They never
+      mention that police are murdered and brutalize. As lawyers, don't they realize they shouldn't make unsubstantiated
+      claims?</p>
+
+    <p>Obama, universities, professors and the government have fabricated research papers to deny the police of their
+      liberties and freedom's. They are responsible for accusing all police of racism without a single fact. They are
+      responsible for the spread of misleading information and drawing conclusions they know are not true.</p>
+
+    <p>For me personally, I lost my local farmers market because of coercion. They had a strict policy of "no politics"
+      and yet were forced out of business when they would not make an exception for racism.</p>
+
+    <p>There are thousands of examples of "Black Lives Matter" being a non-democratic movement. Taco Bell being coerced
+      into allowing "Black Lives Matter" attire. Closing down public streets illegally. Closing down freeways.</p>
+
+    <h2>Quiz to find out if you are guilty of racism and support genocide</h2>
+
+    <p> Is it fair to ask police to face more risk and not listen to what they say? <a target="news"
+        href="https://en.wikipedia.org/wiki/List_of_countries_by_intentional_homicide_rate#:~:text=UNODC%20(United%20Nations%20Office%20on,rate%20of%206.9%20in%202010.">UNO
+        international murder rate table</a> is a good indication of danger in the world. Rate the following from lowest
+      to highest murder rate to find the black american community's ranking in the world. In this list, Japan has the
+      lowest murder rate and Jamaica is the highest. At most, you will use 38 clicks. Start by clicking on the safest
+      which is Japan. Remember, Jamaica is the worst.</p>
+
+    <div id="answers">
+      <button onclick="quizButton(this,7)" murders="30.90">Bahamas</button>
+      <button onclick="quizButton(this,3)" murders="1.17">Bosnia</button>
+      <button onclick="quizButton(this,2)" murders="0.95">Germany</button>
+      <button onclick="quizButton(this,5)" murders="10.08">Iraq</button>
+      <button onclick="quizButton(this,9)" murders="43.85">Jamaica</button>
+      <button onclick="quizButton(this,0)" murders="0.26">Japan</button>
+      <button onclick="quizButton(this,1)" murders="0.88">Syria</button>
+      <button onclick="quizButton(this,4)" murders="4.96">United States</button>
+      <button onclick="quizButton(this,6)" murders="22.69">United States <br />all black people</button>
+      <button onclick="quizButton(this,8)" murders="39.59">United States <br />black men</button>
+    </div>
+    You selected: <span id="status"><span style="background-color: lightgreen;">---- Click on Japan to start
+        ----</span></span>
+
+    <br />
+    <div id="correct"></div>
+
+    <p>The black murder rates were calculated from <a target="news"
+        href="https://www.cdc.gov/nchs/data/nvsr/nvsr68/nvsr68_09-508.pdf">CDC NSVR deaths: final data 2017</a> because
+      2018 and 2019 are not yet available.</p>
+
+    <p>There are 230 countries but <span class="hilite">only 4 countries have a higher murder rate than black men in
+        America</span>. This will only go up with defunding the police and removing vital tools against extreme violence
+      (e.g. guns). "Black LIves matter" says you must consider the police as the enemy. "Black Lives Matter" says you
+      want unarmed police.
+    </p>
+
+    <h2>Missing freedom of speech in universities and colleges</h2>
+
+    <p>Obama has said that universities and colleges are now about political correctness instead of free and open speech
+      about controversial topics. School staff must be seen as BLM supporters. For years, every meeting my wife attended
+      as staff must include a discussion on cultural inclussion and diversity. <a target="news"
+        href="https://video.foxnews.com/v/6166221789001?fbclid=IwAR15fZ9WFnxv2y9lSyUzk-0f8XEhRRTt-iVovWt_tnChRlVmuOhzlXjGWbI#sp=show-clips">
+        Professor John Ellis discusses how American universities are now a "one party campus".</a>
+
+    <h2>Many black people believe "some white people must die"</h2>
+    <p>Many black people have a good heart but they deal with pandemic violence. When dealing with pandemic violence all
+      the time, violence will be the only solution they will see.</p>
+
+    <iframe width="540" height="302" src="https://www.youtube.com/embed/JsQ30KKLMxw" frameborder="0"
+      allow="accelerometer; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+
+    <p>Most black people are good people but many feel spilling white blood will be necessary to achieve black equity as
+      opposed to equality.</p>
+
+    <h2>There's a big difference between pandemic violence and racism</h2>
+
+    <p>To call this problem racism shows that we are ignoring the morality within the black community.</p>
+
+    <p>Over the years, we've become numb to the pandemic black violence and we no longer discuss this violence. <span
+        class="hilite">The only thing that hasn't changed over the years is black violence.</span> The graph showed the
+      black community in trouble with it's morals. The numbers below continue to tell this story of extreme and
+      excessive violence. For years, all attempts in lowering the violence have failed.</p>
+
+    <h2>Black perception of racism is not the reality</h2>
+
+    <p>The VA can't have a black racism problem and those protesting the VA clearly don't understand the safeguards in
+      place for black employees. the "NO FEAR ACT" and the <a target="news"
+        href="https://www.va.gov/ORM/HPP.asp">"Office of Resolution Management, Diversity & Inclusion"</a> to vigorously
+      deal with black minority issues.</p>
+
+    Black people won't face reality. Racism is nothing like black people want you to believe. For example They will
+    vigorously investigate any claim. Protesting at the VA <a target="news"
+      href="https://fox4kc.com/news/protest-expands-over-discrimination-claims-at-kansas-citys-va-medical-center/?fbclid=IwAR00-tKUHQVpwcb3sS7iUhDFNEFp9I6B0xuQn0osi27HtE_LuR8Y9W3ZvGA">discrimination
+      claims at Kansas city VA medical center</a>.
+
+    <p>Black people are a vigorously protected group by the government, companies, educational institutions and more.
+      They've been protected for years.</p>
+
+    The truth about
+
+    <p>Black people have been a protected group for many years. Rarely will companies, </p>
+    <p>This sounds unbelievable but there are many examples that you shouldn't ignore. BLM considers all democratically
+      created solutions to be "white man" solutions. Only solutions coming from BLM are acceptable</p>
+
+    <p>Consider the
+      <a target="news"
+        href="https://fox4kc.com/news/protest-expands-over-discrimination-claims-at-kansas-citys-va-medical-center/?fbclid=IwAR00-tKUHQVpwcb3sS7iUhDFNEFp9I6B0xuQn0osi27HtE_LuR8Y9W3ZvGA">discrimination
+        claims at Kansas city VA medical center</a>. Hundreds of BLM supporters are calling for the complete replacement
+      of VA management and an investigation into claims of racism for the last 10 years. Black people claim to be afraid
+      to speak out for fear of being disciplined.
+    </p>
+
+    <p>Black employees at the VA are protected by the "NO FEAR ACT". Black employees at the VA have the <a target="news"
+        href="https://www.va.gov/ORM/HPP.asp">Office of Resolution Management, Diversity & Inclusion</a>. Their only job
+      is to deal vigorously and seriously with discrimination issues
+
+      was created for black people to handle issues of discrimination.Any report of discrimination against black people
+      are taken very serioussly and vigorously researched by . The form is very short. There is no excuse for 100 black
+      people so far to claim discrimination now. This protest is complete nonsense and demonstrates black privilege.</p>
+
+    <p>The simple fact is that black people are so racist against white people, they will never accept any solution
+      except complete replacement of management with BLM approved managers.</p>
+
+    <p></p>
+    <p><span class="hilite">Black people are not looking for a democratic or fair solution.
+        </br>Actions speak louder than words. Black people must take appropriate actions instead of complaining.</span>
+    </p>
+
+    <h2>Black privilege</h2>
+    <p>Black people claim "white privilege" but there is very little or no proof that it exists.</p>
+
+    <p>What can be easily proven is "Black privilege":</p>
+
+    <ul>
+      <li>Meer mention of black, demands immediate attention within government institutions, educational institutions,
+        businesses and by all Americans. In fact, mentioning other protected groups such as women, lgbtq and others. The
+        only unprotected group is white.</li>
+      <li>A few years ago, a colleague kicked in a door with a minor reprimand. A white man would have been fired
+        immediately.</li>
+      <li>Billions $ (if not trillions) spent to address black (and other) equity issues over the years.</li>
+      <li>Flagrant breaking of the law without prosecution:</li>
+      <ul>
+        <li>OJ Simpson</li>
+        <li>Extortion: There are thousands of cases such as taco bell face mask incident. I have personal knowledge such
+          as my local farmers market being closed because they would not allow any type of political statement. The city
+          revoked their permit because they would not support BLM.</li>
+        <li>Attempted murder: There are thousands of cases. For instance, the poisoning of 3 police officers by shake
+          shack employees with bleach. The officers were force to accept this as accidental improper cleaning of the
+          machine that holds 100 servings but no one else got sick.</li>
+        <li>Denying Americans access to public property: protest zones, taking over police precints, Protesting on
+          freeways, protesting without permits, ...</li>
+        <li>Destroying and defacing property.</li>
+        <li>Various acts of violence such as setting fire, throwing rocks, ...</li>
+      </ul>
+      <li>Immediate firing of police.</li>
+      <li>Local and state government immediate capitulation to black demands.</li>
+      <li>Rewrite history that black people deem disparaging.</li>
+      <li>Book burning is next. Currently removing statues, memorials and symbols that black deem is disparaging without
+        consideration for anyone else. </li>
+      <li>Speaking against BLM is met with immediate retaliation. </li>
+      <li>A web search would easily return results in the thousands.</li>
+    </ul>
+
+      <h2>Black people experience pandemic violence</h2>
+
+      <table style="background-color: lightskyblue;">
+        <tbody><tr><td> Black men experience more violence than white men <br> 
+            Source: <a target="news" href="https://www.cdc.gov/healthequity/lcod/men/2017/nonhispanic-black/index.htm">
+                  CDC health equity - leading causes of death for men</a></td></tr>
+        <tr><td> Homicide (murder) #1 (27.6%) black men age 20-44 </td></tr>
+        <tr><td> Homicide (murder) #5 ( 2.8%) white men age 20-44 </td></tr>
+        <tr><td> Homicide (murder) #1 (35.3%) black men age 1-19 </td></tr>
+        <tr><td> Homicide (murder) #4 ( 5.2%) white men age 1-19</td></tr>
+      </tbody></table>
+
+    <h2>Doing your own research</h2>
+
+    <a target="news" href="https://youtu.be/l7aQ02YX7qo">
+      Carlson Tucker on "Black Lives Matter" is the larget most powerful political party</a><br />
+    <a target="news" href="https://youtu.be/fv6Y3a4BV6E">
+      Carlson Tucker reporting on "Black Lives Matter" eliminating freedom of speech</a><br />
+    <a target="news" href="https://www.ncbi.nlm.nih.gov/pmc/articles/PMC6708348/">
+      2019 NIH paper: Risk of being killed by police use of force - basis for news articles</a><br />
+    <a target="news" href="https://www.nimh.nih.gov/news/science-news/2020/nimh-directors-statement-on-racism.shtml">
+      NIMH Director’s Statement on Racism at the NIH</a><br />
+    <a target="news"
+      href="https://www.latimes.com/science/story/2019-08-15/police-shootings-are-a-leading-cause-of-death-for-black-men">
+      LA times 2019: Getting killed by police is a leading cause of death for young black men in America</a><br />
+    <a target="news"
+      href="https://www.usnews.com/news/articles/2020-06-03/data-show-deaths-from-police-violence-disproportionately-affect-people-of-color">
+      US News 2019: Deaths From Police Harm Disproportionately Affect People of Color</a><br />
+    <a target="news"
+      href="https://www.washingtonpost.com/nation/2019/08/09/what-weve-learned-about-police-shootings-years-after-ferguson/">
+      Washington Post 2019: What we’ve learned about police shootings 5 years after Ferguson</a><br />
+    <a target="news" href="https://abc7.com/black-arrests-southern-california-racial-disparity-population/6243356/">
+      Analysis of police arrest data in Southern California reveals dramatic racial disparity</a>
+    <a target="news"
+      href="https://www.cnn.com/2020/06/01/politics/george-floyd-police-doj-investigations-invs/index.html">
+      CNN 2020: DOJ has all but abandoned broad police investigations</a><br />
+    <a target="news"
+      href="https://www.theguardian.com/us-news/2015/dec/31/the-counted-police-killings-2015-young-black-men">
+      The Guardian 2015: Young black men killed by US police at highest rate in year of 1,134 deaths</a><br />
+    <a target="news"
+      href="https://www.cbssports.com/college-basketball/news/tragedy-of-george-floyds-murder-hits-too-close-to-home-for-some-black-college-basketball-coaches/">
+      CBS Sports 2020: Tragedy of George Floyd's murder hits too close to home for some black college basketball
+      coaches</a><br />
+    <a target="news" href="https://vpc.org/studies/blackhomicide19.pdf">
+      Black homicide victimization</a><br />
+    <a target="news"
+      href="https://www.law.com/ctlawtribune/2020/01/03/on-covering-murder-and-race-the-media-must-do-better/?slreturn=20200508152959">
+      On Covering Murder and Race, the Media Must Do Better</a><br />
+    <a target="news" href="https://mappingpoliceviolence.org/">
+      mappingpoliceviolence.org database (considered reliable)</a><br />
+    <a target="news" href="https://mappingpoliceviolence.org/unarmed">
+      mappingpoliceviolence.org unarmed deaths</a><br />
+    <a target="news" href="https://en.wikipedia.org/wiki/Police_use_of_deadly_force_in_the_United_States">
+      Wiki about police use of deadly force</a><br />
+    <a target="news" href="https://en.wikipedia.org/wiki/Black_Lives_Matter">
+      Wiki about Black Lives Matter</a><br />
+
+    <h1 style="text-align: center;">My conclusions from my research</h1>
+    <ul>
+      <li>Like many others in the world, I am truly outraged by the death of George Floyd.
+        The officer who murdered George floyd deserves to be held responsible but this does not mean all officers should
+        pay for the offenses of a few bad cops.
+      </li>
+
+      <li>Some racism will always exist. We must stop proving systemic racism by a single incident.</li>
+
+      <li>Our belief in systemic racism is stronger than our belief in god.
+        We take both on complete faith but neither
+        can be proved or disproved with the available facts.
+      </li>
+
+      <li>I now believe systemic police racism is being blamed for the underlying problem.
+        Instead of racism, I believe that both the police and the black community are caught in a
+        constant cycle of violence, fear, distrust and disrespect.
+        This will only end when both sides become "we" instead of you and me.
+        5% of every officers time needs to be spent in real community activities
+        without weapons.
+      </li>
+
+      <li>To my amazement, racially motivated police killing black people
+        is now a complete myth. 800,000 officers being blamed for
+        30 unarmed black deaths per year.
+      </li>
+
+      <li>Eliminating all racism is impossible
+        but we should never stop trying.
+        The current approach no longer helps and we need a new approach.
+        The proposed police reforms will put officers in more danger than ever.
+        As black lives matter puts it, 5 black people per million were killed by officers
+        compared to 1 white per million but they fail to mention that 331 officers per million
+        were feloniously murdered during that same time frame. It's 66 times safer
+        to be black than a police officer.
+      </li>
+
+      <li>"black lives matter" is NOT about saving black lives.
+        Outlaw guns and you would save over 8000 black lives
+        per year that are murdered by guns.
+      </li>
+
+      <li>Now is the time for black leadership. A leader who can heal the anger and frustration.
+        A leader who can say what must be said.
+        A leader who is impartial and will seperate fact from fiction.
+        A leader who can restore the dream.
+        "Black lives matter" is now an excuse for black people to remain a victim.
+      </li>
+
+      <li>The NIH, universities and colleges are failing us.
+        The NIMH director (part of NIH) stated that the NIH only supports research that
+        is part of the solution rather than part of the problem. This has lead to such
+        misleading research (listed at the end) that the media is using as the basis for the
+        their reporting. Additionally, universities and colleges are overrun
+        with racial equality programs so they can say systemic racism exists within their organizations.
+      </li>
+
+      <li>systemic racism within the police force is completely faith based by black people.
+        There is no evidence to prove or disprove it. I suspect that
+        systemic racism no longer exists (psychology terms
+        <a target="news"
+          href="http://psychology.iresearchnet.com/social-psychology/attitudes/motivated-reasoning/#:~:text=Motivated%20reasoning%20is%20a%20form,or%20endorse%20a%20preferred%20conclusion.">Motivated
+          justification</a>
+        and
+        <a target="news"
+          href="https://www.psycholoytoday.com/us/blog/after-service/201705/the-science-behind-why-people-follow-the-crowd">Crowd
+          mentality</a>
+        ).
+      </li>
+
+      <li>Hearts and minds have dramatically changed over the years
+        but no one is willing to acknowledge that fact.
+        We need to look at racism with fresh eyes.
+        Adding inequality by the government has brought us as far as it can.
+        We need to heal the hate and frustration that has festered
+        in victims for so many years.
+      </li>
+    </ul>
+
+    <!-- hitwebcounter Code START -->
+    <a href="https://www.hitwebcounter.com" target="_blank" >
+    <img id="counter" src="zhttps://hitwebcounter.com/counter/counter.php?page=7541067&style=0001&nbdigits=5&type=page&initCount=0" title="Web Counter" Alt="counter free"   border="0" >
+    </a>     
+    <script>
+      if (document.URL.substring(0,5) != "file:") { 
+        work = document.getElementById('counter');
+        work.setAttribute('src', work.getAttribute('src').substring(1));
+      }
+    </script>
+
+    <div id="toc">&nbsp; Building Table of Contents &nbsp;</div>
+
+  </div>
+</body>
+
+</html>

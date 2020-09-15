@@ -1,0 +1,406 @@
+<!doctype html>
+
+<html lang="en">
+
+<head>
+  <title>Black Lies Matter</title>
+
+  <META HTTP-EQUIV="CACHE-CONTROL" CONTENT="NO-CACHE">
+  <meta http-equiv="content-type" content="text/html; charset=utf-8">
+  <meta name="viewport" constent="width=device-width, initial-scale=1.0">
+  <meta server="awardspace.com">
+
+  <style>
+    html,
+    body {
+      height: 100%;
+      border: none;
+      margin-top: 0px;
+      margin-bottom: 0px;
+    }
+
+    body {
+      background-color: black;
+      background-size: cover;
+      background-attachment: fixed;
+      background-size: 100%;
+      color: black;
+    }
+
+    h2 {
+      text-align: center;
+    }
+
+    table,
+    td {
+      border: 1px solid rgb(124, 113, 113);
+      text-align: center;
+    }
+
+    .hilite {
+      background-color: yellow;
+    }
+
+    #graphBar {
+      position: relative;
+      margin-bottom: 6px;
+    }
+
+    #whiteBar {
+      background-color: rgb(250, 225, 158);
+      position: absolute;
+      left: 0;
+      top: 0;
+    }
+
+    #white {
+      position: absolute;
+      top: 0;
+      left: 2mm;
+    }
+
+    #hispanicBar {
+      background-color: rgb(235, 183, 39);
+      position: absolute;
+      left: 0;
+      top: 0;
+    }
+
+    #hispanic {
+      position: absolute;
+      top: 0;
+      left: 2mm;
+    }
+
+    #blackBar {
+      background-color: rgb(109, 78, 70);
+      position: absolute;
+      left: 0;
+      top: 0;
+    }
+
+    #black {
+      position: absolute;
+      top: 0;
+      left: 2mm;
+      color: white
+    }
+
+    #otherBar {
+      background-color: pink;
+      position: absolute;
+      left: 0;
+      top: 0;
+    }
+
+    #other {
+      position: absolute;
+      top: 0;
+      left: 2mm;
+    }
+
+    #policeBar {
+      background-color: lightblue;
+      position: absolute;
+      left: 0;
+      top: 0;
+    }
+
+    #police {
+      position: absolute;
+      top: 0;
+      left: 2mm;
+      color: black;
+    }
+
+    #title {
+      text-align: center;
+      font-size: 5mm;
+      font-weight: bold;
+    }
+
+    .graph {
+      background-color: skyblue;
+      border: 2px solid black;
+      width: 205mm;
+      padding-top: 2mm;
+      padding-bottom: 2mm;
+    }
+
+    #pageData {
+      padding-left: 2mm;
+      padding-right: 2mm;
+      margin: auto;
+      overflow: auto;
+      background-image: linear-gradient(to right, burlywood, #9eff8a);
+      max-width: 210mm;
+      height: 100%;
+    }
+
+    #toc {
+      position: absolute; 
+      top: 0; 
+      height: auto;
+      background-color: white; 
+      border: 2px solid black;
+      max-width: 210mm;
+    }
+
+  </style>
+
+  <script>
+
+    toc = "";
+    function tocOn() {
+      document.getElementById('toc').addEventListener('mouseleave', tocOff, {'once' : true})
+      if (toc == '') {
+        toc = '<ul id="tocList" style="overflow: auto;">\n<li><a onclick="tocOff();" style="text-decoration: underline;">-- Close Table of Contents --</a></li>\n';
+        var h2List = document.getElementsByTagName('h2');
+        for (var i=0; i<h2List.length; i++) {
+          if (h2List[i].id == '')
+            h2List[i].id = 'h2List' + i;
+          toc += '<li><a onclick="tocOff();" href="#' + h2List[i].id + '">' + h2List[i].innerText + '</a></li>\n'
+        }
+        toc += '</ul>\n';
+      }
+      document.getElementById('toc').innerHTML = toc;
+      tocResize();
+      console.log('tocOn');
+    }
+
+    function tocResize() {
+      work = document.getElementById('tocList');
+      if (work)
+        work.style.height = (window.innerHeight-50)+'px';
+      console.log('running tocResize');
+    }
+
+    function tocOff() {
+      document.getElementById('toc').innerHTML = '&nbsp; Table of Contents &nbsp;';
+      document.getElementById('toc').addEventListener('mouseenter', tocOn, {'once' : true})
+    }
+
+    function tableOfContents() {
+      if (document.getElementById('tableOfContents').innerHTML != "")
+        return;
+
+      var toc = document.getElementById('tableOfContents');
+      toc.style.padding = '2mm';
+      toc.innerHTML = '<h2 id="tocHeader">Table of Contents</h2><ul>\n';
+      var h2List = document.getElementsByTagName('h2');
+      for (var i=0; i<h2List.length; i++) {
+        if (h2List[i].id == 'tocHeader')
+          continue;
+        if (h2List[i].id == '')
+          h2List[i].id = 'h2List' + i;
+        toc.innerHTML += '<li><a href="#' + h2List[i].id + '">' + h2List[i].innerText + '</a></li>\n'
+      }
+      toc.innerHTML += '</ul>\n';
+    }
+
+    // Function to support quiz
+    count = 0;
+    count2 = 0;
+    function quizButton(e, cnt) {
+      if (e.parentElement.id !=  'answers' ) {
+        document.getElementById('status' ).innerHTML =
+          ' <span style="background-color: pink;">' 
+        ' Invalid selections</span>' ;
+        return;
+      }
+      count2++;
+      if (cnt == count) {
+        count++;
+        document.getElementById('status' ).innerHTML =
+          ' <span style="background-color: lightgreen;">' 
+          + e.innerText +
+          ' is correct</span>';
+        e.innerHTML += '<br/>' + e.getAttribute('murders');
+        document.getElementById('correct').innerHTML += e.outerHTML;
+        e.outerHTML = '';
+        if (count == 10) // last entry
+          document.getElementById('status').innerHTML +=
+            '<p><span class="hilite">You took ' + count2 +
+            ' out of 38 possible clicks.</span></p>';
+      } else
+        document.getElementById('status').innerHTML =
+          '<span style="background-color: pink;">'
+          + e.innerText +
+          ' is  incorrect</span>';
+    }
+  </script>
+
+</head>
+
+<body onload="tocOff();" onresize="tocResize();">
+
+  <div id="pageData">
+<template>
+https://babylonbee.com/news/the-babylon-bee-purchases-competing-satire-site-cnn-for-12-billion?utm_content=buffere3089&utm_medium=social&utm_source=twitter.com&utm_campaign=buffer
+https://www.facebook.com/203805062990264/videos/1482585365236665/
+
+3 black women say it's getting worse and they are getting ready for it but this is the first time it's happened
+https://losangeles.cbslocal.com/2020/08/30/racist-rant-caught-on-camera-black-women-dockweiler-beach/
+</template>
+https://www.justice.gov/crt/deprivation-rights-under-color-law
+
+https://www.youtube.com/watch?v=CiIZTVuSUiY
+
+    <h1 id="top" style="text-align: center;">
+      A constitutional blood bath is coming<br/>
+      Flagrant disregard of the constitution is not an option
+    </h1>
+
+    <p>Make no mistake, Constitutional rights violations can carry horrifying consequences. Unlike laws, Constitutional rights are guaranteed and the consequences the courts impose are designed to ensure officials won't benefit want to violate these rights. For example, murderers have gone free because of illegal search. Additionally, elected officials could recieve the death penalty for violating peoples rights (See <a href="https://www.justice.gov/crt/deprivation-rights-under-color-law" target="news">U.S. Code section 242 title 18</a>). Unlike laws, violating the rights of a single person results in severe consequences. </p>
+
+    <p>To quickly go to a section in this web page, place your mouse on "Table of contents" above left and select a topic.</p>
+
+    <h2>The anger stems from Constitutional rights violations</h2>
+
+    <p>"Black Lives Matter" supporters are angry because they believe the hoax that police are killing black people based on their race. They think they are denied "equal protection of the law".  I say "hoax" because "systemic racism by police and white people" is a hoax created by Obama and Biden. Sthe mayor,ee below for evidence showing the hoax.</p>
+
+    <p>Justifiably angry are the "patriots" who believe strongly in the Constitution. They demand cities like Kenosha, Portland, Seattle and more provide "equal protection of the law" to their citizens. The right to bear arms exists for times like this where states and cities refuse to support and defend the Constitution. A true patriot believes so strongly in "equal protection in the law" that they surrender to police as soon as possible if they killed someone. 60% of murders are unsolved so it's unlikely he would have been caught. Why does the news media refuse to call Kyle Rittenhouse a patriot? </p>
+    
+    <p>Justifiably angry are those people who were denied their Constitutional rights. These people will be suing their states and cities. </p>
+
+    <p>Justifiably angry are other states for the years of flagrant disregard of the Constitution by states like California. I suspect that there will be a deluge of lawsuits to ensure these Constitutional rights violations never happen again. These states may not like the outcome.</p>
+
+    <h2>Constitutional education</h2>
+
+    <p>We should have mandatory education on the Constitution every few years. "Black Lives Matter" proves that very few people understand their rights and how to protect those rights. </p>
+
+    <p>Most black people fail to use the tools that guarantee their Constitutional rights.
+      It's absurd that <a target="news" href="https://www.kmbc.com/article/protesters-calling-for-end-to-racial-discrimination-at-kansas-city-va-medical-center/32867533">100 black VA hospital employee's demand management be fired because of black discrimination</a>. Any reported discrimination will be vigorously handled by the <a target="news"
+      href="https://www.va.gov/ORM/HPP.asp">"Office of Resolution Management, Diversity & Inclusion"</a> and they are protected by the "NO FEAR ACT". Discrimination would not exist if they reported it. If nothing else, they would learn how to deal with what they perceived as discrimination.</p>      
+      
+    </p>Most black people only have 1 tool for problem resolution and that tool is violence and anger. Ask yourself why 2 times as many blacks are murdered versus whites (or in BLM numbers, 5 times the rate of whites being murdered). 5,747 whites murdered versus 9,908 blacks. Ask yourself why there are riots every couple of years because a black person is killed by an officer.</p>
+
+    <p>Ask yourself why <a target="news" href="https://www.kmbc.com/article/protesters-calling-for-end-to-racial-discrimination-at-kansas-city-va-medical-center/32867533">100 black VA hospital employee's are demanding management be fired because of black discrimination at the hospital</a>. Any reported discrimination will be vigorously handled by the <a target="news"
+        <li>For many years and far more than any other state, California flagrantly ignores the Constitution. The congress must censure Senator Diane Feinstein, Senator Kamala Harris and all 53 California representatives for the long standing violations of several parts of the onstitution. They must take action starting immediately to remedy these infringements of the constitution. As an attorney in California, CA Attorney General and San Francisco DA, Senator Kamala Harris is well aware of the infringements taken by California but has never taken any action to correct these infringements. Even as recently as this year, she witnessed the San Jose highway 101 protest where the state (CHP) stated they would only escort the protestors from the highway. Several protestors committed felony false imprisonment with impunity. Various other laws were also violated with impunity. If equal protection of the laws truly applies, then anyone can now march on California highways without impunity.  </li>
+        href="https://www.va.gov/ORM/HPP.asp">"Office of Resolution Management, Diversity & Inclusion (ORM)"</a>. They are protected from retrobution by the "NO FEAR ACT". If they felt the ORM ignored their rights, then they need to contact their state senators and representative. They are required by their signed solemn oath to support and defend your constitutional rights. This is 5 layers of protection to ensure their rights were not being violated.</p>
+
+    <ul>
+      <li>Several Tools guarantee your Constitutional rights and if one fails then use another. You must fight for your rights:
+      <ul>
+        <li>Company HR department</li>
+        <li>Federal, state and city agencies exist to address ensure your rights. </li>
+        <li>File a lawsuit</li>
+        <li>Contact your congresspeople and elected officials. They all took a solemn oath to address constitutional rights in their juristiction. </li>
+        <li>Lawfully protest</li>
+        <li>You have equal (not more) rights because of "nor shall any state deny to any person within its jurisdiction the equal protection of the laws"</li>
+        <li>And more ...</li>
+      </ul>
+      <li>Commonly misunderstood constitutional rights:
+        <ul>
+          <li>Racism is disrespectful but it is lawful. You can't stop people from using racial slurs. You can only complain about racism.</li>
+          <li>Discrimination is unlawful. The constitution protects you from discrimination.</li>
+          <li>Peaceful protests are not protected. Cities and states are obligated to stop many of the BLM protests but they are criminally responsible for disregarding the constitution. The felony murder rule may apply to the mayor of Portland for supporting the BLM protestors.</li>
+          <li>Lawful protests are protected by the constitution. Many of the BLM protests were unlawful and the city ignored their obligation to shut it down. These cities and states may find many laws impossible to prosecute because of "equal protection of the laws".</li>
+          <li>Any state that refuses to enforce a federal laws may be making those law unconstitutional. Consider California sanctuary cities refusal to prosecute illegal immigrants. Illegal immigrants who are arrested by federal police in California are denied equal protection of the laws that they would receive by state and local police.</li>
+          <li>
+          <li>All states and cities must not violate the constitution</li>
+          <li>All laws must never violate the Constitution</li>
+          <li>Federal laws apply to all states.</li>
+          <li>And more ...</li>
+        </ul>
+      </li>
+    </ul>
+
+    <h2>Kyle Rittenhouse - defender of the constitution</h2>
+
+    <p>People are angry because of the blatant disregard for the Constitution that is rampant throughout the United States. This could be the case that exposes the magnitude of the problem. This could be the case that forces states to support and defend the constitution. This case could have very grave consequences for Black Lives Matter and several city / state officials.</p>
+
+    <p>I have a cousin that was crippled playing cowboys and indians with a gun. This case could blow up in our faces because there are unconstitutional laws that never get challenged.</p>  
+
+    <p>Another very possible outcome of the trial results in charges against the mayor, city attorney, governor, state attorney, both senators and the representative. They may be guilty of murder by reckless act, murder by negligent act and other possible felonies. By ignoring their solemn oath to support and defend the constitution, they are participants in these unlawful acts and should be charged.</p>
+
+    <p>Kyle came to Okinosh because elected officials denied "equal protection of the laws" (14 amendment) and failed to "insure domestic tranquility" as required by the Constitution. The "security of a free state" is in danger when officials won't defend the Contititution so the second amendment was written specifically to address this issue.   </p>
+
+    <h2>Solemn oath to support and defend the Constitution</h2>
+
+    <p>Elected officials took a solemn oath to "support and defend the Constitution". Congresspeople must also sign their affirmation because they are the federal governments respresentative to their state. They are required to ensure the Constitution is never violated.</p>
+
+    <p>Trump and Pence (defenders of the constitution) take their oath seriously. Cities denied their citizens of "equal protection in the law". Trump was obligated to stand against this violation. He sent federal police to Portland to make a stand against cities violating Constitutional rights. He has taken steps to fix several violations that have existed for years. For instance, fixing the census to identify citizens. This is an unbelievable act of kindness that congress needs to accept immediately before someone files a Constitutional rights violation because California includes 4 million (10%) illegal immigrants in the census and declares it's self a sanctuary state in violation of the Constitution. This gives California 6 extra congresspeople. A judge would need to find a punishment to guarantee rights. The judge would need to consider how long rights have been violated and invalidate all laws and decisions that were affected by this by this violation. The judge must also decide the punishment because anyone living in a <a target="news" href="https://en.wikipedia.org/wiki/Non-voting_members_of_the_United_States_House_of_Representatives">U.S territory</a> are U.S. citizens that are not being represented in congress and do not have voting rights. Truly a nightmare if any angry U.S. itizen wants to get revenge.</p>
+
+    <p>The dishonorable senator Kamala Harris is a lawyer with 30 years experience that includes time as San Francisco District Attorney and California Attorney General. She understands the constitution and her responsibility. She has taken the oath several times and continually disregards her obligations to that oath. As California Attorney General and as a Senator, she is obligated to support and defend the Constitution. As senator, she has no intention of fulfilling the binding legal document she signed. E.g. "sanctuary cities" in California are violating "equal protection in the law". E.g. the highway 101 protestors in San Jose violated "equal protection in the law". Her current oath still applies while campaigning yet she disregards "insure tranquility" when she said "For Jacob Blake, she could not see anything that would justify the officers action". She was the San Francisco DA. From the original video, she knows this was justified because 3 kids are in the car and bystanders are around the car. Jacob Blake could not be allowed in the car because a car chase would endanger the 3 kids and bystanders. The 3 kids become possible hostages. The officers must assume there is a weapon in the car that endangers the 3 kids and bystanders. The officer grabbed Blakes t-shirt without shooting in an attempt to keep Blake out of the car. The officer began shooting after the t-shirt ripped and Blake was partially in the vehicle. As Senator, she must never unjustly agitate the public in order to gain votes. </p>
+
+    <p>The dishonorable Joe Biden participated in the Black Lives Matter hoax with Obama (see below). As recently as 5 days ago, <a target="news" href="https://www.jsonline.com/story/news/politics/elections/2020/09/02/biden-says-kenosha-officer-who-shot-jacob-blake-should-charged/5694051002/">he called for charging the officer that shot Jacob Blake</a> which would be a violation of the officer's "equal protection" rights.</p>
+
+    <h2>Some of the possible consequences and punishment</h2>
+
+    <ul>
+      <li>Any actions taken in the name of "Racism" might be unconstitutional. Institutions receiving federal funds could face losing federal funds or sanctions. For instance, universities and college <a target="news" href="https://www.nationalreview.com/2019/05/american-colleges-segregated-housing-graduation-ceremonies/"> that implemented neo-segregation</a> may find themselves in violation of anti-discrimination laws.</li>
+      <li>Several states and cities, but in particular Portland and the state of Oregon refused "equal protection of the law". I think there will be a deluge of lawsuits where the state and city must pay damages, pain, suffering, injury, loss of life. I suspect this will be in the billions because of the Constitutional rights violation. They will need to raise taxes if they don't want to go bankrupt.</li>
+      <li>Trump and Pence protected the federal government by sending in federal police.</li>
+      <li>Cities that allowed statues be destroyed may be required to recreate the exact statue.</li>
+      <li>Defunding police will probably be found unconstitutional because that would reduce "equal protection of the law".</li>
+      <li>Some exiting laws may become unconstitutional because they failed "equal protection of the law". For example, can unions in Calfornia hold marches on the highways because the CHP did not enforce the law during the San Jose highway 101 Black Lives Matter protest?</li>
+      <li>Because of the overwhelming violations in California, California congresspeople could receive extreme punishments for ignoring their oath. </li>
+    </ul>
+
+
+    <p>Several cities and states won't be able to afford police after paying . Defunding police is probably irrelevant now.</p>
+
+    <p>Sadly for states and cities that fully supported "Black Lives Matter", they are in for a rude awakening. Sadly for for black people in those states and cities, their situation is going to get worse because of "Black Lives Matter". Please congradulate Obama and Biden for their success in creating the American nightmare.</p>
+
+
+    <ol>
+    <li>Portland, Seattle, Chicago, New York and other cities refused to protect people and their property. These cities can expect a deluge of lawyers to claim trillions of dollars in pain, suffering, property damage, injury and loss of life. </li>
+    <li>Oregon, Washington, Illinois, New York and other states refused to protect people and property in those cities. The attorney general for those states failed to remind mayors that their actions are unconstitutional. These states can expect a deluge of lawyers to claim trillions of dollars in pain, suffering, property damage, injury and loss of life.</li>
+    <li>Several state and city laws are now unconstitutional because of every citizen has the right of "equal protection under the law". If they arrests you, then they can be sued for false arrest on constitutional grounds. Laws must be enforced equally. </li>
+      <ul>
+        <li>Arson, vandalism, grafitti, rioting and more could be very difficult or impossible to prosecute in Oregon and Washington. Worse yet, these states could be sued for false arrest on constitutional grounds.</li>
+        <li>Each of the protesters in the <a href="https://www.cnbc.com/2020/05/29/hundreds-block-silicon-valley-highway-over-floyd-killing.html" target="news">Black Lives Matter protest on California hwy 101</a> is by law <a href="https://www.law.cornell.edu/wex/false_imprisonment" target="news">False imprisonment</a> of thousands of California drivers that the CHP and San Jose police did not arrest. In violation of the constitution, the CHP spokesperson said they would only escort them off of the freeway without charging any of the unlawful protest. California is the worst constitutional rights violator in the U.S. and this violation will go unpunished like all the others. If anyone wants to walk in the freeway, please do it safefly but if you are arrested, be sure to sue California for false arrest. Remind them you have the same constitutional rights as the protesters.</li>
+      </ul>
+    <li>All congresspeople signed a legal document stating they will support and defend the U.S. Constitution for all U.S. citizens. They were required to speak out against unlawful protests, riots, arson, murder and other unlawful acts. They could be sued for breach of contract with judgements for pain, suffering, property damage, injury and loss of life. </li>
+    <li>Amazingly, Trump protected the federal government by offering troops to enforce laws.</li>
+
+      
+      
+    https://www.senate.gov/artandhistory/history/common/briefing/Oath_Office.htm    
+      
+      
+      . For elected officials, these are the hardeIn the name of "Black Lives Matter", Some states and cities have to ignore the constitution. </p>
+
+    <p>Several cities and states are going to be shocked when they realize that "Black Lives Matter" exclusion amendment, these are undeniable rights for every U.S Citizen. "Lawful protest"  </p>
+
+    <p>Expect cities and states to go bankrupt because they violated citizens rights guaranteed by the constitution. </p>
+      
+    <p>Cities that Portland, Seattle, Chicago, New York and many others are financially responsible because they refused to enforce laws for specific groups of people. State governments are financially responsible because they allowed their cities to ignore the constitution. Amazingly, Trump spared US taxpayers trillions by offering to send in federal troops.</p>  
+      
+    <p>For politicians, supporting and defending the U.S. Constitution can make them very unpopular. Regardless, their only true obligation is to Support and defend the U.S. Constitution. From the president down to lawyers, police and military are required to take an oath swearing they will protect and defend the U.S. Constitution. Supporting and defending the constitution can be so painful that "We the People" require congresspeople to sign a legal document that says they will protect and defend the U.S. Constitution.</p>
+   
+
+    <p>  Proof and reputable documentation are below that prove lies and inuendo by Obama and Biden are the direct cause.</p>
+
+    <h2>Biden is still ignoring the constitution</h2>
+
+    <p>Biden is no longer obligated to his oath but Senator Kamala Harris is clearly ignoring her oath. Having worked as the San Francisco district attorney, she knows from the <a target="news" href="https://www.lakegenevanews.net/news/local/crime-and-courts/video_f976b67b-d206-547d-8592-4a6d76dbc945.html">first video</a> that the officers were justified in shooting and will be found innocent if this goes to trial. The officers knew 3 kids were in the car and that people were gathering around the car. Once Jacob Blake entered the car, he is has weapons and is endanger the public the officer's swore to protect. Jacob Black could use the car as a weapon. He could have used the kids as hostages which he was already endangering by not complying with armed police. Innocent bystanders in front of the car could have been injured. A police chase would have endangered the kids and the public. </p>
+
+    https://www.reuters.com/article/us-usa-election-harris/kamala-harris-condemns-looting-violence-in-wake-of-police-shooting-idUSKBN25N344
+
+    For example, Obama and Biden used an NIH grant to have 3 universites collaborate on the research paper <a target="news"
+    href="https://www.ncbi.nlm.nih.gov/pmc/articles/PMC6708348/">"Risk of being killed by police use of
+    force"</a>. This is the research paper that established "police kill black people" for the Washington Post article. To avoid complicity in this part of the hoax, the paper bypassed the DOJ and was published in 2019. The paper only discusses the risk for all black man instead of various risk factors and races. After reading this paper, ask yourself what is the risk factor anything other than "all black men" (black with gun, black without gun, white, hispanic, knife, weapon, committed a crime or ???). Obama and Biden had 
+
+https://research.msu.edu/the-truth-behind-racial-disparties-in-fatal-police-shootings/
+
+“Our data show that the rate of crime by each racial group correlates with the likelihood of citizens from that racial group being shot. If you live in a county that has a lot of white people committing crimes, white people are more likely to be shot. If you live in a county that has a lot of black people committing crimes, black people are more likely to be shot. It is the best predictor we have of fatal police shootings.”
+
+https://www.youtube.com/watch?v=2cA3D_GkNcc
+Obama telling the woke culture to to be activists. Michelle says fear of woke culture is only in your mind.
+
+
+    <script>
+        if (document.URL.substring(0,5) != "file:") { 
+          work = document.getEle
+          work.getAttribute('src').substring(1));
+        }
+      </script>
+  
+      <div id="toc">&nbsp; Building Table of Contents &nbsp;</div>
+  
+    </div>
+  </body>
+  
+  </html>

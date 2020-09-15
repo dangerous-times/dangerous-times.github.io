@@ -1,0 +1,156 @@
+<!doctype html>
+
+<html lang="en">
+
+<head>
+
+  <META HTTP-EQUIV="CACHE-CONTROL" CONTENT="NO-CACHE">
+  <meta http-equiv="content-type" content="text/html; charset=utf-8">
+  <meta name="viewport" constent="width=device-width, initial-scale=1.0">
+  <meta server="awardspace.com">
+
+  <style>
+    html,
+    body {
+      height: 100%;
+      border: none;
+      margin-top: 0px;
+      margin-bottom: 0px;
+    }
+
+    body {
+      background-color: black;
+      background-size: cover;
+      background-attachment: fixed;
+      background-size: 100%;
+      color: black;
+    }
+
+    h2 {
+      text-align: center;
+    }
+
+    table,
+    td {
+      border: 1px solid rgb(124, 113, 113);
+      text-align: center;
+    }
+
+    .hilite {
+      background-color: yellow;
+    }
+
+    #pageData {
+      padding-left: 2mm;
+      padding-right: 2mm;
+      margin: auto;
+      overflow: auto;
+      background-image: linear-gradient(to right, burlywood, #9eff8a);
+      max-width: 210mm;
+      height: 100%;
+    }
+
+    #toc {
+      position: absolute; 
+      top: 0; 
+      height: auto;
+      background-color: white; 
+      border: 2px solid black;
+      max-width: 210mm;
+    }
+
+  </style>
+
+  <script>
+
+    toc = "";
+
+    function tocOn() {
+      document.getElementById('toc').addEventListener('mouseleave', tocOff, {'once' : true})
+      if (toc == '') {
+        toc = '<ul id="tocList" style="overflow: auto;">\n<li><a onclick="tocOff();" style="text-decoration: underline;">-- Close Table of Contents --</a></li>\n';
+        var h2List = document.getElementsByTagName('h2');
+        for (var i=0; i<h2List.length; i++) {
+          if (h2List[i].id == '')
+            h2List[i].id = 'h2List' + i;
+          toc += '<li><a onclick="tocOff();" href="#' + h2List[i].id + '">' + h2List[i].innerText + '</a></li>\n'
+        }
+        toc += '</ul>\n';
+      }
+      document.getElementById('toc').innerHTML = toc;
+      tocResize();
+      console.log('tocOn');
+    }
+
+    function tocResize() {
+      work = document.getElementById('tocList');
+      if (work)
+        work.style.height = (window.innerHeight-50)+'px';
+      console.log('running tocResize');
+    }
+
+    function tocOff() {
+      document.getElementById('toc').innerHTML = ' Table of Contents ';
+      document.getElementById('toc').addEventListener('mouseenter', tocOn, {'once' : true})
+    }
+
+  </script>
+
+</head>
+
+<body onload="tocOff();" onresize="tocResize();">
+
+  <div id="pageData">
+
+    <h1>Unamerican companies and organizations that are destroying our freedoms</h1>
+
+    <p>Our freedom of speech is being denied. You should hold these companies and organizations responsible and let them know they are being unamerican.</p>
+
+    <h2>State of California</h2>
+
+    <p>California used to be the example for the rest of the country. If California were a country, it would be the 5 largest economy in the world with several of the largest corporations in the world. As such, it should be the example but sadly it has politicians.</p>
+
+    It's the leader in the <span class="hilite">lowest 5% in education</span>
+
+    https://www.politifact.com/factchecks/2018/jan/29/steve-cortes/are-55-percent-immigrants-california-welfare-s-exa/
+    https://www.cdss.ca.gov/capi
+
+    https://www.understood.org/en/school-learning/your-childs-rights/basics-about-childs-rights/the-difference-between-the-every-student-succeeds-act-and-no-child-left-behind
+
+
+    <p>5% of California is black as opposed to 13% nation wide but <a target="news" href="https://www.cnn.com/2020/05/18/us/california-undocumented-immigrants-relief-fund-trnd/index.html">California spends a lot more money per person on immigrant population (primarily hispanic). As Gov. Newsom says in the article, it spends much more money on imigrants but we can't say that 10% of California population is</a>
+
+
+    <h2>Nike</h2>
+    <p>Nike is about destroying america. <a target="news" href="https://www.wsj.com/articles/nike-nixes-betsy-ross-flag-sneaker-after-colin-kaepernick-intervenes-11562024126">All reminders of slavery must be destoyed including the American flag</a>. White people are a reminder of slavery. Could they be next?</p> 
+
+    <p>Freedom of speech is the right of everyone but during work hours employee's are representing the company and company values. As an employee, you do not have the right impose your values on a company. <a target="news" href="https://www.vox.com/2018/9/4/17818148/nike-boycott-kaepernick">"Believe in something. Even if it means sacrificing everything"</a> supports employee's who violate an employer's right to freedom of speech. Nike is making money by abusing an employer's name, values and reputation.</p> 
+
+    <h2>Google</h2>
+
+    <p>They are black mailing and extorting companies which is illegal and the same tactics used by Nazi Germany.</p>
+
+    <iframe width="531" height="299" src="https://www.youtube.com/embed/mxSZwDhIHDw" frameborder="0"
+      allow="accelerometer; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+
+    <p>They are denying Americans of their freedom of speech and constitutional right to a fair trial. Clearly, by extorting companies to censor their content, Google cannot be trusted to censor fairly. Those people who have been censored cannot hold Google accountable through the courts.</p>
+
+    <p><a target="news" href="https://www.reuters.com/article/us-google-lawsuit-censorship/google-defeats-conservative-nonprofits-youtube-censorship-appeal-idUSKCN20K33L">Courts have declared Google is not a public forum</a> and as such they do not have any responsibilities.</p>
+
+    <h2>Amazon</h2>
+    <p>Corporations with huge amounts of money can't be bothered to actually verify facts. <a target="news" href="https://www.theguardian.com/technology/2020/jun/09/amazon-black-lives-matter-police-ring-jeff-bezos">Amazon says it has ties to police but clearly has not investigated Black Lives Matter</a> and the lies they are using to claim police racism. By supporting all the values Black Lives Matter represent, they are disrespecting Americans and their police force. </p>
+
+    <h2><a target="news" href="lulac.org">League of United Latin American Citizens</a></h2>
+
+    <p>This organization is <a target="news" href="https://www.texastribune.org/2020/07/10/ted-cruz-goya-boycott-ceo-praise-trump-after-nike-boycott/">blackmailing and extorting americans and their companies such as Goya foods</a> which is a tactic used by Nazi Germany.</p>
+
+    <h2><a target="news" href="adl.org">ADL (Anti-Defimation League)</a> and all companies supporting it</h2>
+
+    <p>This organization has been notified about the Black Lives Matter defimation of the police, yet they don't speak out against those values and "Stand in solidarity with the black community".  An organization that states "standing in solidarity with our most deeply held American values of freedom, equality and justice" but then tells companies like facebook they must censor anything that the ADL deems inapproriate. </p>
+
+    <div id="toc"></div>
+
+  </div>
+</body>
+
+</html>

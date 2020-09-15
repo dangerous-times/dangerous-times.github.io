@@ -1,0 +1,241 @@
+<!doctype html>
+
+<html lang=en">
+<head>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+
+    <title>Solve the fall</title>
+    <meta name="description" content="SPP solve the fall exhibit">
+    <meta name="author" content="Jon Perryman">
+</head>
+<style>
+  #whiteBar {
+    background-color: rgb(250, 225, 158);  
+    position: absolute;
+    left: 0;
+    top: 0;
+  }
+  #white {
+    position: absolute; 
+    top: 0; 
+    left: 0;
+  }
+  #hispanicBar { 
+    background-color: rgb(235, 183, 39);  
+    position: absolute;
+    left: 0;
+    top: 0;
+  }
+  #hispanic {
+    position: absolute; 
+    top: 0; 
+    left: 0;
+  }
+  #blackBar {
+    background-color: rgb(109, 78, 70);
+    position: absolute;
+    left: 0;
+    top: 0;
+  }
+  #black {
+    position: absolute; 
+    top: 0; </p>
+    left: 0;
+    color: white
+  }
+  #otherBar {
+    background-color: pink;
+    position: absolute;
+    left: 0;
+    top: 0;
+  }
+  #other {
+    position: absolute; 
+    top: 0; 
+    left: 0;
+  }
+  #title {
+    text-align: center;
+    font-size: 5mm;
+    font-weight: bold;
+  }
+  .graph {
+    background-color: lightskyblue;
+    width: 200mm;
+    padding-top: 2mm;
+    padding-bottom: 2mm;
+  }
+</style>
+
+<template id="graph">
+  
+  <br/>
+  <div class="graph">
+    <div id="title" class="update" style="text-align: center;">bad title</div> 
+    <div id="source" style="text-align: center;">
+      <a target="news" 
+        href="https://ucr.fbi.gov/crime-in-the-u.s/2017/crime-in-the-u.s.-2017/tables/table-43">
+      Source: FBI crime statistics 2017 table 43</a></div>
+    
+    <div style="position: relative;">&nbsp;
+      <div id="blackBar" class="update">&nbsp;</div>
+      <div id="black" class="update">bad data</div>
+    </div>
+
+    <div style="position: relative;">&nbsp;
+      <div id="whiteBar" class="update">&nbsp;</div>
+      <div id="white" class="update">bad data</div>
+    </div>
+
+    <div style="position: relative;">&nbsp;
+      <div id="hispanicBar" class="update">&nbsp;</div>
+      <div id="hispanic" class="update">bad data</div>
+    </div>
+
+    <div style="position: relative;">&nbsp;
+      <div id="otherBar" class="update">&nbsp;</div>
+      <div id="other" class="update">bad data</div>
+    </div>
+  </div>
+
+</template>
+
+<script>
+
+
+/*
+      var usPop = 328239523 / 1000000;   
+      var whitePop = 0.601 * usPop;
+      var blackPop = 0.133 * usPop;
+      var blackMalePop = 0.492 * blackPop;
+      var blackBoyPop = 0.223 * blackMalePop;
+      var blackMenPop = blackMalePop - blackBoyPop;
+      var hispanicPop = 0.183 * usPop;
+      var otherPop = usPop - whitePop - blackPop - hispanicPop;
+    function a(pop,data) {
+      for (b=0;b<data.length;b++) {
+        console.log(data[b]/pop)
+      }
+    }
+*/
+
+  function updateArrests() {
+    var width = 200;  // .graph above mm width
+
+    var usPop = 328239523;   
+    var whitePop = Math.round(0.601 * usPop);
+    var blackPop = Math.round(0.133 * usPop);
+    var blackMalePop = Math.round(0.492 * blackPop)
+    var blackBoyPop = Math.round(0.223 * blackMalePop)
+    var blackMenPop = blackMalePop - blackBoyPop;
+    var hispanicPop = Math.round(0.183 * usPop);
+    var otherPop = usPop - whitePop - blackPop - hispanicPop;
+
+   
+
+
+    var race = [];
+    var offenses = document.getElementsByClassName("arrests");
+    for (var i=0; i < offenses.length; i++) {
+      offenses[i].innerHTML = document.getElementById("graph").innerHTML
+      var arrests = offenses[i].getElementsByClassName("update");
+
+      race["black"] = Number.parseInt( offenses[i].getAttribute("black") );
+      race["blackPerMillion"] = Math.round(race["black"] * 1000000 / blackPop);
+      race["white"] = Number.parseInt( offenses[i].getAttribute("white") );
+      race["whitePerMillion"] = Math.round(race["white"] * 1000000 / whitePop);
+      race["hispanic"] = Number.parseInt( offenses[i].getAttribute("hispanic") );
+      race["hispanicPerMillion"] = Math.round(race["hispanic"] * 1000000 / hispanicPop);
+      race["other"] = Number.parseInt( offenses[i].getAttribute("other") );
+      race["otherPerMillion"] = Math.round(race["other"] * 1000000 / otherPop);
+
+      race["maxPerMillion"] = Math.max(race["blackPerMillion"], race["whitePerMillion"], 
+                             race["hispanicPerMillion"], race["otherPerMillion"]);
+      race["total"] = race["black"] + race["white"] + race["hispanic"] + race["other"];
+      race["totalPerMillion"] = race["blackPerMillion"] + race["whitePerMillion"] 
+                              + race["hispanicPerMillion"] + race["otherPerMillion"];
+
+      for (var j=0; j<arrests.length; j++) {
+        var id = arrests[j].id;
+        if ( id == "title")
+          arrests[j].innerText = "Arrests: " + offenses[i].getAttribute("offense");
+        else if ( id.slice( id.length-3 ) == "Bar") { 
+          arrests[j].style.width = Math.round(width 
+            * race[id.slice(0,id.length-3) + "PerMillion"] / race["maxPerMillion"])
+            .toLocaleString() + "mm" ;
+        } else {
+          arrests[j].innerHTML = race[id].toLocaleString() + " " +
+              id + " &nbsp; &nbsp; " + 
+              (Math.round(race[id] * 100 / race["total"])).toLocaleString() + "% &nbsp; &nbsp; (" +
+              (race[id + "PerMillion"]).toLocaleString() +" per million &nbsp; " +
+              (Math.round(race[id + "PerMillion"] / race["totalPerMillion"] * 100)).toLocaleString() + "%)";
+        }
+      }
+    }
+  }
+</script>
+
+<body onload="updateArrests();">
+
+  <div class="arrests" offense="Murder and nonnegligent manslaughter" black="5025" white="4188" hispanic="1462" other="255"> </div>
+
+  <div class="arrests" offense="Rape" black="5182" white="12187" hispanic="3787" other="694"> </div>
+  
+  <div class="arrests" offense="Aggravated assault" black="101513" white="188087" hispanic="61107" other="13341"> </div>
+  
+  <div class="arrests" offense="Weapons; carrying, possessing, etc." black="56143" white="68787" hispanic="23125" other="3079"> </div>
+  
+  <div class="arrests" offense="Violent crime" black="151744" white="236590" hispanic="79078" other="15902"> </div>
+  
+  <div class="arrests" offense="Robbery" black="40024" white="32128" hispanic="12722" other="1612"> </div>
+  
+  <div class="arrests" offense="Burglary" black="46227" white="104671" hispanic="24873" other="4072"> </div>
+  
+  <div class="arrests" offense="Larceny-theft" black="215650" white="501231" hispanic="78921" other="23665"> </div>
+  
+  <div class="arrests" offense="Motor vehicle theft" black="21415" white="46621" hispanic="14525" other="2581"> </div>
+  
+  <div class="arrests" offense="Arson" black="1788" white="5051" hispanic="1073" other="247"> </div>
+  
+  <div class="arrests" offense="Property crime" black="285080" white="657574" hispanic="119392" other="30565"> </div>
+  
+  <div class="arrests" offense="Other assaults" black="258542" white="534188" hispanic="118922" other="29941"> </div>
+  
+  <div class="arrests" offense="Forgery and counterfeiting" black="13980" white="28130" hispanic="5333" other="1093"> </div>
+  
+  <div class="arrests" offense="Fraud" black="29556" white="63908" hispanic="8836" other="2533"> </div>
+  
+  <div class="arrests" offense="Embezzlement" black="4683" white="7441" hispanic="1248" other="313"> </div>
+  
+  <div class="arrests" offense="Stolen property; buying, receiving, possessing" black="25585" white="48607" hispanic="11351" other="2285"> </div>
+  
+  <div class="arrests" offense="Vandalism" black="40861" white="99818" hispanic="21549" other="5255"> </div>
+  
+  <div class="arrests" offense="Prostitution and commercialized vice" black="10605" white="15812" hispanic="5093" other="1812"> </div>
+  
+  <div class="arrests" offense="Sex offenses (except rape and prostitution)" black="9355" white="26615" hispanic="7632" other="1548"> </div>
+  
+  <div class="arrests" offense="Drug abuse violations" black="342513" white="889030" hispanic="201858" other="31117"> </div>
+  
+  <div class="arrests" offense="Gambling" black="1294" white="955" hispanic="382" other="244"> </div>
+  
+  <div class="arrests" offense="Offenses against the family and children" black="20106" white="46926" hispanic="6674" other="4624"> </div>
+  
+  <div class="arrests" offense="Driving under the influence" black="105585" white="617443" hispanic="140918" other="32698"> </div>
+  
+  <div class="arrests" offense="Liquor laws" black="22095" white="122929" hispanic="15704" other="12261"> </div>
+  
+  <div class="arrests" offense="Drunkenness" black="41073" white="212908" hispanic="57521" other="34004"> </div>
+  
+  <div class="arrests" offense="Disorderly conduct" black="87094" white="172098" hispanic="24687" other="14472"> </div>
+  
+  <div class="arrests" offense="Vagrancy" black="5148" white="12609" hispanic="2195" other="696"> </div>
+  
+  <div class="arrests" offense="All other offenses (except traffic)" black="700984" white="1750366" hispanic="335002" other="89492"> </div>
+  
+  <div class="arrests" offense="Suspicion" black="148" white="250" hispanic="44" other="271"> </div>
+  
+  <div class="arrests" offense="Curfew and loitering law violations" black="9523" white="13156" hispanic="4127" other="807"> </div>
+  
+</body>
+</html>

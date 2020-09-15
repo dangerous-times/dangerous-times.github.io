@@ -1,0 +1,207 @@
+<!doctype html>
+
+<html lang="en">
+
+<head>
+
+  <META HTTP-EQUIV="CACHE-CONTROL" CONTENT="NO-CACHE">
+  <meta http-equiv="content-type" content="text/html; charset=utf-8">
+  <meta name="viewport" constent="width=device-width, initial-scale=1.0">
+  <meta server="awardspace.com">
+
+  <style>
+    html,
+    body {
+      height: 100%;
+      border: none;
+      margin-top: 0px;
+      margin-bottom: 0px;
+    }
+
+    body {
+      background-color: black;
+      background-size: cover;
+      background-attachment: fixed;
+      background-size: 100%;
+      color: black;
+    }
+
+    h2 {
+      text-align: center;
+    }
+
+    table,
+    td {
+      border: 1px solid rgb(124, 113, 113);
+      text-align: center;
+    }
+
+    .hilite {
+      background-color: yellow;
+    }
+
+    #graphBar {
+      position: relative;
+    }
+
+    #whiteBar {
+      background-color: rgb(250, 225, 158);
+      position: absolute;
+      left: 0;
+      top: 0;
+    }
+
+    #white {
+      position: absolute;
+      top: 0;
+      left: 2mm;
+    }
+
+    #hispanicBar {
+      background-color: rgb(235, 183, 39);
+      position: absolute;
+      left: 0;
+      top: 0;
+    }
+
+    #hispanic {
+      position: absolute;
+      top: 0;
+      left: 2mm;
+    }
+
+    #blackBar {
+      background-color: rgb(109, 78, 70);
+      position: absolute;
+      left: 0;
+      top: 0;
+    }
+
+    #black {
+      position: absolute;
+      top: 0;
+      left: 2mm;
+      color: white
+    }
+
+    #otherBar {
+      background-color: pink;
+      position: absolute;
+      left: 0;
+      top: 0;
+    }
+
+    #other {
+      position: absolute;
+      top: 0;
+      left: 2mm;
+    }
+
+    #policeBar {
+      background-color: lightblue;
+      position: absolute;
+      left: 0;
+      top: 0;
+    }
+
+    #police {
+      position: absolute;
+      top: 0;
+      left: 2mm;
+      color: black;
+    }
+
+    .graph {
+      background-color: skyblue;
+      border: 2px solid black;
+      width: 205mm;
+      padding-top: 2mm;
+      padding-bottom: 2mm;
+    }
+
+    #pageData {
+      padding-left: 2mm;
+      padding-right: 2mm;
+      margin: auto;
+      overflow: auto;
+      background-image: linear-gradient(to right, burlywood, #9eff8a);
+      max-width: 210mm;
+      height: 100%;
+    }
+
+    #toc {
+      position: absolute; 
+      top: 0; 
+      height: auto;
+      background-color: white; 
+      border: 2px solid black;
+      max-width: 210mm;
+    }
+
+
+  </style>
+
+  <script>
+
+    toc = "";
+
+    function tocOn() {
+      document.getElementById('toc').addEventListener('mouseleave', tocOff, {'once' : true})
+      if (toc == '') {
+        toc = '<ul id="tocList" style="overflow: auto;">\n<li><a onclick="tocOff();" style="text-decoration: underline;">-- Close Table of Contents --</a></li>\n';
+        var h2List = document.getElementsByName('title');
+        for (var i=0; i<h2List.length; i++) {
+          if (h2List[i].id == '')
+            h2List[i].id = 'h2List' + i;
+          toc += '<li style="background-color: ' + h2List[i].getAttribute('titleColor') + ';"><a onclick="tocOff();" href="#' + h2List[i].id + '">' + h2List[i].innerText + '</a></li>\n'
+        }
+        toc += '</ul>\n';
+      }
+      document.getElementById('toc').innerHTML = toc;
+      tocResize();
+      console.log('tocOn');
+    }
+
+    function tocResize() {
+      work = document.getElementById('tocList');
+      if (work)
+        work.style.height = (window.innerHeight-50)+'px';
+      console.log('running tocResize');
+    }
+
+    function tocOff() {
+      document.getElementById('toc').innerHTML = ' Table of Contents ';
+      document.getElementById('toc').addEventListener('mouseenter', tocOn, {'once' : true})
+    }
+
+  </script>
+
+</head>
+
+<body onload="tocOff();" onresize="tocResize();">
+
+  <div id="pageData">
+
+    <h1 style="text-align: center;">Black people should teach real pride</h1>
+
+    <p>"Black Pride Month" should be about black people taking pride in themselves. Instead, it is about celebrating dead black people who had pride in themselves.</p>
+
+    <p>It's amazing how little respect that many black people have for others regardless of race.</p>
+    
+    <h2>Welfare</h2>
+    https://www.newsweek.com/donald-trump-welfare-black-white-780252   2017
+    
+    black  64 per thousand   2,800,000
+    hispanic  40 per thousand 2,400,000
+    white   31 per thousand 6,200,000
+
+    <h2>Abortions</h2>
+
+
+
+    <div id="toc"></div>
+
+  </div>
+</body>
+
+</html>

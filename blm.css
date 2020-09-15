@@ -1,0 +1,36 @@
+html,body{ 
+    height: 98%;
+    width: 99%;
+    border: none;
+    margin-top: 0px;
+    margin-bottom: 0px;
+}
+
+body {
+  background-color: black;
+  background-size: cover; 
+  background-attachment: fixed; 
+  background-size: 100%; 
+  color: black;
+}
+
+.pageTitle {
+    padding-top: 0px;
+    margin: 0px;
+    text-align: center;
+    /* padding-left: 50px; */
+}
+
+#pageArea {
+    background-color: #8aafff;
+    padding-top: 0px;
+    padding-left: 5px;
+    margin: 0px;
+}
+
+#pageData {
+    padding-right: 5px;
+    overflow: auto;
+    background-image: linear-gradient(to right, #8aafff, #9eff8a);
+    border-top: 3px solid black;
+}
