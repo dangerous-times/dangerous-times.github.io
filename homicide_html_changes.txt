@@ -39,6 +39,7 @@ replace the <h1>overview</h1> with the following
 Meta data integrates the page to social media like twitter & facebook. Generated meta tags using https://metatags.io/ using <h1> above for title and first <p> for description. Don't forget to remove <br/>.
 OG:URL & TWITTER:URL point to the full web address of the HTML.
 OG:IMAGE & TWITTER:IMAGE point full web address of a PNG (not JPG) image. to be displayed. 
+change OG:TYPE to article.
 
 Replace the <title></title> line with the following meta tags:
 
