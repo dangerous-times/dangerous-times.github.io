@@ -36,7 +36,10 @@ replace the <h1>overview</h1> with the following
 
 
 
-Generated meta tags using https://metatags.io/ using <h1> above for title and first <p> for description. Don't forget to remove <br/>.
+Meta data integrates the page to social media like twitter & facebook. Generated meta tags using https://metatags.io/ using <h1> above for title and first <p> for description. Don't forget to remove <br/>.
+OG:URL & TWITTER:URL point to the full web address of the HTML.
+OG:IMAGE & TWITTER:IMAGE point full web address of a PNG (not JPG) image. to be displayed. 
+change OG:TYPE to article.
 
 Replace the <title></title> line with the following meta tags:
 
@@ -46,11 +49,12 @@ Replace the <title></title> line with the following meta tags:
 <meta name="description" content="All Homicides up by 30% in 2020 for a total of 24,576! Black male homicide reached 59 per 100K black males while white male homicide was a mere 4 per 100K white males. Per capita, that's 18X! Look at the graphs and CDC data to see for yourself.">
 
 <!-- Open Graph / Facebook -->
-<meta property="og:type" content="website">
+<meta property="og:type" content="article">
 <meta property="og:url" content="https://dangerous-times.github.io/cdc/homicide.htm">
 <meta property="og:title" content="Firearm homicides up by staggering 35% in 2020 according to CDC data">
 <meta property="og:description" content="All Homicides up by 30% in 2020 for a total of 24,576! Black male homicide reached 59 per 100K black males while white male homicide was a mere 4 per 100K white males. Per capita, that's 18X! Look at the graphs and CDC data to see for yourself.">
 <meta property="og:image" content="https://dangerous-times.github.io/cdc/social_media_photo1.png">
+
 
 <!-- Twitter -->
 <meta property="twitter:card" content="summary_large_image">
