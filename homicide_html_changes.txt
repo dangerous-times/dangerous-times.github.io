@@ -1,0 +1,67 @@
+change /homicide_files/ to /
+change index to current page instead of using file:///....
+add the following to styles:
+
+                .normal_text p {font-size:medium; max-width:7in;}
+                .normal_text td,a {font-size:medium;}
+         
+replace the author and changedby meta tags. Replace the saved from url comment.
+
+add <div class="normal_text"> after <tbody tag
+
+add the following before the first original CDC hyperlink (<a)
+        <p>The following links go directly to the exported CDC data that was used:</p>
+
+add </div> before the first "original CDC" spread sheet.
+       
+delete <center> and </center> tags from index to left justify.
+
+replace the <h1>overview</h1> with the following
+
+		<h1>Firearm homicides up by staggering 35% in 2020 <br/>according to CDC data</h1>
+
+                <p>All Homicides up by 30% in 2020 for a total of 24,576! Black male homicide reached 59 per 100K black males while white male homicide was a mere 4 per 100K white males. Per capita, that's 18X! Look at the graphs and CDC data to see for yourself. </p>
+
+                <p>CDC WONDER was used to extract the following graphs and data.
+                E.g. saved CDC firearm homicide report <a target="_blank" href="https://wonder.cdc.gov/controller/saved/D158/D293F524">https://wonder.cdc.gov/controller/saved/D158/D293F524</a></p>
+
+                 <p>The exported CDC data was reformatted using python program <a href="cdc_to_graph.py" target="_blank">cdc_to_graph.py</a>. The CDC exported file name is specified as a parm. The program generates 2 files (per 100K & simple reformat.</p>
+
+                 <p>The 2 reformatted CDC data files are inserted to openoffice calc spreadsheets and I generated charts from each. I also inserte the original CDC files for each.
+                  </p>
+ 
+                  <p>You can download my OpenOffice spreadsheet dataset <a target="_blank" href="homicide.ods">homicide.ods</a>.</p>
+
+                  <p>You may scroll through all the graphs and data below. Or alternatively you can go to a specific graph and data by click one of the following links: </p>
+
+
+
+Meta data integrates the page to social media like twitter & facebook. Generated meta tags using https://metatags.io/ using <h1> above for title and first <p> for description. Don't forget to remove <br/>.
+OG:URL & TWITTER:URL point to the full web address of the HTML.
+OG:IMAGE & TWITTER:IMAGE point full web address of a PNG (not JPG) image. to be displayed. 
+
+Replace the <title></title> line with the following meta tags:
+
+<!-- Primary Meta Tags -->
+<title>Firearm homicides up by staggering 35% in 2020 according to CDC data</title>
+<meta name="title" content="Firearm homicides up by staggering 35% in 2020 according to CDC data">
+<meta name="description" content="All Homicides up by 30% in 2020 for a total of 24,576! Black male homicide reached 59 per 100K black males while white male homicide was a mere 4 per 100K white males. Per capita, that's 18X! Look at the graphs and CDC data to see for yourself.">
+
+<!-- Open Graph / Facebook -->
+<meta property="og:type" content="article">
+<meta property="og:url" content="https://dangerous-times.github.io/cdc/homicide.htm">
+<meta property="og:title" content="Firearm homicides up by staggering 35% in 2020 according to CDC data">
+<meta property="og:description" content="All Homicides up by 30% in 2020 for a total of 24,576! Black male homicide reached 59 per 100K black males while white male homicide was a mere 4 per 100K white males. Per capita, that's 18X! Look at the graphs and CDC data to see for yourself.">
+<meta property="og:image" content="https://dangerous-times.github.io/cdc/social_media_photo1.png">
+
+
+<!-- Twitter -->
+<meta property="twitter:card" content="summary_large_image">
+<meta property="twitter:url" content="https://dangerous-times.github.io/cdc/homicide.htm">
+<meta property="twitter:title" content="Firearm homicides up by staggering 35% in 2020 according to CDC data">
+<meta property="twitter:description" content="All Homicides up by 30% in 2020 for a total of 24,576! Black male homicide reached 59 per 100K black males while white male homicide was a mere 4 per 100K white males. Per capita, that's 18X! Look at the graphs and CDC data to see for yourself.">
+<meta property="twitter:image" content="https://dangerous-times.github.io/cdc/social_media_photo1.png">
+
+Save the modified html to the homicide_directory and test the web page.
+
+From github, delete the old JPG files. Upload the homicide_files to the CDC directory in github.
