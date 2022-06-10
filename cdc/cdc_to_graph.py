@@ -14,7 +14,10 @@ with open(filename, "r") as infile:
   expected_title_homicides = ['"Notes"', '"Year"', '"Year Code"', '"Single Race 6"', 
     '"Single Race 6 Code"', '"Hispanic Origin"', '"Hispanic Origin Code"',
     '"Gender"', '"Gender Code"', 'Deaths', 'Population', 'Crude Rate\n']
-  expected_title_homicides_byage = ['"Notes"', '"Single Race 6"', '"Single Race 6 Code"', '"Hispanic Origin"', '"Hispanic Origin Code"', '"Year"', '"Year Code"', '"Single-Year Ages"', '"Single-Year Ages Code"', '"Gender"', '"Gender Code"', 'Deaths', 'Population', 'Crude Rate\n']
+  expected_title_homicides_byage = ['"Notes"', '"Single Race 6"', '"Single Race 6 Code"', 
+    '"Hispanic Origin"', '"Hispanic Origin Code"', '"Year"', '"Year Code"', 
+    '"Single-Year Ages"', '"Single-Year Ages Code"', '"Gender"', '"Gender Code"', 'Deaths', 
+    'Population', 'Crude Rate\n']
 
   notes_col = w.index('"Notes"')
   year_col = w.index('"Year"')
