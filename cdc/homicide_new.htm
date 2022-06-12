@@ -40,7 +40,8 @@
 		nav:before,nav:after { content: " "; display: table; }
 		nav:after { clear: both; }
 	
-		.menu { margin: 0 auto; max-width: 940px;
+		.menu { 
+			margin: 0 auto; max-width: 7in;
 			background-color: black;
 			position:fixed; top:0; left:0;
 		}
@@ -52,12 +53,18 @@
 			document.getElementById('menu').innerHTML = await read_file("menu_list.table");
 		}
 	</script>	
+
+	<style>
+		.intro { 
+			max-width: 7in;
+		}
+
+	</style>
 	
-	<!-- load new table & graph-->
     <script type="text/javascript">
-		/* table_script.id = "table_script"; */
+		/* load new table & graph */
 		async function change_graph(table_name) {
-            if (document.getElementById('graph').innerHTML == "")
+            if (document.getElementById('table').innerHTML != "")
                 document.getElementById('intro').style.display = "none";
             document.getElementById("graph").innerHTML = "<center><h1>Graph waiting for CDC data to download";
             document.getElementById("table").innerHTML = "<center><h1>Downloading CDC data</h1></center>";
