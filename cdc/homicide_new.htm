@@ -61,8 +61,8 @@
 	<!-- load new table & graph-->
     <script type="text/javascript">
 		/* table_script.id = "table_script"; */
-		function change_graph(table_name) {
-			document.getElementById("table".innerHTML) = read_file(table_name + ".table");
+		async function change_graph(table_name) {
+			document.getElementById("table".innerHTML) = await read_file(table_name + ".table");
 		}
 
 		/* read a file */
