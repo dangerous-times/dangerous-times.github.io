@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=windows-1252">
+	<!--
+	Meta data integrates the page to social media like twitter & facebook. Generated meta tags using https://metatags.io/ using <h1> above for title and first <p> for description. Don't forget to remove <br/>.
+	OG:URL & TWITTER:URL point to the full web address of the HTML.
+	OG:IMAGE & TWITTER:IMAGE point full web address of a PNG (not JPG) image. to be displayed. 
+	change OG:TYPE to article.
+	-->
+	
+	<!-- Primary Meta Tags -->
+	<title>Firearm homicides up by staggering 35% in 2020 according to CDC data</title>
+	<meta name="title" content="Firearm homicides up by staggering 35% in 2020 according to CDC data">
+	<meta name="description" content="All Homicides up by 30% in 2020 for a total of 24,576! Black male homicide reached 59 per 100K black males while white male homicide was a mere 4 per 100K white males. Per capita, that's 18X! Look at the graphs and CDC data to see for yourself.">
+	
+	<!-- Open Graph / Facebook -->
+	<meta property="og:type" content="article">
+	<meta property="og:url" content="https://dangerous-times.github.io/cdc/homicide.htm">
+	<meta property="og:title" content="Firearm homicides up by staggering 35% in 2020 according to CDC data">
+	<meta property="og:description" content="All Homicides up by 30% in 2020 for a total of 24,576! Black male homicide reached 59 per 100K black males while white male homicide was a mere 4 per 100K white males. Per capita, that's 18X! Look at the graphs and CDC data to see for yourself.">
+	<meta property="og:image" content="https://dangerous-times.github.io/cdc/social_media_photo1.png">
+	
+	
+	<!-- Twitter -->
+	<meta property="twitter:card" content="summary_large_image">
+	<meta property="twitter:url" content="https://dangerous-times.github.io/cdc/homicide.htm">
+	<meta property="twitter:title" content="Firearm homicides up by staggering 35% in 2020 according to CDC data">
+	<meta property="twitter:description" content="All Homicides up by 30% in 2020 for a total of 24,576! Black male homicide reached 59 per 100K black males while white male homicide was a mere 4 per 100K white males. Per capita, that's 18X! Look at the graphs and CDC data to see for yourself.">
+	<meta property="twitter:image" content="https://dangerous-times.github.io/cdc/social_media_photo1.png">
+		
+	<!-- Dygraph -->
+	<link rel="stylesheet" href="./dygraph.css">
+		<script type="text/javascript" src="./dygraph.min.js"></script>
+	
+	<!-- Menu -->
+	<style>
+		a:hover,a:focus { color: #999; text-decoration: none; outline: 0; }
+	
+		nav:before,nav:after { content: " "; display: table; }
+		nav:after { clear: both; }
+	
+		.menu { margin: 0 auto; max-width: 940px;
+			background-color: black;
+			position:fixed; top:0; left:0;
+		}
+	</style>
+	<link rel="stylesheet" href="menu.css" />
+	<script type="text/javascript">
+
+		function load_menu() {
+			const menu_script = document.createElement('script');
+			menu_script.src = './menu_list.js'; 
+			document.head.append(menu_script);
+		}
+		function load_menu_2(menu_data) {
+			document.getElementById('menu').innerHTML = menu_data;
+		}
+	</script>	
+	
+	<!-- load new table & graph-->
+	<script>
+		/* table_script.id = "table_script"; */
+		function change_graph(table_name) {
+			document.getElementById("table".innerHTML) = read_file(table_name + ".table");
+		}
+
+		/* read a file */
+		function read_file(url) {
+			let response = await fetch(url);
+			let text = await response.text(); // read response body as text
+			return(text);
+		}
+	</script>
+
+</head>
+
+<body onload='load_menu(); change_graph("table0")'>
+	<div id="menu"></div>
+	<br/><!-- eliminate first line overlayed -->
+	<div id="intro">
+		<center><h1>Firearm homicides up by staggering 35% in 2020 <br/>according to CDC data</h1></center>
+
+		<p>Select one of the graphs listed above that were created from the CDC data. If you have questions or comments, email me at <a href="mailto:defend-constitution@protonmail.com">defend-constitution@protonmail.com</a>.</p>
+
+		<p>All Homicides up by 30% in 2020 for a total of 24,576! Black male homicide reached 59 per 100K black males while white male homicide was a mere 4 per 100K white males. Per capita, that's 18X! Look at the graphs and CDC data to see for yourself. </p>
+
+		<p>California proves that strict gun laws do NOT prevent gun violence. California has a high firearm homicide rate despite difficulties in purchasing firearms and munitions along with severely restricting your ability to access them. <a href="https://www.msn.com/en-us/news/us/oakland-councilman-says-national-guard-needed-to-counter-gun-crime/ar-AAYkMuy?ocid=msedgntp&cvid=87447e1cb29a4ee0953de3fd2a124b6e" target="__blank">Click here to where Oakland is requesting the national guards help because gun crime is out of control due to defund the police.</a> See <a target="__blank" href="https://oag.ca.gov/firearms/travel">transporting firearms in California at https://oag.ca.gov/firearms/travel</a>) which infers your firearm will rarely be legally with you in California but still has a high gun crime rate.</p>
+
+	</div>
+	<div id="download" style="display: none;">
+		<center><h1>Info about using CDC WONDER and the download files</h1></center>
+	
+		<p>CDC WONDER was used to extract the data to produce the graphs and spreadsheets. E.g. saved CDC firearm homicide report <a target="_blank" href="https://wonder.cdc.gov/controller/saved/D158/D293F524">https://wonder.cdc.gov/controller/saved/D158/D293F524</a></p>
+			
+		<p>The exported CDC data was reformatted using python program in the download list above. The CDC exported file name is specified as a parm. The program creates 2 CSV files for each CDC exported  (per 100K & simple reformat.</p>
+			
+	</div>
+	<div id="graph"></div>
+	<div id="table"></div>
+
+</body></html>
