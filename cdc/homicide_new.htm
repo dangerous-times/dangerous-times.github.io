@@ -48,13 +48,8 @@
 	<link rel="stylesheet" href="menu.css" />
 	<script type="text/javascript">
 
-		function load_menu() {
-			const menu_script = document.createElement('script');
-			menu_script.src = './menu_list.js'; 
-			document.head.append(menu_script);
-		}
-		function load_menu_2(menu_data) {
-			document.getElementById('menu').innerHTML = menu_data;
+		async function load_menu() {
+			document.getElementById('menu').innerHTML = await read_file("menu_list.table");
 		}
 	</script>	
 	
@@ -62,14 +57,17 @@
     <script type="text/javascript">
 		/* table_script.id = "table_script"; */
 		async function change_graph(table_name) {
-			document.getElementById("table").innerHTML = await read_file(table_name + ".table");
+            if (document.getElementById('graph').innerHTML == "")
+                document.getElementById('intro').style.display = "none";
+            document.getElementById("graph").innerHTML = "<center><h1>Graph waiting for CDC data to download";
+            document.getElementById("table").innerHTML = "<center><h1>Downloading CDC data</h1></center>";
+            document.getElementById("table").innerHTML = await read_file(table_name + ".table");
 		}
 
 		/* read a file */
 		async function read_file(url) {
 			let response = await fetch(url);
-			let text = await response.text(); // read response body as text
-			return(text);
+			return( await response.text()); // read response body as text
 		}
 	</script>
 
