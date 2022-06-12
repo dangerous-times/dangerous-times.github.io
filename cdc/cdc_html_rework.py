@@ -47,7 +47,7 @@ while len(overview):
     unknown.append(html_a.copy())
 
 def build_menu(menu_data):
-  with open("./homicide_files/menu_list.js","w") as outfile:
+  with open("./menu_list.table","w") as outfile:
     outfile.write("work = `")
     for menu_list in menu_data:
       if isinstance(menu_list,str):
@@ -115,7 +115,7 @@ next_table = input.find("<a ",end_center)
 while next_table > 0:
   table_name_start = input.find('"',next_table)+1 
   table_name = input[table_name_start: input.find('"',table_name_start)]
-  with open("./homicide_files/" + table_name + ".table","w") as outfile:
+  with open("./" + table_name + ".table","w") as outfile:
     outfile.write(input[next_table: input.find("</table>", next_table)+8])
     outfile.close()
   next_table = input.find("<a ", next_table+3) 
