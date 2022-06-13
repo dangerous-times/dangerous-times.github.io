@@ -66,8 +66,8 @@ build_menu( ['''
   <div class="menu">
     <nav>
       <ul class="nav-menu nav-center">
-        <li><a href="#" class="nav-active">Home</a></li>
-        <li><a>Homicide graphs</a>
+        <li><a onclick="window.location.reload()" class="nav-active">Home</a></li>
+        <li><a>CDC homicide graphs graphs</a>
           <ul>
             <li><a>Per 100K</a>
               <ul>
@@ -79,7 +79,7 @@ build_menu( ['''
               ''', homicides, '''
               </ul>
             </li>
-            <li><a name="uuuu">All homicides by age</a>
+            <li><a>homicides/suicides by age</a>
               <ul>
               ''', byage, '''
               </ul>
@@ -89,16 +89,23 @@ build_menu( ['''
               ''', unknown, '''
               </ul>
             </li>
-          </ul>
-        </li>
-        <li><a href="#">Original CDC data</a>
-          <ul>
-          ''', original, '''
-          </ul>
-        </li>
-        <li><a href="#">Download spreadsheet</a>
-          <ul>
-            <li><a href="cdc_to_graph.py" target="__blank">cdc_to_graph.py</a>.</li>
+            <li><a>Original CDC data</a>
+              <ul>
+              ''', original, '''
+              </ul>
+            </li>
+            <li><a>Download spreadsheet</a>
+              <ul>
+                <li><a href="homicide.html" target="__blank">homicide.html</a></li>
+                <li><a href="menu.css" target="__blank">menu.css</a></li>
+                <li><a href="social_media_photo1.png" target="__blank">social_media_photo1.png</a></li>
+                <li><a href="homicide.ods" target="__blank">homcide.ods spreadsheet</a></li>
+                <li><a href="cdc_html_rework.py" target="__blank">cdc_html_rework.py</a></li>
+                <li><a href="cdc_to_graph.py" target="__blank">cdc_to_graph.py</a></li>
+                <li><a href="dygraph.js" target="__blank">dygraph.js</a>.</li>
+                <li><a href="dygraph.min.js" target="__blank">dygraph.min.js</a></li>
+              </ul>
+            </li>            
           </ul>
         </li>
       </ul>
