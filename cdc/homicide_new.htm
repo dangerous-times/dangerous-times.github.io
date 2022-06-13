@@ -56,12 +56,18 @@
 	
     <script type="text/javascript">
 		/* load new table & graph */
-		async function change_graph(element, table_name) {
+		async function change_graph(element) {
             if (document.getElementById('table').innerHTML != "")
                 document.getElementById('info').style.display = "none";
             document.getElementById("graph").innerHTML = "<h1>Graph will display when CDC data has been downloaded</h1>";
             document.getElementById("table").innerHTML = "<h1>Downloading CDC data</h1>";
-            document.getElementById("table").innerHTML = await read_file(table_name + ".table");
+
+			/* Use table1 as the default table (all usa per 100K) */
+			if (element == undefined) {
+				let element = document.getElementById("table0");
+			}
+
+            document.getElementById("table").innerHTML = await read_file(element.id + ".table");
 
 			/* display graph */
 			let columns = element.parentElement.parentElement.getAttribute("data-columns");
