@@ -66,6 +66,8 @@
 			/* Use table1 as the default table (all usa per 100K) */
 			if (element == undefined) {
 				let element = document.getElementById("table0");
+				let parm = document.getElementById("table0")
+				console.log("xxx",element,parm);
 			}
 
             document.getElementById("table").innerHTML = await read_file(element.id + ".table");
