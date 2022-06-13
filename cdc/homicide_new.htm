@@ -64,10 +64,11 @@
             document.getElementById("table").innerHTML = await read_file(table_name + ".table");
 
 			/* display graph */
-		/*	if (document.getElementById("table").find("original") != 0) {
-				document.getElementById("graph").innerHTML = "<h1>Graph disabled for original CDC data</h1>";
+			let columns = element.parentElement.parentElement.getAttribute("data-columns");
+			if (! columns) {
+				document.getElementById("graph").innerHTML = "<h1>Graph not supported by this data</h1>";
 				return;
-			}   */
+			}
 			document.getElementById("graph").innerHTML = "<h1>Graph routine to be written</h1>";
 		}
 
