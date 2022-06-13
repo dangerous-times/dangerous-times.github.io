@@ -1,4 +1,4 @@
-work = `
+
   <div class="menu">
     <nav>
       <ul class="nav-menu nav-center">
@@ -72,8 +72,4 @@ work = `
         </li>
       </ul>
     </nav>
-  </div>
-`;
-      load_menu_2(work);
-      delete work;
-      
+  </div>     

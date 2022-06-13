@@ -48,7 +48,6 @@ while len(overview):
 
 def build_menu(menu_data):
   with open("./menu_list.table","w") as outfile:
-    outfile.write("work = `")
     for menu_list in menu_data:
       if isinstance(menu_list,str):
         outfile.write(menu_list)
@@ -61,10 +60,6 @@ def build_menu(menu_data):
           if menu_item[1] == "":
             menu_item[1] = "all USA"
           outfile.write('<li><a href="#" onclick="change_graph(\'' + menu_item[0] + '\');">' + menu_item[1] + '</a></li>\n')
-    outfile.write("""`;
-      load_menu_2(work);
-      delete work;
-      """)
     outfile.close()
 
 build_menu( ['''
