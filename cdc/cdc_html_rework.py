@@ -67,7 +67,7 @@ build_menu( ['''
     <nav>
       <ul class="nav-menu nav-center">
         <li><a onclick="window.location.reload()" class="nav-active">Home</a></li>
-        <li><a>CDC homicide graphs graphs</a>
+        <li><a>CDC homicide graphs</a>
           <ul>
             <li><a>Per 100K</a>
               <ul>
