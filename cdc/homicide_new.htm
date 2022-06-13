@@ -51,6 +51,7 @@
 
 		async function load_menu() {
 			document.getElementById('menu').innerHTML = await read_file("menu_list.table");
+			await change_graph();
 		}
 	</script>	
 	
@@ -87,7 +88,7 @@
 
 </head>
 
-<body onload='load_menu(); change_graph(null, "table0")'>
+<body onload='load_menu();'>
 	<div id="menu"></div>
 	<br/><!-- eliminate first line overlayed -->
 	<div id="info" style="max-width: 8in;">
