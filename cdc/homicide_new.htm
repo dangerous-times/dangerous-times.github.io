@@ -56,12 +56,19 @@
 	
     <script type="text/javascript">
 		/* load new table & graph */
-		async function change_graph(table_name) {
+		async function change_graph(element, table_name) {
             if (document.getElementById('table').innerHTML != "")
-                document.getElementById('intro').style.display = "none";
-            document.getElementById("graph").innerHTML = "<h1>Graph waiting for CDC data to download</h1>";
+                document.getElementById('info').style.display = "none";
+            document.getElementById("graph").innerHTML = "<h1>Graph will display when CDC data has been downloaded</h1>";
             document.getElementById("table").innerHTML = "<h1>Downloading CDC data</h1>";
             document.getElementById("table").innerHTML = await read_file(table_name + ".table");
+
+			/* display graph */
+			if (document.getElementById("table").find("original") != 0) {
+				document.getElementById("graph").innerHTML = "<h1>Graph disabled for original CDC data</h1>";
+				return;
+			}
+			document.getElementById("graph").innerHTML = "<h1>Graph routine to be written</h1>";
 		}
 
 		/* read a file */
@@ -76,7 +83,7 @@
 <body onload='load_menu(); change_graph("table0")'>
 	<div id="menu"></div>
 	<br/><!-- eliminate first line overlayed -->
-	<div id="intro" style="max-width: 8in;">
+	<div id="info" style="max-width: 8in;">
 		<center><h1>Firearm homicides up by staggering 35% in 2020 <br/>according to CDC data</h1></center>
 
 		<p>Select one of the graphs listed above that were created from the CDC data. If you have questions or comments, email me at <a href="mailto:defend-constitution@protonmail.com">defend-constitution@protonmail.com</a>.</p>
