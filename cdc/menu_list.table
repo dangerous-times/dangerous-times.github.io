@@ -2,8 +2,8 @@
   <div class="menu">
     <nav>
       <ul class="nav-menu nav-center">
-        <li><a href="#" class="nav-active">Home</a></li>
-        <li><a>Homicide graphs</a>
+        <li><a onclick="window.location.reload()" class="nav-active">Home</a></li>
+        <li><a>CDC homicide graphs</a>
           <ul>
             <li><a>Per 100K</a>
               <ul>
@@ -31,7 +31,7 @@
 
               </ul>
             </li>
-            <li><a name="uuuu">All homicides by age</a>
+            <li><a>homicides/suicides by age</a>
               <ul>
               <li><a href="#" onclick="change_graph('table16');">homicide</a></li>
 <li><a href="#" onclick="change_graph('table17');">homicide per 100k</a></li>
@@ -47,11 +47,9 @@
               
               </ul>
             </li>
-          </ul>
-        </li>
-        <li><a href="#">Original CDC data</a>
-          <ul>
-          <li><a href="#" onclick="change_graph('table22');">original cdc california homicides</a></li>
+            <li><a>Original CDC data</a>
+              <ul>
+              <li><a href="#" onclick="change_graph('table22');">original cdc california homicides</a></li>
 <li><a href="#" onclick="change_graph('table23');">original cdc data homicides</a></li>
 <li><a href="#" onclick="change_graph('table24');">original cdc data homicides under 18</a></li>
 <li><a href="#" onclick="change_graph('table25');">original cdc homicide over 18</a></li>
@@ -63,13 +61,22 @@
 <li><a href="#" onclick="change_graph('table31');">original cdc homicide by firearm by age</a></li>
 <li><a href="#" onclick="change_graph('table32');">original cdc suicide by firearm by age</a></li>
 
-          </ul>
-        </li>
-        <li><a href="#">Download spreadsheet</a>
-          <ul>
-            <li><a href="cdc_to_graph.py" target="__blank">cdc_to_graph.py</a>.</li>
+              </ul>
+            </li>
+            <li><a>Download spreadsheet</a>
+              <ul>
+                <li><a href="homicide.html" target="__blank">homicide.html</a></li>
+                <li><a href="menu.css" target="__blank">menu.css</a></li>
+                <li><a href="social_media_photo1.png" target="__blank">social_media_photo1.png</a></li>
+                <li><a href="homicide.ods" target="__blank">homcide.ods spreadsheet</a></li>
+                <li><a href="cdc_html_rework.py" target="__blank">cdc_html_rework.py</a></li>
+                <li><a href="cdc_to_graph.py" target="__blank">cdc_to_graph.py</a></li>
+                <li><a href="dygraph.js" target="__blank">dygraph.js</a>.</li>
+                <li><a href="dygraph.min.js" target="__blank">dygraph.min.js</a></li>
+              </ul>
+            </li>            
           </ul>
         </li>
       </ul>
     </nav>
-  </div>     
+  </div>
