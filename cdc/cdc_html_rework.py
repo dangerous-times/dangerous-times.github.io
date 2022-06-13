@@ -108,7 +108,7 @@ build_menu( ['''
             </li>            
           </ul>
         </li>
-        <li><a href="defend-constitution@protonmail.com" class="nav-active">Email</a></li>
+        <li><a href="mailto:defend-constitution@protonmail.com" class="nav-active">Email</a></li>
       </ul>
     </nav>
   </div>
