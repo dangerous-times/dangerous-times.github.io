@@ -70,27 +70,27 @@ build_menu( ['''
         <li><a>CDC homicide graphs</a>
           <ul>
             <li><a>Per 100K</a>
-              <ul>
+              <ul data-name="per100k" data-columns="4">
               ''', per100k,  '''
               </ul>
             </li>
             <li><a>All homicides</a>
-              <ul>
+              <ul data-name="homicides" data-columns="4">
               ''', homicides, '''
               </ul>
             </li>
             <li><a>homicides/suicides by age</a>
-              <ul>
+              <ul data-name="byage" data-columns="102">
               ''', byage, '''
               </ul>
             </li>
             <li><a>graphs with errors</a>
-              <ul>
+              <ul data-name="unknown" data-columns="0">
               ''', unknown, '''
               </ul>
             </li>
             <li><a>Original CDC data</a>
-              <ul>
+              <ul data-name="original" data-columns="0">
               ''', original, '''
               </ul>
             </li>

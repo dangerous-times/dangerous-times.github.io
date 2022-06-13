@@ -6,7 +6,7 @@
         <li><a>CDC homicide graphs</a>
           <ul>
             <li><a>Per 100K</a>
-              <ul>
+              <ul data-name="per100k" data-columns="4">
               <li><a href="#" onclick="change_graph(this, 'table0');">in california</a></li>
 <li><a href="#" onclick="change_graph(this, 'table1');">all USA</a></li>
 <li><a href="#" onclick="change_graph(this, 'table2');">under 18</a></li>
@@ -19,7 +19,7 @@
               </ul>
             </li>
             <li><a>All homicides</a>
-              <ul>
+              <ul data-name="homicides" data-columns="4">
               <li><a href="#" onclick="change_graph(this, 'table8');">in california</a></li>
 <li><a href="#" onclick="change_graph(this, 'table9');">all USA</a></li>
 <li><a href="#" onclick="change_graph(this, 'table10');">under 18</a></li>
@@ -32,7 +32,7 @@
               </ul>
             </li>
             <li><a>homicides/suicides by age</a>
-              <ul>
+              <ul data-name="byage" data-columns="102">
               <li><a href="#" onclick="change_graph(this, 'table16');">homicide</a></li>
 <li><a href="#" onclick="change_graph(this, 'table17');">homicide per 100k</a></li>
 <li><a href="#" onclick="change_graph(this, 'table18');">homicide by firearm</a></li>
@@ -43,12 +43,12 @@
               </ul>
             </li>
             <li><a>graphs with errors</a>
-              <ul>
+              <ul data-name="unknown" data-columns="4">
               
               </ul>
             </li>
             <li><a>Original CDC data</a>
-              <ul>
+              <ul data-name="per100k" data-columns="0">
               <li><a href="#" onclick="change_graph(this, 'table22');">original cdc california homicides</a></li>
 <li><a href="#" onclick="change_graph(this, 'table23');">original cdc data homicides</a></li>
 <li><a href="#" onclick="change_graph(this, 'table24');">original cdc data homicides under 18</a></li>
