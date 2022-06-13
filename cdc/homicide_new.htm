@@ -59,8 +59,8 @@
 		async function change_graph(table_name) {
             if (document.getElementById('table').innerHTML != "")
                 document.getElementById('intro').style.display = "none";
-            document.getElementById("graph").innerHTML = "<center><h1>Graph waiting for CDC data to download";
-            document.getElementById("table").innerHTML = "<center><h1>Downloading CDC data</h1></center>";
+            document.getElementById("graph").innerHTML = "<h1>Graph waiting for CDC data to download</h1>";
+            document.getElementById("table").innerHTML = "<h1>Downloading CDC data</h1>";
             document.getElementById("table").innerHTML = await read_file(table_name + ".table");
 		}
 
