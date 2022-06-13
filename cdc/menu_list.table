@@ -65,14 +65,14 @@
             </li>
             <li><a>Download spreadsheet</a>
               <ul>
-                <li><a href="homicide.html" target="__blank">homicide.html</a></li>
-                <li><a href="menu.css" target="__blank">menu.css</a></li>
-                <li><a href="social_media_photo1.png" target="__blank">social_media_photo1.png</a></li>
-                <li><a href="homicide.ods" target="__blank">homcide.ods spreadsheet</a></li>
-                <li><a href="cdc_html_rework.py" target="__blank">cdc_html_rework.py</a></li>
-                <li><a href="cdc_to_graph.py" target="__blank">cdc_to_graph.py</a></li>
-                <li><a href="dygraph.js" target="__blank">dygraph.js</a>.</li>
-                <li><a href="dygraph.min.js" target="__blank">dygraph.min.js</a></li>
+                <li><a download href="homicide.html" target="__blank">homicide.html</a></li>
+                <li><a download href="menu.css" target="__blank">menu.css</a></li>
+                <li><a download href="social_media_photo1.png" target="__blank">social_media_photo1.png</a></li>
+                <li><a download href="homicide.ods" target="__blank">homcide.ods spreadsheet</a></li>
+                <li><a download href="cdc_html_rework.py" target="__blank">cdc_html_rework.py</a></li>
+                <li><a download href="cdc_to_graph.py" target="__blank">cdc_to_graph.py</a></li>
+                <li><a download href="dygraph.css" target="__blank">dygraph.css</a></li>
+                <li><a download href="dygraph.min.js" target="__blank">dygraph.min.js</a></li>
               </ul>
             </li>            
           </ul>
