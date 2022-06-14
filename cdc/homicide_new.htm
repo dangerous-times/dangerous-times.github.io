@@ -47,25 +47,51 @@
 		}
 	</style>
 	<link rel="stylesheet" href="menu.css" />
-	<script type="text/javascript">
 
+	<script type="text/javascript">
+		/* Load the menu */
 		async function load_menu() {
 			document.getElementById('menu').innerHTML = await read_file("menu_list.table");
-			await change_graph();
+			await load_table();
 		}
-	</script>	
 
-	<script type="text/javascript">	
+		/* setup table row selection */
+		function setup_row_selection() {
+			window.onclick = function(e) {
+				if (e.path[0].nodeName != "TD" || e.path[1].nodeName != "TR") 
+					return;
+				if (e.path[1].previousElementSibling == null) // first TR can't be selected
+					return;
+				if (e.path[1].style.backgroundColor == "") {  // flip selection
+					e.path[1].style.backgroundColor = "lightgreen";
+					let row_count = 0;
+					for (let row_count in selected_rows)
+						if (selected_rows[row_count].data_row_number > e.path[1].data_row_number)
+							break;
+					selected_rows.splice(row_count,0,e.path[1]);  // add selected row
+				}	
+				else {  // removing a selected row
+					if (selected_rows == 1) {
+						alert("Remove row denied because it is the last remaining row");
+						return;
+					}
+					e.path[1].style.backgroundColor = "";
+					while (selected_rows.indexOf(e.path[1]) >= 0)
+						selected_rows.splice(selected_rows.indexOf(e.path[1]),1)
+				}
+				console.log("clicked",e);
+				work = e; 
+			}
+		}
+
 		/* read a file */
 		async function read_file(url) {
 			response = await fetch(url);
 			return( await response.text()); // read response body as text
 		}
-	</script>
-	
-	<script type="text/javascript">
-		/* load new table & graph */
-		async function change_graph(element) {
+
+		/* load new table */
+		async function load_table(element) {
 			v = Object();
             if (document.getElementById("table").innerHTML != "")
                 document.getElementById("info").style.display = "none";
@@ -78,39 +104,65 @@
 			else
 				v.el = element;
 
-			v.work = await read_file(v.el.id + ".table");
-			document.getElementById("table").innerHTML = v.work;
             document.getElementById("table").innerHTML = await read_file(v.el.id  + ".table");
 
-			/* display graph */
+			/* Save number of columns for graphing */
 			v.columns = v.el.parentElement.parentElement.getAttribute("data-columns");
 			if (! v.columns) {
 				document.getElementById("graph").innerHTML = "<h1>Graph not supported for this data</h1>";
 				return;
 			}
-			v.tr_list = document.getElementById("table").getElementsByTagName("tr");
+
+			/* Create list of selected rows */
+			v.tr_elements = document.getElementById("table").getElementsByTagName("tr"); // <tr>
+			selected_rows = [];
+			for (v.i=0; v.i<v.tr_elements.length; v.i++) {
+				v.element = v.tr_elements[v.i];  // <tr>
+				v.element.data_row_number = v.i;
+				if (v.tr_elements[v.i].firstElementChild.bgColor != "") {
+					selected_rows.push(v.element);
+					v.element.style.backgroundColor = "lightgreen";
+					v.element = v.element.firstElementChild;    // first <td>
+					while (v.element != null) {
+						v.element.bgColor = "";
+						v.element = v.element.nextElementSibling;      // next <td> 
+					}
+				}
+			}
+
 			v.graph_data = [];
-			for (v.i=0; v.i<v.tr_list.length; v.i++) {
-				v.td_list = v.tr_list[v.i].getElementsByTagName("td");
+			for (v.selected_row in v.selected_rows) {
+				v.next_td = v.selected_rows[v.selected_row].firstElementChild;
 				v.row = [];
-				for (v.j=0; v.j<v.columns; v.j++) {
-					v.row.push(v.td_list[v.j].textContent);
+				for (v.i=0; v.i<v.columns; v.i++) {
+					v.row.push(v.next_td.textContent);
+					v.next_td = v.next_td.nextElementSibling;
 				}
 				v.graph_data.push(v.row);
 			}
-			console.log(v.graph_data);
+			display_graph();
+
 			v = undefined;
 			delete v;
 		}
 
-		function test(xx) {
-			console.log("running jon", xx)
+		/* display graph from selected_rows */
+		function display_graph() {
+/*
+			graph = new Dygraph(document.getElementById("graph"), v.graph_data,
+			{
+				// options go here. See http://dygraphs.com/options.html
+				legend: 'always',
+				animatedZooms: true,
+				title: 'dygraphs chart template'
+			});
+*/			console.log(v.graph_data);
 		}
 	</script>
 
 </head>
 
-<body onload='load_menu();'>
+<body onload='load_menu(); setup_row_selection();'>
 	<div id="menu"></div>
 	<br/><!-- eliminate first line overlayed -->
 	<div id="info" style="max-width: 8in;">
