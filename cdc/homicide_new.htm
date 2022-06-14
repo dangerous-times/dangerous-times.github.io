@@ -54,37 +54,57 @@
 			await change_graph();
 		}
 	</script>	
+
+	<script type="text/javascript">	
+		/* read a file */
+		async function read_file(url) {
+			response = await fetch(url);
+			return( await response.text()); // read response body as text
+		}
+	</script>
 	
-    <script type="text/javascript">
+	<script type="text/javascript">
 		/* load new table & graph */
 		async function change_graph(element) {
-            if (document.getElementById('table').innerHTML != "")
-                document.getElementById('info').style.display = "none";
+			v = Object();
+            if (document.getElementById("table").innerHTML != "")
+                document.getElementById("info").style.display = "none";
             document.getElementById("graph").innerHTML = "<h1>Graph will display when CDC data has been downloaded</h1>";
             document.getElementById("table").innerHTML = "<h1>Downloading CDC data</h1>";
 
 			/* Use table1 as the default table (all usa per 100K) */
-			if (element == undefined) {
-				let element = document.getElementById("table0");
-				let parm = document.getElementById("table0")
-				console.log("xxx",element,parm);
-			}
+			if (element == undefined) 
+				v.el = document.getElementById("table0");  /* startup with this table */
+			else
+				v.el = element;
 
-            document.getElementById("table").innerHTML = await read_file(element.id + ".table");
+			v.work = await read_file(v.el.id + ".table");
+			document.getElementById("table").innerHTML = v.work;
+            document.getElementById("table").innerHTML = await read_file(v.el.id  + ".table");
 
 			/* display graph */
-			let columns = element.parentElement.parentElement.getAttribute("data-columns");
-			if (! columns) {
-				document.getElementById("graph").innerHTML = "<h1>Graph not supported by this data</h1>";
+			v.columns = v.el.parentElement.parentElement.getAttribute("data-columns");
+			if (! v.columns) {
+				document.getElementById("graph").innerHTML = "<h1>Graph not supported for this data</h1>";
 				return;
 			}
-			document.getElementById("graph").innerHTML = "<h1>Graph routine to be written</h1>";
+			v.tr_list = document.getElementById("table").getElementsByTagName("tr");
+			v.graph_data = [];
+			for (v.i=0; v.i<v.tr_list.length; v.i++) {
+				v.td_list = v.tr_list[v.i].getElementsByTagName("td");
+				v.row = [];
+				for (v.j=0; v.j<v.columns; v.j++) {
+					v.row.push(v.td_list[v.j].textContent);
+				}
+				v.graph_data.push(v.row);
+			}
+			console.log(v.graph_data);
+			v = undefined;
+			delete v;
 		}
 
-		/* read a file */
-		async function read_file(url) {
-			let response = await fetch(url);
-			return( await response.text()); // read response body as text
+		function test(xx) {
+			console.log("running jon", xx)
 		}
 	</script>
 
@@ -112,6 +132,6 @@
 			
 	</div>
 	<div id="graph"></div>
-	<div id="table"></div>
+	<div id="table" ></div>
 
 </body></html>
