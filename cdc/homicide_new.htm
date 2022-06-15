@@ -65,7 +65,7 @@
 				if (e.path[1].style.backgroundColor == "") {  // flip selection
 					e.path[1].style.backgroundColor = "lightgreen";
 					let row_count = 0;
-					for (let row_count in selected_rows)
+					for (row_count in selected_rows)
 						if (selected_rows[row_count].data_row_number > e.path[1].data_row_number)
 							break;
 					selected_rows.splice(row_count,0,e.path[1]);  // add selected row
@@ -107,15 +107,16 @@
             document.getElementById("table").innerHTML = await read_file(v.el.id  + ".table");
 
 			/* Save number of columns for graphing */
-			v.columns = v.el.parentElement.parentElement.getAttribute("data-columns");
-			if (! v.columns) {
+			selected_columns = v.el.parentElement.parentElement.getAttribute("data-columns");
+			if (! selected_columns) {
 				document.getElementById("graph").innerHTML = "<h1>Graph not supported for this data</h1>";
 				return;
 			}
 
 			/* Create list of selected rows */
 			v.tr_elements = document.getElementById("table").getElementsByTagName("tr"); // <tr>
-			selected_rows = [];
+			v.tr_elements[0].style.backgroundColor = 'lightblue';
+			selected_rows = [v.tr_elements[0]];
 			for (v.i=0; v.i<v.tr_elements.length; v.i++) {
 				v.element = v.tr_elements[v.i];  // <tr>
 				v.element.data_row_number = v.i;
@@ -129,17 +130,8 @@
 					}
 				}
 			}
+			
 
-			v.graph_data = [];
-			for (v.selected_row in v.selected_rows) {
-				v.next_td = v.selected_rows[v.selected_row].firstElementChild;
-				v.row = [];
-				for (v.i=0; v.i<v.columns; v.i++) {
-					v.row.push(v.next_td.textContent);
-					v.next_td = v.next_td.nextElementSibling;
-				}
-				v.graph_data.push(v.row);
-			}
 			display_graph();
 
 			v = undefined;
@@ -148,15 +140,55 @@
 
 		/* display graph from selected_rows */
 		function display_graph() {
-/*
-			graph = new Dygraph(document.getElementById("graph"), v.graph_data,
-			{
-				// options go here. See http://dygraphs.com/options.html
-				legend: 'always',
-				animatedZooms: true,
-				title: 'dygraphs chart template'
-			});
-*/			console.log(v.graph_data);
+
+			let graph_data = [];
+			for (let selected_row in selected_rows) {
+				let next_td = selected_rows[selected_row].firstElementChild;
+				let row = [];
+				for (let i=0; i<selected_columns; i++) {
+					row.push(next_td.textContent);
+					next_td = next_td.nextElementSibling;
+				}
+				graph_data.push(row);
+			}
+
+			/* create tab seperated data and flip XY */
+			let graph_data_csv = "";
+			for (let row in graph_data[0]) {
+				for (let column in graph_data) {
+					graph_data_csv += "  " + graph_data[column][row] + "\t";
+				}
+				graph_data_csv += "\n";
+			}
+			graph_data_csv += graph_data[0][graph_data[0].length-1] + ".01\t\n";  // to force display of last column, we need another column that is .01 larger 
+			
+			let column_titles = [];
+			for (let i=graph_data[0][1]; i<graph_data[0][graph_data[0].length]; i++) 
+				column_titles.push({v: i, label: i});
+
+			graph = new Dygraph(document.getElementById("graph"), graph_data_csv,
+				{
+					// options go here. See http://dygraphs.com/options.html
+					legend: 'always',
+					animatedZooms: true,
+					strokeWidth: 4.5,    	
+					title: 'dygraphs setup',
+					labelsDiv: document.getElementById('graph_legend'),
+					labelsDivStyles: {
+     					'textAlign': 'right'
+    				},
+                    labelsSeparateLines: true,
+					axes: {
+						x: {
+							ticker: function(min, max, pixels, opts, dygraph, vals) {
+								return [{ v: 2018, label: "2018"}, {v: 2019, label: "2019"}, {v: 2020, label: "2020"}];
+								// return Dygraph.getDateAxis(min, max, Dygraph.HOURLY, opts, dygraph);
+							},
+						},
+					}
+				});
+
+			console.log(graph_data_csv);
 		}
 	</script>
 
@@ -183,7 +215,7 @@
 		<p>The exported CDC data was reformatted using python program in the download list above. The CDC exported file name is specified as a parm. The program creates 2 CSV files for each CDC exported  (per 100K & simple reformat.</p>
 			
 	</div>
-	<div id="graph"></div>
+	<table><tr> <td><div id="graph"></div></td>  <td><div id="graph_legend"></div></td> </tr></table>
 	<div id="table" ></div>
 
 </body></html>
