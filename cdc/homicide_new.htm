@@ -169,8 +169,6 @@
 			if (table.length == 1) {
 				let rows = table[0].getElementsByTagName('tr');
 				rows[0].classList.add("header");
-				for (let i=0; i<rows.length; i++)
-					rows[i].children[0].classList.add("column1");
 				let table_info = rows[rows.length-1].children[0].innerHTML;
 				if (table_info.substr(0,11) != "table_info ") {  // Displaying original CDC data
 					document.getElementById("graph_per100k").innerHTML = "";
@@ -178,6 +176,8 @@
 					document.getElementById("graph_actual").style.height = "";
 					return;
 				}
+				for (let i=0; i<rows.length; i++)
+					rows[i].children[0].classList.add("column1");
 				document.getElementById("work").innerHTML = "<div id='work2' " + table_info.substr(11) + ">work area</div>";
 				let work2 = document.getElementById("work2");
 				p.data_source = work2.getAttribute("data_filename");
