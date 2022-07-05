@@ -1,5 +1,0 @@
-<center><h1>Info about using CDC WONDER and the download files</h1></center>
-	
-<p>CDC WONDER was used to extract the data to produce the graphs and spreadsheets. E.g. saved CDC firearm homicide report <a target="_blank" href="https://wonder.cdc.gov/controller/saved/D158/D293F524">https://wonder.cdc.gov/controller/saved/D158/D293F524</a></p>
-    
-<p>The exported CDC data was reformatted using python program in the download list above. The CDC exported file name is specified as a parm. The program creates 2 CSV files for each CDC exported  (per 100K & simple reformat.</p>
