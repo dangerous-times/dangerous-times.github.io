@@ -154,14 +154,14 @@
 
 			/* Use table1 as the default table (all usa per 100K) */
 			if (t.graph == "") {
-				document.getElementById("info").innerHTML = await read_file("intro.htm"); 
+				document.getElementById("info").innerHTML = await read_file("intro.info"); 
 				return;
 			}
 
 			document.getElementById("graph_per100k").innerHTML = "<h1>Graph will display when CDC data has been downloaded</h1>";
 			document.getElementById("table").innerHTML = "<h1>Downloading CDC data</h1>";
 
-			document.getElementById("info").innerHTML = await read_file(t.graph  + ".htm", "optional");
+			document.getElementById("info").innerHTML = await read_file(t.graph  + ".info", "optional");
 			document.getElementById("table").innerHTML = await read_file(t.graph  + ".table");
 
 			/* Get the table info */
@@ -329,14 +329,7 @@
 				<li id="menuHomicide">menuHomicide failed to load</li>
 				<li><a>Download files</a>
 				  <ul>
-					<li><a download href="homicide.htm" target="__blank">homicide.htm</a></li>
-					<li><a download href="menu.css" target="__blank">menu.css</a></li>
-					<li><a download href="social_media_photo1.png" target="__blank">social_media_photo1.png</a></li>
-					<li><a download href="homicide.ods" target="__blank">homcide.ods spreadsheet</a></li>
-					<li><a download href="cdc_html_rework.py" target="__blank">cdc_html_rework.py</a></li>
-					<li><a download href="cdc_to_graph.py" target="__blank">cdc_to_graph.py</a></li>
-					<li><a download href="dygraph.css" target="__blank">dygraph.css</a></li>
-					<li><a download href="dygraph.min.js" target="__blank">dygraph.min.js</a></li>
+					<li><a download href="homicide_graphs.7z">Code & files used to build CDC graphs</a></li>
 				  </ul>
 				</li>            
 			  </ul>
