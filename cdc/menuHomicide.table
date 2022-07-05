@@ -17,7 +17,7 @@
               <li><a id="homicides by firearm by age" onclick="load_table(this);">homicides by firearm </a></li>
 <li><a id="homicides by age" onclick="load_table(this);">homicides </a></li>
 <li><a id="suicide by firearm by age" onclick="load_table(this);">suicide by firearm </a></li>
-
+<li><a id="suicide by age" onclick="load_table(this);">suicide </a></li>
               </ul>
             </li>
             
