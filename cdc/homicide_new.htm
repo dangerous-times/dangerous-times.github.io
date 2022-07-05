@@ -48,6 +48,11 @@
 	</style>
 	<link rel="stylesheet" href="menu.css" />
 
+	<!-- Dygraphs styling -->
+	<style>
+		.dygraph-title {font-size: 18pt}
+	</style>
+
 	<script type="text/javascript">
 		/* Load the menu */
 		async function load_menu() {
@@ -161,10 +166,11 @@
 				graph_data_csv += "\n";
 			}
 			graph_data_csv += graph_data[0][graph_data[0].length-1] + ".01\t\n";  // to force display of last column, we need another column that is .01 larger 
-			
-			let column_titles = [];
-			for (let i=graph_data[0][1]; i<graph_data[0][graph_data[0].length]; i++) 
-				column_titles.push({v: i, label: i});
+
+			/* eliminate extra unused column ticks like 2018.5 */	
+			let fix_column_titles = [];
+			for (let i=graph_data[0][1]; i<=graph_data[0][graph_data[0].length-1]; i++) 
+				fix_column_titles.push({v: i, label: i});
 
 			graph = new Dygraph(document.getElementById("graph"), graph_data_csv,
 				{
@@ -172,7 +178,7 @@
 					legend: 'always',
 					animatedZooms: true,
 					strokeWidth: 4.5,    	
-					title: 'dygraphs setup',
+					title: 'Homicide per 100K in California',
 					labelsDiv: document.getElementById('graph_legend'),
 					labelsDivStyles: {
      					'textAlign': 'right'
@@ -181,7 +187,8 @@
 					axes: {
 						x: {
 							ticker: function(min, max, pixels, opts, dygraph, vals) {
-								return [{ v: 2018, label: "2018"}, {v: 2019, label: "2019"}, {v: 2020, label: "2020"}];
+								return fix_column_titles;
+								// return [{ v: 2018, label: "2018"}, {v: 2019, label: "2019"}, {v: 2020, label: "2020"}];
 								// return Dygraph.getDateAxis(min, max, Dygraph.HOURLY, opts, dygraph);
 							},
 						},

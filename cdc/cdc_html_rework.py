@@ -59,7 +59,7 @@ def build_menu(menu_data):
             continue
           if menu_item[1] == "":
             menu_item[1] = "all USA"
-          outfile.write('<li><a id="' + menu_item[0] + '" href="#" onclick="change_graph(this);">' + menu_item[1] + '</a></li>\n')
+          outfile.write('<li><a id="' + menu_item[0] + '" href="#" onclick="load_table(this);">' + menu_item[1] + '</a></li>\n')
     outfile.close()
 
 build_menu( ['''

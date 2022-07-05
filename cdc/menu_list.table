@@ -7,38 +7,38 @@
           <ul>
             <li><a>Per 100K</a>
               <ul data-name="per100k" data-columns="4">
-              <li><a id="table0" href="#" onclick="change_graph(this);">in california</a></li>
-<li><a id="table1" href="#" onclick="change_graph(this);">all USA</a></li>
-<li><a id="table2" href="#" onclick="change_graph(this);">under 18</a></li>
-<li><a id="table3" href="#" onclick="change_graph(this);">over 18</a></li>
-<li><a id="table4" href="#" onclick="change_graph(this);">by firearm in california</a></li>
-<li><a id="table5" href="#" onclick="change_graph(this);">by firearm</a></li>
-<li><a id="table6" href="#" onclick="change_graph(this);">under 18 by firearm</a></li>
-<li><a id="table7" href="#" onclick="change_graph(this);">over 18 by firearm</a></li>
+              <li><a id="table0" href="#" onclick="load_table(this);">in california</a></li>
+<li><a id="table1" href="#" onclick="load_table(this);">all USA</a></li>
+<li><a id="table2" href="#" onclick="load_table(this);">under 18</a></li>
+<li><a id="table3" href="#" onclick="load_table(this);">over 18</a></li>
+<li><a id="table4" href="#" onclick="load_table(this);">by firearm in california</a></li>
+<li><a id="table5" href="#" onclick="load_table(this);">by firearm</a></li>
+<li><a id="table6" href="#" onclick="load_table(this);">under 18 by firearm</a></li>
+<li><a id="table7" href="#" onclick="load_table(this);">over 18 by firearm</a></li>
 
               </ul>
             </li>
             <li><a>All homicides</a>
               <ul data-name="homicides" data-columns="4">
-              <li><a id="table8" href="#" onclick="change_graph(this);">in california</a></li>
-<li><a id="table9" href="#" onclick="change_graph(this);">all USA</a></li>
-<li><a id="table10" href="#" onclick="change_graph(this);">under 18</a></li>
-<li><a id="table11" href="#" onclick="change_graph(this);">over 18</a></li>
-<li><a id="table12" href="#" onclick="change_graph(this);">by firearms in california</a></li>
-<li><a id="table13" href="#" onclick="change_graph(this);">by firearm</a></li>
-<li><a id="table14" href="#" onclick="change_graph(this);">under 18 by firearms</a></li>
-<li><a id="table15" href="#" onclick="change_graph(this);">over 18 by firearms</a></li>
+              <li><a id="table8" href="#" onclick="load_table(this);">in california</a></li>
+<li><a id="table9" href="#" onclick="load_table(this);">all USA</a></li>
+<li><a id="table10" href="#" onclick="load_table(this);">under 18</a></li>
+<li><a id="table11" href="#" onclick="load_table(this);">over 18</a></li>
+<li><a id="table12" href="#" onclick="load_table(this);">by firearms in california</a></li>
+<li><a id="table13" href="#" onclick="load_table(this);">by firearm</a></li>
+<li><a id="table14" href="#" onclick="load_table(this);">under 18 by firearms</a></li>
+<li><a id="table15" href="#" onclick="load_table(this);">over 18 by firearms</a></li>
 
               </ul>
             </li>
             <li><a>homicides/suicides by age</a>
               <ul data-name="byage" data-columns="102">
-              <li><a id="table16" href="#" onclick="change_graph(this);">homicide</a></li>
-<li><a id="table17" href="#" onclick="change_graph(this);">homicide per 100k</a></li>
-<li><a id="table18" href="#" onclick="change_graph(this);">homicide by firearm</a></li>
-<li><a id="table19" href="#" onclick="change_graph(this);">homicide per 100k by firearm</a></li>
-<li><a id="table20" href="#" onclick="change_graph(this);">suicide per 100k by firearm</a></li>
-<li><a id="table21" href="#" onclick="change_graph(this);">suicide by firearm</a></li>
+              <li><a id="table16" href="#" onclick="load_table(this);">homicide</a></li>
+<li><a id="table17" href="#" onclick="load_table(this);">homicide per 100k</a></li>
+<li><a id="table18" href="#" onclick="load_table(this);">homicide by firearm</a></li>
+<li><a id="table19" href="#" onclick="load_table(this);">homicide per 100k by firearm</a></li>
+<li><a id="table20" href="#" onclick="load_table(this);">suicide per 100k by firearm</a></li>
+<li><a id="table21" href="#" onclick="load_table(this);">suicide by firearm</a></li>
 
               </ul>
             </li>
@@ -49,17 +49,17 @@
             </li>
             <li><a>Original CDC data</a>
               <ul data-name="original" data-columns="0">
-              <li><a id="table22" href="#" onclick="change_graph(this);">original cdc california homicides</a></li>
-<li><a id="table23" href="#" onclick="change_graph(this);">original cdc data homicides</a></li>
-<li><a id="table24" href="#" onclick="change_graph(this);">original cdc data homicides under 18</a></li>
-<li><a id="table25" href="#" onclick="change_graph(this);">original cdc homicide over 18</a></li>
-<li><a id="table26" href="#" onclick="change_graph(this);">original cdc homicide over 18 by firearm</a></li>
-<li><a id="table27" href="#" onclick="change_graph(this);">original cdc california homicides by firearms</a></li>
-<li><a id="table28" href="#" onclick="change_graph(this);">original cdc data homicides by firearms</a></li>
-<li><a id="table29" href="#" onclick="change_graph(this);">original cdc data homicides by firearms under 18</a></li>
-<li><a id="table30" href="#" onclick="change_graph(this);">original cdc homicide by age</a></li>
-<li><a id="table31" href="#" onclick="change_graph(this);">original cdc homicide by firearm by age</a></li>
-<li><a id="table32" href="#" onclick="change_graph(this);">original cdc suicide by firearm by age</a></li>
+              <li><a id="table22" href="#" onclick="load_table(this);">original cdc california homicides</a></li>
+<li><a id="table23" href="#" onclick="load_table(this);">original cdc data homicides</a></li>
+<li><a id="table24" href="#" onclick="load_table(this);">original cdc data homicides under 18</a></li>
+<li><a id="table25" href="#" onclick="load_table(this);">original cdc homicide over 18</a></li>
+<li><a id="table26" href="#" onclick="load_table(this);">original cdc homicide over 18 by firearm</a></li>
+<li><a id="table27" href="#" onclick="load_table(this);">original cdc california homicides by firearms</a></li>
+<li><a id="table28" href="#" onclick="load_table(this);">original cdc data homicides by firearms</a></li>
+<li><a id="table29" href="#" onclick="load_table(this);">original cdc data homicides by firearms under 18</a></li>
+<li><a id="table30" href="#" onclick="load_table(this);">original cdc homicide by age</a></li>
+<li><a id="table31" href="#" onclick="load_table(this);">original cdc homicide by firearm by age</a></li>
+<li><a id="table32" href="#" onclick="load_table(this);">original cdc suicide by firearm by age</a></li>
 
               </ul>
             </li>
