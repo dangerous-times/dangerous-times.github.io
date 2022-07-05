@@ -87,13 +87,11 @@
 		/* setup table row selection */
 		function setup_row_selection() {
 			window.onclick = function(e) {
-				if (e.path[0].nodeName != "TD" || e.path[1].nodeName != "TR") 
+				if (e.target.nodeName != "TD" || e.target.parentElement.rowIndex == 0) 
 					return;
-				if (e.path[1].previousElementSibling == null) // first TR can't be selected
-					return;
-				if (e.path[1].style.backgroundColor == "") {  // User wants to select this line
-					e.path[1].style.backgroundColor = "lightgreen";
-					p.selected_rows.push(e.path[1]);  // add selected row
+				if (e.target.parentElement.style.backgroundColor == "") {  // User wants to select this line
+					e.target.parentElement.style.backgroundColor = "lightgreen";
+					p.selected_rows.push(e.target.parentElement);  // add selected row
 					let sort_selected_rows = [];
 					for (let i = 0; i<p.selected_rows.length; i++) {
 						sort_selected_rows.push([
@@ -107,9 +105,9 @@
 						p.selected_rows.push( sort_selected_rows[i][1] );
 				
 				} else {  // removing a selected row
-					e.path[1].style.backgroundColor = "";
-					while (p.selected_rows.indexOf(e.path[1]) >= 0)
-						p.selected_rows.splice(p.selected_rows.indexOf(e.path[1]),1)
+					e.target.parentElement.style.backgroundColor = "";
+					while (p.selected_rows.indexOf(e.target.parentElement) >= 0)
+						p.selected_rows.splice(p.selected_rows.indexOf(e.target.parentElement),1)
 				}
 
 				display_graph();
