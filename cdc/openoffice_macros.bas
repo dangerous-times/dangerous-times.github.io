@@ -24,7 +24,7 @@ Sub load_homicide_sheets
 End Sub
 
 Sub loadCSV(filename, sheetname, sheetNumber)
-   cURL = convertToUrl( "C:\Users\jperr\python\homicide_files\work\" & filename & ".csv")
+   cURL = convertToUrl( "C:\Users\xxxxx\python\homicide_files\work\" & filename & ".csv")
 
    REM ** Create sheet from CSV file **
    Const cFO = "9,34,76,1,,1033,false,true"       ' Sheet formatting options
