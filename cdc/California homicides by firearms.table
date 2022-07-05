@@ -1,0 +1,149 @@
+<a name="table2"><h1>Sheet 3: <em>California homicides by firearms</em></h1></a>
+<table frame="VOID" cellspacing="0" cols="9" rules="NONE" border="0">
+	<colgroup><col width="605"><col width="95"><col width="74"><col width="95"><col width="74"><col width="95"><col width="74"><col width="97"><col width="97"></colgroup>
+	<tbody>
+		<tr>
+			<td style="border-top: 3px solid #000000; border-bottom: 3px solid #000000; border-left: 3px solid #000000; border-right: 3px solid #000000" width="605" height="34" align="CENTER">race &amp; gender</td>
+			<td style="border-top: 3px solid #000000; border-bottom: 3px solid #000000; border-left: 3px solid #000000; border-right: 3px solid #000000" width="95" align="CENTER">2018<br> per 100K</td>
+			<td style="border-top: 3px solid #000000; border-bottom: 3px solid #000000; border-left: 3px solid #000000; border-right: 3px solid #000000" width="74" align="CENTER">2018<br>actual</td>
+			<td style="border-top: 3px solid #000000; border-bottom: 3px solid #000000; border-left: 3px solid #000000; border-right: 3px solid #000000" width="95" align="CENTER">2019<br> per 100K</td>
+			<td style="border-top: 3px solid #000000; border-bottom: 3px solid #000000; border-left: 3px solid #000000; border-right: 3px solid #000000" width="74" align="CENTER">2019<br>actual</td>
+			<td style="border-top: 3px solid #000000; border-bottom: 3px solid #000000; border-left: 3px solid #000000; border-right: 3px solid #000000" width="95" align="CENTER">2020<br> per 100K</td>
+			<td style="border-top: 3px solid #000000; border-bottom: 3px solid #000000; border-left: 3px solid #000000; border-right: 3px solid #000000" width="74" align="CENTER">2020<br>actual</td>
+			<td style="border-top: 3px solid #000000; border-bottom: 3px solid #000000; border-left: 3px solid #000000; border-right: 3px solid #000000" width="97" align="CENTER">2019<br>% change</td>
+			<td style="border-top: 3px solid #000000; border-bottom: 3px solid #000000; border-left: 3px solid #000000; border-right: 3px solid #000000" width="97" align="CENTER">2020<br>% change</td>
+		</tr>
+		<tr>
+			<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" height="17" align="LEFT" bgcolor="#FFFF99">Black (Not Hispanic) Male</td>
+			<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" align="RIGHT" bgcolor="#FFFF99" sdval="25.6" sdnum="1033;1033;#,##0.0">25.6</td>
+			<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" align="RIGHT" bgcolor="#FFFF99" sdval="283" sdnum="1033;1033;#,##0">283</td>
+			<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" align="RIGHT" bgcolor="#FFFF99" sdval="30.2" sdnum="1033;1033;#,##0.0">30.2</td>
+			<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" align="RIGHT" bgcolor="#FFFF99" sdval="334" sdnum="1033;1033;#,##0">334</td>
+			<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" align="RIGHT" bgcolor="#FFFF99" sdval="45.2" sdnum="1033;1033;#,##0.0">45.2</td>
+			<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" align="RIGHT" bgcolor="#FFFF99" sdval="498" sdnum="1033;1033;#,##0">498</td>
+			<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" align="RIGHT" bgcolor="#FFFF99" sdval="0.18" sdnum="1033;1033;0%">18%</td>
+			<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" align="RIGHT" bgcolor="#FFFF99" sdval="0.49" sdnum="1033;1033;0%">49%</td>
+		</tr>
+		<tr>
+			<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" height="17" align="LEFT">More than one race (Hispanic) Male</td>
+			<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" align="RIGHT" sdval="10.1" sdnum="1033;1033;#,##0.0">10.1</td>
+			<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" align="RIGHT" sdval="23" sdnum="1033;1033;#,##0">23</td>
+			<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" align="LEFT" sdnum="1033;1033;#,##0.0"><br></td>
+			<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" align="RIGHT" sdval="17" sdnum="1033;1033;#,##0">17</td>
+			<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" align="RIGHT" sdval="10.9" sdnum="1033;1033;#,##0.0">10.9</td>
+			<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" align="RIGHT" sdval="26" sdnum="1033;1033;#,##0">26</td>
+			<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" align="RIGHT" sdval="-0.26" sdnum="1033;1033;0%">-26%</td>
+			<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" align="RIGHT" sdval="0.53" sdnum="1033;1033;0%">53%</td>
+		</tr>
+		<tr>
+			<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" height="17" align="LEFT" bgcolor="#FFFF99">White (Hispanic) Male</td>
+			<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" align="RIGHT" bgcolor="#FFFF99" sdval="7.7" sdnum="1033;1033;#,##0.0">7.7</td>
+			<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" align="RIGHT" bgcolor="#FFFF99" sdval="538" sdnum="1033;1033;#,##0">538</td>
+			<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" align="RIGHT" bgcolor="#FFFF99" sdval="7.3" sdnum="1033;1033;#,##0.0">7.3</td>
+			<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" align="RIGHT" bgcolor="#FFFF99" sdval="515" sdnum="1033;1033;#,##0">515</td>
+			<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" align="RIGHT" bgcolor="#FFFF99" sdval="10.2" sdnum="1033;1033;#,##0.0">10.2</td>
+			<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" align="RIGHT" bgcolor="#FFFF99" sdval="714" sdnum="1033;1033;#,##0">714</td>
+			<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" align="RIGHT" bgcolor="#FFFF99" sdval="-0.04" sdnum="1033;1033;0%">-4%</td>
+			<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" align="RIGHT" bgcolor="#FFFF99" sdval="0.39" sdnum="1033;1033;0%">39%</td>
+		</tr>
+		<tr>
+			<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" height="17" align="LEFT" bgcolor="#FFFF99">Black (Not Hispanic) Female</td>
+			<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" align="RIGHT" bgcolor="#FFFF99" sdval="3.1" sdnum="1033;1033;#,##0.0">3.1</td>
+			<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" align="RIGHT" bgcolor="#FFFF99" sdval="35" sdnum="1033;1033;#,##0">35</td>
+			<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" align="RIGHT" bgcolor="#FFFF99" sdval="3.1" sdnum="1033;1033;#,##0.0">3.1</td>
+			<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" align="RIGHT" bgcolor="#FFFF99" sdval="35" sdnum="1033;1033;#,##0">35</td>
+			<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" align="RIGHT" bgcolor="#FFFF99" sdval="5.1" sdnum="1033;1033;#,##0.0">5.1</td>
+			<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" align="RIGHT" bgcolor="#FFFF99" sdval="57" sdnum="1033;1033;#,##0">57</td>
+			<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" align="RIGHT" bgcolor="#FFFF99" sdval="0" sdnum="1033;1033;0%">0%</td>
+			<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" align="RIGHT" bgcolor="#FFFF99" sdval="0.63" sdnum="1033;1033;0%">63%</td>
+		</tr>
+		<tr>
+			<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" height="17" align="LEFT">More than one race (Not Hispanic) Male</td>
+			<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" align="LEFT" sdnum="1033;1033;#,##0.0"><br></td>
+			<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" align="RIGHT" sdval="19" sdnum="1033;1033;#,##0">19</td>
+			<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" align="RIGHT" sdval="4.3" sdnum="1033;1033;#,##0.0">4.3</td>
+			<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" align="RIGHT" sdval="24" sdnum="1033;1033;#,##0">24</td>
+			<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" align="RIGHT" sdval="4.7" sdnum="1033;1033;#,##0.0">4.7</td>
+			<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" align="RIGHT" sdval="27" sdnum="1033;1033;#,##0">27</td>
+			<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" align="RIGHT" sdval="0.26" sdnum="1033;1033;0%">26%</td>
+			<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" align="RIGHT" sdval="0.12" sdnum="1033;1033;0%">12%</td>
+		</tr>
+		<tr>
+			<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" height="17" align="LEFT" bgcolor="#FFFF99">White (Not Hispanic) Male</td>
+			<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" align="RIGHT" bgcolor="#FFFF99" sdval="2.4" sdnum="1033;1033;#,##0.0">2.4</td>
+			<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" align="RIGHT" bgcolor="#FFFF99" sdval="174" sdnum="1033;1033;#,##0">174</td>
+			<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" align="RIGHT" bgcolor="#FFFF99" sdval="1.8" sdnum="1033;1033;#,##0.0">1.8</td>
+			<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" align="RIGHT" bgcolor="#FFFF99" sdval="128" sdnum="1033;1033;#,##0">128</td>
+			<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" align="RIGHT" bgcolor="#FFFF99" sdval="2.5" sdnum="1033;1033;#,##0.0">2.5</td>
+			<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" align="RIGHT" bgcolor="#FFFF99" sdval="180" sdnum="1033;1033;#,##0">180</td>
+			<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" align="RIGHT" bgcolor="#FFFF99" sdval="-0.26" sdnum="1033;1033;0%">-26%</td>
+			<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" align="RIGHT" bgcolor="#FFFF99" sdval="0.41" sdnum="1033;1033;0%">41%</td>
+		</tr>
+		<tr>
+			<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" height="17" align="LEFT">Asian (Not Hispanic) Male</td>
+			<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" align="RIGHT" sdval="1.2" sdnum="1033;1033;#,##0.0">1.2</td>
+			<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" align="RIGHT" sdval="33" sdnum="1033;1033;#,##0">33</td>
+			<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" align="RIGHT" sdval="1.1" sdnum="1033;1033;#,##0.0">1.1</td>
+			<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" align="RIGHT" sdval="32" sdnum="1033;1033;#,##0">32</td>
+			<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" align="RIGHT" sdval="1.7" sdnum="1033;1033;#,##0.0">1.7</td>
+			<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" align="RIGHT" sdval="48" sdnum="1033;1033;#,##0">48</td>
+			<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" align="RIGHT" sdval="-0.03" sdnum="1033;1033;0%">-3%</td>
+			<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" align="RIGHT" sdval="0.5" sdnum="1033;1033;0%">50%</td>
+		</tr>
+		<tr>
+			<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" height="17" align="LEFT" bgcolor="#FFFF99">White (Hispanic) Female</td>
+			<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" align="RIGHT" bgcolor="#FFFF99" sdval="1.1" sdnum="1033;1033;#,##0.0">1.1</td>
+			<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" align="RIGHT" bgcolor="#FFFF99" sdval="73" sdnum="1033;1033;#,##0">73</td>
+			<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" align="RIGHT" bgcolor="#FFFF99" sdval="0.9" sdnum="1033;1033;#,##0.0">0.9</td>
+			<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" align="RIGHT" bgcolor="#FFFF99" sdval="66" sdnum="1033;1033;#,##0">66</td>
+			<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" align="RIGHT" bgcolor="#FFFF99" sdval="1.1" sdnum="1033;1033;#,##0.0">1.1</td>
+			<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" align="RIGHT" bgcolor="#FFFF99" sdval="78" sdnum="1033;1033;#,##0">78</td>
+			<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" align="RIGHT" bgcolor="#FFFF99" sdval="-0.1" sdnum="1033;1033;0%">-10%</td>
+			<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" align="RIGHT" bgcolor="#FFFF99" sdval="0.18" sdnum="1033;1033;0%">18%</td>
+		</tr>
+		<tr>
+			<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" height="17" align="LEFT" bgcolor="#FFFF99">White (Not Hispanic) Female</td>
+			<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" align="RIGHT" bgcolor="#FFFF99" sdval="0.7" sdnum="1033;1033;#,##0.0">0.7</td>
+			<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" align="RIGHT" bgcolor="#FFFF99" sdval="50" sdnum="1033;1033;#,##0">50</td>
+			<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" align="RIGHT" bgcolor="#FFFF99" sdval="0.7" sdnum="1033;1033;#,##0.0">0.7</td>
+			<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" align="RIGHT" bgcolor="#FFFF99" sdval="53" sdnum="1033;1033;#,##0">53</td>
+			<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" align="RIGHT" bgcolor="#FFFF99" sdval="0.6" sdnum="1033;1033;#,##0.0">0.6</td>
+			<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" align="RIGHT" bgcolor="#FFFF99" sdval="43" sdnum="1033;1033;#,##0">43</td>
+			<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" align="RIGHT" bgcolor="#FFFF99" sdval="0.06" sdnum="1033;1033;0%">6%</td>
+			<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" align="RIGHT" bgcolor="#FFFF99" sdval="-0.19" sdnum="1033;1033;0%">-19%</td>
+		</tr>
+		<tr>
+			<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" height="17" align="LEFT">Asian (Not Hispanic) Female</td>
+			<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" align="LEFT" sdnum="1033;1033;#,##0.0"><br></td>
+			<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" align="RIGHT" sdval="13" sdnum="1033;1033;#,##0">13</td>
+			<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" align="LEFT" sdnum="1033;1033;#,##0.0"><br></td>
+			<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" align="RIGHT" sdval="12" sdnum="1033;1033;#,##0">12</td>
+			<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" align="LEFT" sdnum="1033;1033;#,##0.0"><br></td>
+			<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" align="RIGHT" sdval="13" sdnum="1033;1033;#,##0">13</td>
+			<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" align="RIGHT" sdval="-0.08" sdnum="1033;1033;0%">-8%</td>
+			<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" align="RIGHT" sdval="0.08" sdnum="1033;1033;0%">8%</td>
+		</tr>
+		<tr>
+			<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" height="17" align="LEFT">Native Hawaiian or Other Pacific Islander (Not Hispanic) Male</td>
+			<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" align="LEFT" sdnum="1033;1033;#,##0.0"><br></td>
+			<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" align="RIGHT" sdval="10" sdnum="1033;1033;#,##0">10</td>
+			<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" align="RIGHT" sdval="0" sdnum="1033;1033;#,##0.0">0.0</td>
+			<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" align="RIGHT" sdval="0" sdnum="1033;1033;#,##0">0</td>
+			<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" align="RIGHT" sdval="0" sdnum="1033;1033;#,##0.0">0.0</td>
+			<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" align="RIGHT" sdval="0" sdnum="1033;1033;#,##0">0</td>
+			<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" align="RIGHT" sdval="-1" sdnum="1033;1033;0%">-100%</td>
+			<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" align="LEFT" sdnum="1033;1033;0%"><br></td>
+		</tr>
+		<tr>
+			<td height="18" align="LEFT">table_info data_filename="c) Original CDC California homicides by firearms.csv" data_type="homicides" data_rows='11' data_start_per100k='2' data_start_actual='3' data_start_changed='8'</td>
+			<td align="LEFT"><br></td>
+			<td align="LEFT"><br></td>
+			<td align="LEFT"><br></td>
+			<td align="LEFT"><br></td>
+			<td align="LEFT"><br></td>
+			<td align="LEFT"><br></td>
+			<td align="LEFT"><br></td>
+			<td align="LEFT"><br></td>
+		</tr>
+	</tbody>
+</table>

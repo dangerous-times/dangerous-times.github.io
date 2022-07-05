@@ -12,13 +12,13 @@
 	<!-- Primary Meta Tags -->
 	<title>Firearm homicides up by staggering 35% in 2020 according to CDC data</title>
 	<meta name="title" content="Firearm homicides up by staggering 35% in 2020 according to CDC data">
-	<meta name="description" content="All Homicides up by 30% in 2020 for a total of 24,576! Black male homicide reached 59 per 100K black males while white male homicide was a mere 4 per 100K white males. Per capita, that's 18X! Look at the graphs and CDC data to see for yourself.">
+	<meta name="description" content="More alarming is black males were 54% of firearm homicides in 2020. According UN ODC data, black male homicide rate (59 per 100k) is now higher than every country in the world (highest is 49 per 100K). Should America be proud or do we have a morality problem?">
 	
 	<!-- Open Graph / Facebook -->
 	<meta property="og:type" content="article">
 	<meta property="og:url" content="https://dangerous-times.github.io/cdc/homicide.htm">
 	<meta property="og:title" content="Firearm homicides up by staggering 35% in 2020 according to CDC data">
-	<meta property="og:description" content="All Homicides up by 30% in 2020 for a total of 24,576! Black male homicide reached 59 per 100K black males while white male homicide was a mere 4 per 100K white males. Per capita, that's 18X! Look at the graphs and CDC data to see for yourself.">
+	<meta property="og:description" content="More alarming is black males were 54% of firearm homicides in 2020. According UN ODC data, black male homicide rate (59 per 100k) is now higher than every country in the world (highest is 49 per 100K). Should America be proud or do we have a morality problem?">
 	<meta property="og:image" content="https://dangerous-times.github.io/cdc/social_media_photo1.png">
 	
 	
@@ -44,20 +44,43 @@
 			margin: 0 auto; max-width: 7in;
 			background-color: black;
 			position:fixed; top:0; left:0;
+			z-index: 500;
 		}
+	</style>
+
+	<!-- data table -->
+	<style>
+		#table tr {
+			background-color: white;
+		}
+		.column1 { 
+			position: -webkit-sticky;  /* for safari */ 
+			position: sticky; 
+			left: 0;
+			background-color: inherit;
+		}
+		.header {
+			position: -webkit-sticky;  /* for safari */ 
+			position: sticky; 
+			top: 0;
+			z-index: 100;
+		}
+
 	</style>
 	<link rel="stylesheet" href="menu.css" />
 
 	<!-- Dygraphs styling -->
 	<style>
 		.dygraph-title {font-size: 18pt}
+		.dygraph-legend-line {border-bottom-width: 7px;}
 	</style>
 
 	<script type="text/javascript">
 		/* Load the menu */
 		async function load_menu() {
-			document.getElementById('menu').innerHTML = await read_file("menu_list.table");
-			await load_table();
+			p = Object();     // Permanent shared variables
+			t = Object();     // shared temp variables
+			document.getElementById('menuHomicide').outerHTML = await read_file("menuHomicide.table");
 		}
 
 		/* setup table row selection */
@@ -67,162 +90,274 @@
 					return;
 				if (e.path[1].previousElementSibling == null) // first TR can't be selected
 					return;
-				if (e.path[1].style.backgroundColor == "") {  // flip selection
+				if (e.path[1].style.backgroundColor == "") {  // User wants to select this line
 					e.path[1].style.backgroundColor = "lightgreen";
-					let row_count = 0;
-					for (row_count in selected_rows)
-						if (selected_rows[row_count].data_row_number > e.path[1].data_row_number)
-							break;
-					selected_rows.splice(row_count,0,e.path[1]);  // add selected row
-				}	
-				else {  // removing a selected row
-					if (selected_rows == 1) {
-						alert("Remove row denied because it is the last remaining row");
-						return;
+					p.selected_rows.push(e.path[1]);  // add selected row
+					let sort_selected_rows = [];
+					for (let i = 0; i<p.selected_rows.length; i++) {
+						sort_selected_rows.push([
+							('000000' + p.selected_rows[i].rowIndex).slice(-7), 
+							p.selected_rows[i]
+						]);
 					}
+					sort_selected_rows.sort();
+					p.selected_rows = [];
+					for (i = 0; i<sort_selected_rows.length; i++)
+						p.selected_rows.push( sort_selected_rows[i][1] );
+				
+				} else {  // removing a selected row
 					e.path[1].style.backgroundColor = "";
-					while (selected_rows.indexOf(e.path[1]) >= 0)
-						selected_rows.splice(selected_rows.indexOf(e.path[1]),1)
+					while (p.selected_rows.indexOf(e.path[1]) >= 0)
+						p.selected_rows.splice(p.selected_rows.indexOf(e.path[1]),1)
 				}
-				console.log("clicked",e);
-				work = e; 
+
+				display_graph();
 			}
 		}
 
 		/* read a file */
-		async function read_file(url) {
-			response = await fetch(url);
-			return( await response.text()); // read response body as text
+		async function read_file(url, optional) {
+			let resp = await fetch(url);
+			if (resp.status == 404 & optional == "optional")
+				return( "" );     // HTTP state 404 means page not found
+			let resp2 = "";
+			if (resp.status != 200)
+				resp2 += "<br/>" + url + " failed with http code "  + resp.status + "<br/>";
+			resp2 += await resp.text(); // wait for complete response and read it
+			return( resp2 ); // read response body as text
 		}
 
 		/* load new table */
 		async function load_table(element) {
-			v = Object();
-            if (document.getElementById("table").innerHTML != "")
-                document.getElementById("info").style.display = "none";
-            document.getElementById("graph").innerHTML = "<h1>Graph will display when CDC data has been downloaded</h1>";
-            document.getElementById("table").innerHTML = "<h1>Downloading CDC data</h1>";
+
+			document.getElementById("info").innerHTML = "";
+			document.getElementById("title").innerHTML = "";
+            document.getElementById("graph_actual").innerHTML = "";
+            document.getElementById("graph_per100k_legend").innerHTML = "";
+            document.getElementById("graph_actual_legend").innerHTML = "";
+			document.getElementById("graph_per100k").innerHTML = "";
+			document.getElementById("table").innerHTML = "";
+
+			/* Parse the URL for the graph to display */
+			if (element != undefined) {
+				window.location.replace(location.origin + location.pathname 
+					+ "?graph=" + element.id)
+			}
+			let url = window.location.href.split("?");
+			t.graph = "";
+			if (url.length == 2) {     // Get graph name from URL
+				let urlArgs = url[1].split("&");
+				for (let i=0; i<urlArgs.length; i++)
+					if (urlArgs[i].substring(0,6) == "graph=")
+						t.graph = urlArgs[i].substring(6);
+			}
 
 			/* Use table1 as the default table (all usa per 100K) */
-			if (element == undefined) 
-				v.el = document.getElementById("table0");  /* startup with this table */
-			else
-				v.el = element;
-
-            document.getElementById("table").innerHTML = await read_file(v.el.id  + ".table");
-
-			/* Save number of columns for graphing */
-			selected_columns = v.el.parentElement.parentElement.getAttribute("data-columns");
-			if (! selected_columns) {
-				document.getElementById("graph").innerHTML = "<h1>Graph not supported for this data</h1>";
+			if (t.graph == "") {
+				document.getElementById("info").innerHTML = await read_file("intro.htm"); 
 				return;
 			}
 
+			document.getElementById("graph_per100k").innerHTML = "<h1>Graph will display when CDC data has been downloaded</h1>";
+			document.getElementById("table").innerHTML = "<h1>Downloading CDC data</h1>";
+
+			document.getElementById("info").innerHTML = await read_file(t.graph  + ".htm", "optional");
+			document.getElementById("table").innerHTML = await read_file(t.graph  + ".table");
+
+			/* Get the table info */
+			let table = document.getElementById('table').getElementsByTagName("table");
+			if (table.length == 1) {
+				let rows = table[0].getElementsByTagName('tr');
+				rows[0].classList.add("header");
+				for (let i=0; i<rows.length; i++)
+					rows[i].children[0].classList.add("column1");
+				let table_info = rows[rows.length-1].children[0].innerHTML;
+				if (table_info.substr(0,11) != "table_info ") {  // Displaying original CDC data
+					document.getElementById("graph_per100k").innerHTML = "";
+					document.getElementById("graph_per100k").style.height = "";
+					document.getElementById("graph_actual").style.height = "";
+					return;
+				}
+				document.getElementById("work").innerHTML = "<div id='work2' " + table_info.substr(11) + ">work area</div>";
+				let work2 = document.getElementById("work2");
+				p.data_source = work2.getAttribute("data_filename");
+				p.graph_type = work2.getAttribute("data_type");
+				p.per100k_start = parseInt(work2.getAttribute("data_start_per100k"))-1;     // relative to 0
+				p.actual_start = parseInt(work2.getAttribute("data_start_actual"))-1;     // relative to 0
+				p.change_start = parseInt(work2.getAttribute("data_start_changed"))-1;     // relative to 0
+				rows[rows.length-1].outerHTML = "" // Remove the table_info row
+				p.step_count = 1;         // actual columns follow the per100k columns
+				if (p.per100k_start+1==p.actual_start)
+					p.step_count = 2;         // per100k & actual are next to each other a
+			} else { 
+				document.getElementById("info").innerHTML += "<br/>Internal error - <table> not found";
+				return;
+			}
+
+			t.title_element = document.getElementById("table").children[0];
+			if (t.title_element.nodeName == "A") {
+				document.getElementById("title").innerHTML = 
+					"<h1>" + t.title_element.innerText.substring(t.title_element.innerText.search(": ") + 1) + "</h1>";
+				t.title_element.outerHTML = "<h2><a id='" + p.data_source.replace(".csv","") + "' href='#' onclick='load_table(this);'>Click here to view the original CDC data</a></h2>";
+			}
+
 			/* Create list of selected rows */
-			v.tr_elements = document.getElementById("table").getElementsByTagName("tr"); // <tr>
-			v.tr_elements[0].style.backgroundColor = 'lightblue';
-			selected_rows = [v.tr_elements[0]];
-			for (v.i=0; v.i<v.tr_elements.length; v.i++) {
-				v.element = v.tr_elements[v.i];  // <tr>
-				v.element.data_row_number = v.i;
-				if (v.tr_elements[v.i].firstElementChild.bgColor != "") {
-					selected_rows.push(v.element);
-					v.element.style.backgroundColor = "lightgreen";
-					v.element = v.element.firstElementChild;    // first <td>
-					while (v.element != null) {
-						v.element.bgColor = "";
-						v.element = v.element.nextElementSibling;      // next <td> 
+			t.tr_elements = document.getElementById("table").getElementsByTagName("tr"); // <tr>
+			t.tr_elements[0].style.backgroundColor = 'lightblue';
+			p.selected_rows = [t.tr_elements[0]];
+			t.tr_elements[0].children[0].classList.add("stickyLeft");
+			for ( let i=1; i<t.tr_elements.length; i++) {     // skip header 
+				t.tr_elements[i].children[0].classList.add("stickyLeft");
+				if (t.tr_elements[i].firstElementChild.bgColor != "") {
+					p.selected_rows.push(t.tr_elements[i]);
+					t.tr_elements[i].style.backgroundColor = "lightgreen";
+					t.td_elements = t.tr_elements[i].getElementsByTagName("td")
+					for (let j=0; j<t.td_elements.length; j++) {
+						t.td_elements[j].bgColor = "";
 					}
 				}
 			}
 			
-
 			display_graph();
 
-			v = undefined;
-			delete v;
+			t = Object(); // get rid of shared temporary variables
 		}
 
-		/* display graph from selected_rows */
+		/* display graph from p.selected_rows */
 		function display_graph() {
 
-			let graph_data = [];
-			for (let selected_row in selected_rows) {
-				let next_td = selected_rows[selected_row].firstElementChild;
-				let row = [];
-				for (let i=0; i<selected_columns; i++) {
-					row.push(next_td.textContent);
-					next_td = next_td.nextElementSibling;
-				}
-				graph_data.push(row);
-			}
+			/*  */
+			let graph_per100k = [];
+			let graph_actual = [];
+			let fix_column_titles = [];
 
+			for (t.row_num=0; t.row_num<p.selected_rows.length; t.row_num++) {
+				let columns = p.selected_rows[t.row_num].getElementsByTagName("td");
+				graph_per100k.push([columns[0].textContent]);     // First column is the key
+				graph_actual.push([columns[0].textContent]);      // First column is the key
+
+				for (let column_num=p.per100k_start; column_num<p.change_start; column_num+=p.step_count) {
+					if (p.step_count == 2) {   // per100k & actual in pairs next to each other
+						if (t.row_num == 0) {  // title row - use years without text
+							let year = columns[column_num].textContent.substring(0,4);
+							graph_per100k[t.row_num].push(year);
+							graph_actual[t.row_num].push(year);
+							fix_column_titles.push({v: year, label: year});
+						} else {
+							graph_per100k[t.row_num].push(columns[column_num].textContent.replace(",",""));
+							graph_actual[t.row_num].push(columns[column_num+1].textContent.replace(",",""));
+						}
+					} else {
+						if (column_num < p.actual_start)    // Per100k columns before actual columns
+							graph_per100k[t.row_num].push(columns[column_num].textContent.replace(",",""));
+						else								// Actual columns after per100k columns
+							graph_actual[t.row_num].push(columns[column_num].textContent.replace(",",""));
+					}
+				}
+			} 
+
+			graph_per100k[0][0] = graph_per100k[0][0].replaceAll(","," "); // Comma causes problems
+			graph_actual[0][0] = graph_actual[0][0].replaceAll(","," "); // Comma causes problems
+			if (p.step_count != 2) {
+				graph_per100k[0][1] = "0";     // age must be numeric
+				graph_actual[0][1] = "0";      // age must be numeric
+				graph_per100k[0][graph_per100k[0].length-1] = 101;     // age must be numeric
+				graph_actual[0][graph_actual[0].length-1] = 101;        // age must be numeric
+				for (let i = 5; i<100; i+=5)   // label every 5 years
+					fix_column_titles.push({v: i, label: i});
+				fix_column_titles.push({v: 100, label: "100"});
+			} 
+
+			call_graph( graph_per100k, 
+				"graph_per100k", 
+				"per 100K population by race and gender",
+				fix_column_titles
+			)
+
+			call_graph( graph_actual, 
+				"graph_actual", 
+				"Actual numbers by race and gender",
+				fix_column_titles
+			)
+
+		}
+
+		function call_graph( graph_data, graph_div_id, graph_title, graph_fix_column_titles) {
 			/* create tab seperated data and flip XY */
 			let graph_data_csv = "";
 			for (let row in graph_data[0]) {
 				for (let column in graph_data) {
-					graph_data_csv += "  " + graph_data[column][row] + "\t";
+					graph_data_csv += graph_data[column][row] + "\t";
 				}
-				graph_data_csv += "\n";
+				graph_data_csv = graph_data_csv.substring( 0, graph_data_csv.length-1 ) + "\n";
 			}
-			graph_data_csv += graph_data[0][graph_data[0].length-1] + ".01\t\n";  // to force display of last column, we need another column that is .01 larger 
-
-			/* eliminate extra unused column ticks like 2018.5 */	
-			let fix_column_titles = [];
-			for (let i=graph_data[0][1]; i<=graph_data[0][graph_data[0].length-1]; i++) 
-				fix_column_titles.push({v: i, label: i});
-
-			graph = new Dygraph(document.getElementById("graph"), graph_data_csv,
-				{
-					// options go here. See http://dygraphs.com/options.html
-					legend: 'always',
-					animatedZooms: true,
-					strokeWidth: 4.5,    	
-					title: 'Homicide per 100K in California',
-					labelsDiv: document.getElementById('graph_legend'),
-					labelsDivStyles: {
-     					'textAlign': 'right'
-    				},
-                    labelsSeparateLines: true,
-					axes: {
-						x: {
-							ticker: function(min, max, pixels, opts, dygraph, vals) {
-								return fix_column_titles;
-								// return [{ v: 2018, label: "2018"}, {v: 2019, label: "2019"}, {v: 2020, label: "2020"}];
-								// return Dygraph.getDateAxis(min, max, Dygraph.HOURLY, opts, dygraph);
-							},
+			if (p.step_count == 2)
+				graph_data_csv += graph_data[0][graph_data[0].length-1] + ".01\t\n";  // to force display of last column, we need another column that is .01 larger 
+			
+			graph = new Dygraph(document.getElementById( graph_div_id ), graph_data_csv, {
+				// options go here. See http://dygraphs.com/options.html
+				legend: 'always',
+				animatedZooms: true,
+				strokeWidth: 4.5,    	
+				title: graph_title,
+				labelsDiv: document.getElementById( graph_div_id + "_legend"),
+				labelsDivStyles: {
+					'textAlign': 'right'
+				},
+				labelsSeparateLines: true,
+				axes: {
+					x: {
+						ticker: function(min, max, pixels, opts, dygraph, vals) {
+							return graph_fix_column_titles;
 						},
-					}
-				});
-
-			console.log(graph_data_csv);
+					},
+				}
+			});
 		}
 	</script>
 
 </head>
 
-<body onload='load_menu(); setup_row_selection();'>
-	<div id="menu"></div>
-	<br/><!-- eliminate first line overlayed -->
-	<div id="info" style="max-width: 8in;">
-		<center><h1>Firearm homicides up by staggering 35% in 2020 <br/>according to CDC data</h1></center>
+<body onload='load_menu(); setup_row_selection(); load_table();'>
 
-		<p>Select one of the graphs listed above that were created from the CDC data. If you have questions or comments, email me at <a href="mailto:defend-constitution@protonmail.com">defend-constitution@protonmail.com</a>.</p>
-
-		<p>All Homicides up by 30% in 2020 for a total of 24,576! Black male homicide reached 59 per 100K black males while white male homicide was a mere 4 per 100K white males. Per capita, that's 18X! Look at the graphs and CDC data to see for yourself. </p>
-
-		<p>California proves that strict gun laws do NOT prevent gun violence. California has a high firearm homicide rate despite difficulties in purchasing firearms and munitions along with severely restricting your ability to access them. <a href="https://www.msn.com/en-us/news/us/oakland-councilman-says-national-guard-needed-to-counter-gun-crime/ar-AAYkMuy?ocid=msedgntp&cvid=87447e1cb29a4ee0953de3fd2a124b6e" target="__blank">Click here to where Oakland is requesting the national guards help because gun crime is out of control due to defund the police.</a> See <a target="__blank" href="https://oag.ca.gov/firearms/travel">transporting firearms in California at https://oag.ca.gov/firearms/travel</a>) which infers your firearm will rarely be legally with you in California but still has a high gun crime rate.</p>
-
+	<div class="menu">
+		<nav>
+		  <ul class="nav-menu nav-center">
+			<li><a onclick="window.location.replace(location.origin + location.pathname);" class="nav-active">Home</a></li>
+			<li><a>CDC homicide graphs</a>
+			  <ul>
+				<li id="menuHomicide">menuHomicide failed to load</li>
+				<li><a>Download files</a>
+				  <ul>
+					<li><a download href="homicide.htm" target="__blank">homicide.htm</a></li>
+					<li><a download href="menu.css" target="__blank">menu.css</a></li>
+					<li><a download href="social_media_photo1.png" target="__blank">social_media_photo1.png</a></li>
+					<li><a download href="homicide.ods" target="__blank">homcide.ods spreadsheet</a></li>
+					<li><a download href="cdc_html_rework.py" target="__blank">cdc_html_rework.py</a></li>
+					<li><a download href="cdc_to_graph.py" target="__blank">cdc_to_graph.py</a></li>
+					<li><a download href="dygraph.css" target="__blank">dygraph.css</a></li>
+					<li><a download href="dygraph.min.js" target="__blank">dygraph.min.js</a></li>
+				  </ul>
+				</li>            
+			  </ul>
+			</li>
+			<li><a>About</a>
+			  <ul>
+				<li><a href="mailto:defend-constitution@protonmail.com" class="nav-active">Email defend-constitution@protonmail.com</a></li>
+			  </ul>
+			</li>
+		  </ul>
+		</nav>
 	</div>
-	<div id="download" style="display: none;">
-		<center><h1>Info about using CDC WONDER and the download files</h1></center>
+				
 	
-		<p>CDC WONDER was used to extract the data to produce the graphs and spreadsheets. E.g. saved CDC firearm homicide report <a target="_blank" href="https://wonder.cdc.gov/controller/saved/D158/D293F524">https://wonder.cdc.gov/controller/saved/D158/D293F524</a></p>
-			
-		<p>The exported CDC data was reformatted using python program in the download list above. The CDC exported file name is specified as a parm. The program creates 2 CSV files for each CDC exported  (per 100K & simple reformat.</p>
-			
-	</div>
-	<table><tr> <td><div id="graph"></div></td>  <td><div id="graph_legend"></div></td> </tr></table>
+	<p>&nbsp;</p><!-- eliminate first line overlayed -->
+	<div id="title"></div>
+	<div id="info" style="max-width: 9in;"></div>
+	<table> <tr> <td><div id="graph_per100k"></div></td>  <td><div id="graph_actual"></div></td> </tr>
+			<tr> <td> <div id="graph_per100k_legend"></div></td> <td> <div id="graph_actual_legend"></div></td> </tr>
+	</table>
 	<div id="table" ></div>
+	<div id="work" style="display: none;"></div>
 
 </body></html>

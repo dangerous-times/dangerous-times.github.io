@@ -1,0 +1,23 @@
+
+            <li><a>Homicides</a>
+              <ul id="first_graph_display">
+              <li><a id="homicides by firearms" onclick="load_table(this);"> by firearms</a></li>
+<li><a id="homicides" onclick="load_table(this);">all</a></li>
+<li><a id="california homicides by firearms" onclick="load_table(this);">california  by firearms</a></li>
+<li><a id="california homicides" onclick="load_table(this);">california </a></li>
+<li><a id="homicides over 18 by firearm" onclick="load_table(this);"> over 18 by firearm</a></li>
+<li><a id="homicides by firearms under 18" onclick="load_table(this);"> by firearms under 18</a></li>
+<li><a id="homicides over 18" onclick="load_table(this);"> over 18</a></li>
+<li><a id="homicides under 18" onclick="load_table(this);"> under 18</a></li>
+
+              </ul>
+            </li>
+            <li><a>homicides/suicides by age</a>
+              <ul>
+              <li><a id="homicides by firearm by age" onclick="load_table(this);">homicides by firearm </a></li>
+<li><a id="homicides by age" onclick="load_table(this);">homicides </a></li>
+<li><a id="suicide by firearm by age" onclick="load_table(this);">suicide by firearm </a></li>
+
+              </ul>
+            </li>
+            

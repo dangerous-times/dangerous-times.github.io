@@ -1,0 +1,1112 @@
+<a name="table13"><h1>Sheet 14: <em>c) Original CDC California homicides by firearms</em></h1></a>
+<table frame="VOID" cellspacing="0" cols="12" rules="NONE" border="0">
+	<colgroup><col width="776"><col width="39"><col width="72"><col width="244"><col width="126"><col width="139"><col width="133"><col width="54"><col width="87"><col width="52"><col width="72"><col width="76"></colgroup>
+	<tbody>
+		<tr>
+			<td width="776" height="17" align="LEFT">Notes</td>
+			<td width="39" align="LEFT">Year</td>
+			<td width="72" align="LEFT">Year Code</td>
+			<td width="244" align="LEFT">Single Race 6</td>
+			<td width="126" align="LEFT">Single Race 6 Code</td>
+			<td width="139" align="LEFT">Hispanic Origin</td>
+			<td width="133" align="LEFT">Hispanic Origin Code</td>
+			<td width="54" align="LEFT">Gender</td>
+			<td width="87" align="LEFT">Gender Code</td>
+			<td width="52" align="LEFT">Deaths</td>
+			<td width="72" align="LEFT">Population</td>
+			<td width="76" align="LEFT">Crude Rate</td>
+		</tr>
+		<tr>
+			<td height="17" align="LEFT"><br></td>
+			<td align="RIGHT" sdval="2018" sdnum="1033;">2018</td>
+			<td align="RIGHT" sdval="2018" sdnum="1033;">2018</td>
+			<td align="LEFT">Asian</td>
+			<td align="LEFT">A</td>
+			<td align="LEFT">Not Hispanic or Latino</td>
+			<td align="LEFT">2186-2</td>
+			<td align="LEFT">Female</td>
+			<td align="LEFT">F</td>
+			<td align="RIGHT" sdval="13" sdnum="1033;">13</td>
+			<td align="RIGHT" sdval="3062525" sdnum="1033;">3062525</td>
+			<td align="LEFT">Unreliable</td>
+		</tr>
+		<tr>
+			<td height="17" align="LEFT"><br></td>
+			<td align="RIGHT" sdval="2018" sdnum="1033;">2018</td>
+			<td align="RIGHT" sdval="2018" sdnum="1033;">2018</td>
+			<td align="LEFT">Asian</td>
+			<td align="LEFT">A</td>
+			<td align="LEFT">Not Hispanic or Latino</td>
+			<td align="LEFT">2186-2</td>
+			<td align="LEFT">Male</td>
+			<td align="LEFT">M</td>
+			<td align="RIGHT" sdval="33" sdnum="1033;">33</td>
+			<td align="RIGHT" sdval="2755794" sdnum="1033;">2755794</td>
+			<td align="RIGHT" sdval="1.2" sdnum="1033;">1.2</td>
+		</tr>
+		<tr>
+			<td height="17" align="LEFT"><br></td>
+			<td align="RIGHT" sdval="2018" sdnum="1033;">2018</td>
+			<td align="RIGHT" sdval="2018" sdnum="1033;">2018</td>
+			<td align="LEFT">Black or African American</td>
+			<td align="LEFT">2054-5</td>
+			<td align="LEFT">Not Hispanic or Latino</td>
+			<td align="LEFT">2186-2</td>
+			<td align="LEFT">Female</td>
+			<td align="LEFT">F</td>
+			<td align="RIGHT" sdval="35" sdnum="1033;">35</td>
+			<td align="RIGHT" sdval="1118008" sdnum="1033;">1118008</td>
+			<td align="RIGHT" sdval="3.1" sdnum="1033;">3.1</td>
+		</tr>
+		<tr>
+			<td height="17" align="LEFT"><br></td>
+			<td align="RIGHT" sdval="2018" sdnum="1033;">2018</td>
+			<td align="RIGHT" sdval="2018" sdnum="1033;">2018</td>
+			<td align="LEFT">Black or African American</td>
+			<td align="LEFT">2054-5</td>
+			<td align="LEFT">Not Hispanic or Latino</td>
+			<td align="LEFT">2186-2</td>
+			<td align="LEFT">Male</td>
+			<td align="LEFT">M</td>
+			<td align="RIGHT" sdval="283" sdnum="1033;">283</td>
+			<td align="RIGHT" sdval="1105266" sdnum="1033;">1105266</td>
+			<td align="RIGHT" sdval="25.6" sdnum="1033;">25.6</td>
+		</tr>
+		<tr>
+			<td height="17" align="LEFT"><br></td>
+			<td align="RIGHT" sdval="2018" sdnum="1033;">2018</td>
+			<td align="RIGHT" sdval="2018" sdnum="1033;">2018</td>
+			<td align="LEFT">Native Hawaiian or Other Pacific Islander</td>
+			<td align="LEFT">NHOPI</td>
+			<td align="LEFT">Not Hispanic or Latino</td>
+			<td align="LEFT">2186-2</td>
+			<td align="LEFT">Male</td>
+			<td align="LEFT">M</td>
+			<td align="RIGHT" sdval="10" sdnum="1033;">10</td>
+			<td align="RIGHT" sdval="72020" sdnum="1033;">72020</td>
+			<td align="LEFT">Unreliable</td>
+		</tr>
+		<tr>
+			<td height="17" align="LEFT"><br></td>
+			<td align="RIGHT" sdval="2018" sdnum="1033;">2018</td>
+			<td align="RIGHT" sdval="2018" sdnum="1033;">2018</td>
+			<td align="LEFT">White</td>
+			<td align="LEFT">2106-3</td>
+			<td align="LEFT">Hispanic or Latino</td>
+			<td align="LEFT">2135-2</td>
+			<td align="LEFT">Female</td>
+			<td align="LEFT">F</td>
+			<td align="RIGHT" sdval="73" sdnum="1033;">73</td>
+			<td align="RIGHT" sdval="6935850" sdnum="1033;">6935850</td>
+			<td align="RIGHT" sdval="1.1" sdnum="1033;">1.1</td>
+		</tr>
+		<tr>
+			<td height="17" align="LEFT"><br></td>
+			<td align="RIGHT" sdval="2018" sdnum="1033;">2018</td>
+			<td align="RIGHT" sdval="2018" sdnum="1033;">2018</td>
+			<td align="LEFT">White</td>
+			<td align="LEFT">2106-3</td>
+			<td align="LEFT">Hispanic or Latino</td>
+			<td align="LEFT">2135-2</td>
+			<td align="LEFT">Male</td>
+			<td align="LEFT">M</td>
+			<td align="RIGHT" sdval="538" sdnum="1033;">538</td>
+			<td align="RIGHT" sdval="7027282" sdnum="1033;">7027282</td>
+			<td align="RIGHT" sdval="7.7" sdnum="1033;">7.7</td>
+		</tr>
+		<tr>
+			<td height="17" align="LEFT"><br></td>
+			<td align="RIGHT" sdval="2018" sdnum="1033;">2018</td>
+			<td align="RIGHT" sdval="2018" sdnum="1033;">2018</td>
+			<td align="LEFT">White</td>
+			<td align="LEFT">2106-3</td>
+			<td align="LEFT">Not Hispanic or Latino</td>
+			<td align="LEFT">2186-2</td>
+			<td align="LEFT">Female</td>
+			<td align="LEFT">F</td>
+			<td align="RIGHT" sdval="50" sdnum="1033;">50</td>
+			<td align="RIGHT" sdval="7281180" sdnum="1033;">7281180</td>
+			<td align="RIGHT" sdval="0.7" sdnum="1033;">0.7</td>
+		</tr>
+		<tr>
+			<td height="17" align="LEFT"><br></td>
+			<td align="RIGHT" sdval="2018" sdnum="1033;">2018</td>
+			<td align="RIGHT" sdval="2018" sdnum="1033;">2018</td>
+			<td align="LEFT">White</td>
+			<td align="LEFT">2106-3</td>
+			<td align="LEFT">Not Hispanic or Latino</td>
+			<td align="LEFT">2186-2</td>
+			<td align="LEFT">Male</td>
+			<td align="LEFT">M</td>
+			<td align="RIGHT" sdval="174" sdnum="1033;">174</td>
+			<td align="RIGHT" sdval="7287428" sdnum="1033;">7287428</td>
+			<td align="RIGHT" sdval="2.4" sdnum="1033;">2.4</td>
+		</tr>
+		<tr>
+			<td height="17" align="LEFT"><br></td>
+			<td align="RIGHT" sdval="2018" sdnum="1033;">2018</td>
+			<td align="RIGHT" sdval="2018" sdnum="1033;">2018</td>
+			<td align="LEFT">More than one race</td>
+			<td align="LEFT">M</td>
+			<td align="LEFT">Hispanic or Latino</td>
+			<td align="LEFT">2135-2</td>
+			<td align="LEFT">Male</td>
+			<td align="LEFT">M</td>
+			<td align="RIGHT" sdval="23" sdnum="1033;">23</td>
+			<td align="RIGHT" sdval="227986" sdnum="1033;">227986</td>
+			<td align="RIGHT" sdval="10.1" sdnum="1033;">10.1</td>
+		</tr>
+		<tr>
+			<td height="17" align="LEFT"><br></td>
+			<td align="RIGHT" sdval="2018" sdnum="1033;">2018</td>
+			<td align="RIGHT" sdval="2018" sdnum="1033;">2018</td>
+			<td align="LEFT">More than one race</td>
+			<td align="LEFT">M</td>
+			<td align="LEFT">Not Hispanic or Latino</td>
+			<td align="LEFT">2186-2</td>
+			<td align="LEFT">Male</td>
+			<td align="LEFT">M</td>
+			<td align="RIGHT" sdval="19" sdnum="1033;">19</td>
+			<td align="RIGHT" sdval="544627" sdnum="1033;">544627</td>
+			<td align="LEFT">Unreliable</td>
+		</tr>
+		<tr>
+			<td height="17" align="LEFT"><br></td>
+			<td align="RIGHT" sdval="2019" sdnum="1033;">2019</td>
+			<td align="RIGHT" sdval="2019" sdnum="1033;">2019</td>
+			<td align="LEFT">Asian</td>
+			<td align="LEFT">A</td>
+			<td align="LEFT">Not Hispanic or Latino</td>
+			<td align="LEFT">2186-2</td>
+			<td align="LEFT">Female</td>
+			<td align="LEFT">F</td>
+			<td align="RIGHT" sdval="12" sdnum="1033;">12</td>
+			<td align="RIGHT" sdval="3086116" sdnum="1033;">3086116</td>
+			<td align="LEFT">Unreliable</td>
+		</tr>
+		<tr>
+			<td height="17" align="LEFT"><br></td>
+			<td align="RIGHT" sdval="2019" sdnum="1033;">2019</td>
+			<td align="RIGHT" sdval="2019" sdnum="1033;">2019</td>
+			<td align="LEFT">Asian</td>
+			<td align="LEFT">A</td>
+			<td align="LEFT">Not Hispanic or Latino</td>
+			<td align="LEFT">2186-2</td>
+			<td align="LEFT">Male</td>
+			<td align="LEFT">M</td>
+			<td align="RIGHT" sdval="32" sdnum="1033;">32</td>
+			<td align="RIGHT" sdval="2782922" sdnum="1033;">2782922</td>
+			<td align="RIGHT" sdval="1.1" sdnum="1033;">1.1</td>
+		</tr>
+		<tr>
+			<td height="17" align="LEFT"><br></td>
+			<td align="RIGHT" sdval="2019" sdnum="1033;">2019</td>
+			<td align="RIGHT" sdval="2019" sdnum="1033;">2019</td>
+			<td align="LEFT">Black or African American</td>
+			<td align="LEFT">2054-5</td>
+			<td align="LEFT">Not Hispanic or Latino</td>
+			<td align="LEFT">2186-2</td>
+			<td align="LEFT">Female</td>
+			<td align="LEFT">F</td>
+			<td align="RIGHT" sdval="35" sdnum="1033;">35</td>
+			<td align="RIGHT" sdval="1115162" sdnum="1033;">1115162</td>
+			<td align="RIGHT" sdval="3.1" sdnum="1033;">3.1</td>
+		</tr>
+		<tr>
+			<td height="17" align="LEFT"><br></td>
+			<td align="RIGHT" sdval="2019" sdnum="1033;">2019</td>
+			<td align="RIGHT" sdval="2019" sdnum="1033;">2019</td>
+			<td align="LEFT">Black or African American</td>
+			<td align="LEFT">2054-5</td>
+			<td align="LEFT">Not Hispanic or Latino</td>
+			<td align="LEFT">2186-2</td>
+			<td align="LEFT">Male</td>
+			<td align="LEFT">M</td>
+			<td align="RIGHT" sdval="334" sdnum="1033;">334</td>
+			<td align="RIGHT" sdval="1106201" sdnum="1033;">1106201</td>
+			<td align="RIGHT" sdval="30.2" sdnum="1033;">30.2</td>
+		</tr>
+		<tr>
+			<td height="17" align="LEFT"><br></td>
+			<td align="RIGHT" sdval="2019" sdnum="1033;">2019</td>
+			<td align="RIGHT" sdval="2019" sdnum="1033;">2019</td>
+			<td align="LEFT">White</td>
+			<td align="LEFT">2106-3</td>
+			<td align="LEFT">Hispanic or Latino</td>
+			<td align="LEFT">2135-2</td>
+			<td align="LEFT">Female</td>
+			<td align="LEFT">F</td>
+			<td align="RIGHT" sdval="66" sdnum="1033;">66</td>
+			<td align="RIGHT" sdval="6957387" sdnum="1033;">6957387</td>
+			<td align="RIGHT" sdval="0.9" sdnum="1033;">0.9</td>
+		</tr>
+		<tr>
+			<td height="17" align="LEFT"><br></td>
+			<td align="RIGHT" sdval="2019" sdnum="1033;">2019</td>
+			<td align="RIGHT" sdval="2019" sdnum="1033;">2019</td>
+			<td align="LEFT">White</td>
+			<td align="LEFT">2106-3</td>
+			<td align="LEFT">Hispanic or Latino</td>
+			<td align="LEFT">2135-2</td>
+			<td align="LEFT">Male</td>
+			<td align="LEFT">M</td>
+			<td align="RIGHT" sdval="515" sdnum="1033;">515</td>
+			<td align="RIGHT" sdval="7043604" sdnum="1033;">7043604</td>
+			<td align="RIGHT" sdval="7.3" sdnum="1033;">7.3</td>
+		</tr>
+		<tr>
+			<td height="17" align="LEFT"><br></td>
+			<td align="RIGHT" sdval="2019" sdnum="1033;">2019</td>
+			<td align="RIGHT" sdval="2019" sdnum="1033;">2019</td>
+			<td align="LEFT">White</td>
+			<td align="LEFT">2106-3</td>
+			<td align="LEFT">Not Hispanic or Latino</td>
+			<td align="LEFT">2186-2</td>
+			<td align="LEFT">Female</td>
+			<td align="LEFT">F</td>
+			<td align="RIGHT" sdval="53" sdnum="1033;">53</td>
+			<td align="RIGHT" sdval="7206004" sdnum="1033;">7206004</td>
+			<td align="RIGHT" sdval="0.7" sdnum="1033;">0.7</td>
+		</tr>
+		<tr>
+			<td height="17" align="LEFT"><br></td>
+			<td align="RIGHT" sdval="2019" sdnum="1033;">2019</td>
+			<td align="RIGHT" sdval="2019" sdnum="1033;">2019</td>
+			<td align="LEFT">White</td>
+			<td align="LEFT">2106-3</td>
+			<td align="LEFT">Not Hispanic or Latino</td>
+			<td align="LEFT">2186-2</td>
+			<td align="LEFT">Male</td>
+			<td align="LEFT">M</td>
+			<td align="RIGHT" sdval="128" sdnum="1033;">128</td>
+			<td align="RIGHT" sdval="7217744" sdnum="1033;">7217744</td>
+			<td align="RIGHT" sdval="1.8" sdnum="1033;">1.8</td>
+		</tr>
+		<tr>
+			<td height="17" align="LEFT"><br></td>
+			<td align="RIGHT" sdval="2019" sdnum="1033;">2019</td>
+			<td align="RIGHT" sdval="2019" sdnum="1033;">2019</td>
+			<td align="LEFT">More than one race</td>
+			<td align="LEFT">M</td>
+			<td align="LEFT">Hispanic or Latino</td>
+			<td align="LEFT">2135-2</td>
+			<td align="LEFT">Male</td>
+			<td align="LEFT">M</td>
+			<td align="RIGHT" sdval="17" sdnum="1033;">17</td>
+			<td align="RIGHT" sdval="229504" sdnum="1033;">229504</td>
+			<td align="LEFT">Unreliable</td>
+		</tr>
+		<tr>
+			<td height="17" align="LEFT"><br></td>
+			<td align="RIGHT" sdval="2019" sdnum="1033;">2019</td>
+			<td align="RIGHT" sdval="2019" sdnum="1033;">2019</td>
+			<td align="LEFT">More than one race</td>
+			<td align="LEFT">M</td>
+			<td align="LEFT">Not Hispanic or Latino</td>
+			<td align="LEFT">2186-2</td>
+			<td align="LEFT">Male</td>
+			<td align="LEFT">M</td>
+			<td align="RIGHT" sdval="24" sdnum="1033;">24</td>
+			<td align="RIGHT" sdval="552774" sdnum="1033;">552774</td>
+			<td align="RIGHT" sdval="4.3" sdnum="1033;">4.3</td>
+		</tr>
+		<tr>
+			<td height="17" align="LEFT"><br></td>
+			<td align="RIGHT" sdval="2020" sdnum="1033;">2020</td>
+			<td align="RIGHT" sdval="2020" sdnum="1033;">2020</td>
+			<td align="LEFT">Asian</td>
+			<td align="LEFT">A</td>
+			<td align="LEFT">Not Hispanic or Latino</td>
+			<td align="LEFT">2186-2</td>
+			<td align="LEFT">Female</td>
+			<td align="LEFT">F</td>
+			<td align="RIGHT" sdval="13" sdnum="1033;">13</td>
+			<td align="RIGHT" sdval="3135790" sdnum="1033;">3135790</td>
+			<td align="LEFT">Unreliable</td>
+		</tr>
+		<tr>
+			<td height="17" align="LEFT"><br></td>
+			<td align="RIGHT" sdval="2020" sdnum="1033;">2020</td>
+			<td align="RIGHT" sdval="2020" sdnum="1033;">2020</td>
+			<td align="LEFT">Asian</td>
+			<td align="LEFT">A</td>
+			<td align="LEFT">Not Hispanic or Latino</td>
+			<td align="LEFT">2186-2</td>
+			<td align="LEFT">Male</td>
+			<td align="LEFT">M</td>
+			<td align="RIGHT" sdval="48" sdnum="1033;">48</td>
+			<td align="RIGHT" sdval="2840490" sdnum="1033;">2840490</td>
+			<td align="RIGHT" sdval="1.7" sdnum="1033;">1.7</td>
+		</tr>
+		<tr>
+			<td height="17" align="LEFT"><br></td>
+			<td align="RIGHT" sdval="2020" sdnum="1033;">2020</td>
+			<td align="RIGHT" sdval="2020" sdnum="1033;">2020</td>
+			<td align="LEFT">Black or African American</td>
+			<td align="LEFT">2054-5</td>
+			<td align="LEFT">Not Hispanic or Latino</td>
+			<td align="LEFT">2186-2</td>
+			<td align="LEFT">Female</td>
+			<td align="LEFT">F</td>
+			<td align="RIGHT" sdval="57" sdnum="1033;">57</td>
+			<td align="RIGHT" sdval="1108187" sdnum="1033;">1108187</td>
+			<td align="RIGHT" sdval="5.1" sdnum="1033;">5.1</td>
+		</tr>
+		<tr>
+			<td height="17" align="LEFT"><br></td>
+			<td align="RIGHT" sdval="2020" sdnum="1033;">2020</td>
+			<td align="RIGHT" sdval="2020" sdnum="1033;">2020</td>
+			<td align="LEFT">Black or African American</td>
+			<td align="LEFT">2054-5</td>
+			<td align="LEFT">Not Hispanic or Latino</td>
+			<td align="LEFT">2186-2</td>
+			<td align="LEFT">Male</td>
+			<td align="LEFT">M</td>
+			<td align="RIGHT" sdval="498" sdnum="1033;">498</td>
+			<td align="RIGHT" sdval="1102151" sdnum="1033;">1102151</td>
+			<td align="RIGHT" sdval="45.2" sdnum="1033;">45.2</td>
+		</tr>
+		<tr>
+			<td height="17" align="LEFT"><br></td>
+			<td align="RIGHT" sdval="2020" sdnum="1033;">2020</td>
+			<td align="RIGHT" sdval="2020" sdnum="1033;">2020</td>
+			<td align="LEFT">White</td>
+			<td align="LEFT">2106-3</td>
+			<td align="LEFT">Hispanic or Latino</td>
+			<td align="LEFT">2135-2</td>
+			<td align="LEFT">Female</td>
+			<td align="LEFT">F</td>
+			<td align="RIGHT" sdval="78" sdnum="1033;">78</td>
+			<td align="RIGHT" sdval="6923607" sdnum="1033;">6923607</td>
+			<td align="RIGHT" sdval="1.1" sdnum="1033;">1.1</td>
+		</tr>
+		<tr>
+			<td height="17" align="LEFT"><br></td>
+			<td align="RIGHT" sdval="2020" sdnum="1033;">2020</td>
+			<td align="RIGHT" sdval="2020" sdnum="1033;">2020</td>
+			<td align="LEFT">White</td>
+			<td align="LEFT">2106-3</td>
+			<td align="LEFT">Hispanic or Latino</td>
+			<td align="LEFT">2135-2</td>
+			<td align="LEFT">Male</td>
+			<td align="LEFT">M</td>
+			<td align="RIGHT" sdval="714" sdnum="1033;">714</td>
+			<td align="RIGHT" sdval="7002322" sdnum="1033;">7002322</td>
+			<td align="RIGHT" sdval="10.2" sdnum="1033;">10.2</td>
+		</tr>
+		<tr>
+			<td height="17" align="LEFT"><br></td>
+			<td align="RIGHT" sdval="2020" sdnum="1033;">2020</td>
+			<td align="RIGHT" sdval="2020" sdnum="1033;">2020</td>
+			<td align="LEFT">White</td>
+			<td align="LEFT">2106-3</td>
+			<td align="LEFT">Not Hispanic or Latino</td>
+			<td align="LEFT">2186-2</td>
+			<td align="LEFT">Female</td>
+			<td align="LEFT">F</td>
+			<td align="RIGHT" sdval="43" sdnum="1033;">43</td>
+			<td align="RIGHT" sdval="7066394" sdnum="1033;">7066394</td>
+			<td align="RIGHT" sdval="0.6" sdnum="1033;">0.6</td>
+		</tr>
+		<tr>
+			<td height="17" align="LEFT"><br></td>
+			<td align="RIGHT" sdval="2020" sdnum="1033;">2020</td>
+			<td align="RIGHT" sdval="2020" sdnum="1033;">2020</td>
+			<td align="LEFT">White</td>
+			<td align="LEFT">2106-3</td>
+			<td align="LEFT">Not Hispanic or Latino</td>
+			<td align="LEFT">2186-2</td>
+			<td align="LEFT">Male</td>
+			<td align="LEFT">M</td>
+			<td align="RIGHT" sdval="180" sdnum="1033;">180</td>
+			<td align="RIGHT" sdval="7080688" sdnum="1033;">7080688</td>
+			<td align="RIGHT" sdval="2.5" sdnum="1033;">2.5</td>
+		</tr>
+		<tr>
+			<td height="17" align="LEFT"><br></td>
+			<td align="RIGHT" sdval="2020" sdnum="1033;">2020</td>
+			<td align="RIGHT" sdval="2020" sdnum="1033;">2020</td>
+			<td align="LEFT">More than one race</td>
+			<td align="LEFT">M</td>
+			<td align="LEFT">Hispanic or Latino</td>
+			<td align="LEFT">2135-2</td>
+			<td align="LEFT">Male</td>
+			<td align="LEFT">M</td>
+			<td align="RIGHT" sdval="26" sdnum="1033;">26</td>
+			<td align="RIGHT" sdval="239271" sdnum="1033;">239271</td>
+			<td align="RIGHT" sdval="10.9" sdnum="1033;">10.9</td>
+		</tr>
+		<tr>
+			<td height="17" align="LEFT"><br></td>
+			<td align="RIGHT" sdval="2020" sdnum="1033;">2020</td>
+			<td align="RIGHT" sdval="2020" sdnum="1033;">2020</td>
+			<td align="LEFT">More than one race</td>
+			<td align="LEFT">M</td>
+			<td align="LEFT">Not Hispanic or Latino</td>
+			<td align="LEFT">2186-2</td>
+			<td align="LEFT">Male</td>
+			<td align="LEFT">M</td>
+			<td align="RIGHT" sdval="27" sdnum="1033;">27</td>
+			<td align="RIGHT" sdval="574931" sdnum="1033;">574931</td>
+			<td align="RIGHT" sdval="4.7" sdnum="1033;">4.7</td>
+		</tr>
+		<tr>
+			<td height="17" align="LEFT">---</td>
+			<td align="LEFT"><br></td>
+			<td align="LEFT"><br></td>
+			<td align="LEFT"><br></td>
+			<td align="LEFT"><br></td>
+			<td align="LEFT"><br></td>
+			<td align="LEFT"><br></td>
+			<td align="LEFT"><br></td>
+			<td align="LEFT"><br></td>
+			<td align="LEFT"><br></td>
+			<td align="LEFT"><br></td>
+			<td align="LEFT"><br></td>
+		</tr>
+		<tr>
+			<td height="17" align="LEFT" bgcolor="#FFFF00">Dataset: Underlying Cause of Death, 2018-2020, Single Race</td>
+			<td align="LEFT"><br></td>
+			<td align="LEFT"><br></td>
+			<td align="LEFT"><br></td>
+			<td align="LEFT"><br></td>
+			<td align="LEFT"><br></td>
+			<td align="LEFT"><br></td>
+			<td align="LEFT"><br></td>
+			<td align="LEFT"><br></td>
+			<td align="LEFT"><br></td>
+			<td align="LEFT"><br></td>
+			<td align="LEFT"><br></td>
+		</tr>
+		<tr>
+			<td height="17" align="LEFT" bgcolor="#FFFF00">Query Parameters:</td>
+			<td align="LEFT"><br></td>
+			<td align="LEFT"><br></td>
+			<td align="LEFT"><br></td>
+			<td align="LEFT"><br></td>
+			<td align="LEFT"><br></td>
+			<td align="LEFT"><br></td>
+			<td align="LEFT"><br></td>
+			<td align="LEFT"><br></td>
+			<td align="LEFT"><br></td>
+			<td align="LEFT"><br></td>
+			<td align="LEFT"><br></td>
+		</tr>
+		<tr>
+			<td height="17" align="LEFT" bgcolor="#FFFF00">ICD-10 113 Cause List: Assault (homicide) by discharge of firearms (*U01.4,X93-X95)</td>
+			<td align="LEFT"><br></td>
+			<td align="LEFT"><br></td>
+			<td align="LEFT"><br></td>
+			<td align="LEFT"><br></td>
+			<td align="LEFT"><br></td>
+			<td align="LEFT"><br></td>
+			<td align="LEFT"><br></td>
+			<td align="LEFT"><br></td>
+			<td align="LEFT"><br></td>
+			<td align="LEFT"><br></td>
+			<td align="LEFT"><br></td>
+		</tr>
+		<tr>
+			<td height="17" align="LEFT" bgcolor="#FFFF00">States: California (06)</td>
+			<td align="LEFT"><br></td>
+			<td align="LEFT"><br></td>
+			<td align="LEFT"><br></td>
+			<td align="LEFT"><br></td>
+			<td align="LEFT"><br></td>
+			<td align="LEFT"><br></td>
+			<td align="LEFT"><br></td>
+			<td align="LEFT"><br></td>
+			<td align="LEFT"><br></td>
+			<td align="LEFT"><br></td>
+			<td align="LEFT"><br></td>
+		</tr>
+		<tr>
+			<td height="17" align="LEFT" bgcolor="#FFFF00">Group By: Year; Single Race 6; Hispanic Origin; Gender</td>
+			<td align="LEFT"><br></td>
+			<td align="LEFT"><br></td>
+			<td align="LEFT"><br></td>
+			<td align="LEFT"><br></td>
+			<td align="LEFT"><br></td>
+			<td align="LEFT"><br></td>
+			<td align="LEFT"><br></td>
+			<td align="LEFT"><br></td>
+			<td align="LEFT"><br></td>
+			<td align="LEFT"><br></td>
+			<td align="LEFT"><br></td>
+		</tr>
+		<tr>
+			<td height="17" align="LEFT" bgcolor="#FFFF00">Show Totals: Disabled</td>
+			<td align="LEFT"><br></td>
+			<td align="LEFT"><br></td>
+			<td align="LEFT"><br></td>
+			<td align="LEFT"><br></td>
+			<td align="LEFT"><br></td>
+			<td align="LEFT"><br></td>
+			<td align="LEFT"><br></td>
+			<td align="LEFT"><br></td>
+			<td align="LEFT"><br></td>
+			<td align="LEFT"><br></td>
+			<td align="LEFT"><br></td>
+		</tr>
+		<tr>
+			<td height="17" align="LEFT" bgcolor="#FFFF00">Show Zero Values: False</td>
+			<td align="LEFT"><br></td>
+			<td align="LEFT"><br></td>
+			<td align="LEFT"><br></td>
+			<td align="LEFT"><br></td>
+			<td align="LEFT"><br></td>
+			<td align="LEFT"><br></td>
+			<td align="LEFT"><br></td>
+			<td align="LEFT"><br></td>
+			<td align="LEFT"><br></td>
+			<td align="LEFT"><br></td>
+			<td align="LEFT"><br></td>
+		</tr>
+		<tr>
+			<td height="17" align="LEFT" bgcolor="#FFFF00">Show Suppressed: False</td>
+			<td align="LEFT"><br></td>
+			<td align="LEFT"><br></td>
+			<td align="LEFT"><br></td>
+			<td align="LEFT"><br></td>
+			<td align="LEFT"><br></td>
+			<td align="LEFT"><br></td>
+			<td align="LEFT"><br></td>
+			<td align="LEFT"><br></td>
+			<td align="LEFT"><br></td>
+			<td align="LEFT"><br></td>
+			<td align="LEFT"><br></td>
+		</tr>
+		<tr>
+			<td height="17" align="LEFT" bgcolor="#FFFF00">Calculate Rates Per: 100,000</td>
+			<td align="LEFT"><br></td>
+			<td align="LEFT"><br></td>
+			<td align="LEFT"><br></td>
+			<td align="LEFT"><br></td>
+			<td align="LEFT"><br></td>
+			<td align="LEFT"><br></td>
+			<td align="LEFT"><br></td>
+			<td align="LEFT"><br></td>
+			<td align="LEFT"><br></td>
+			<td align="LEFT"><br></td>
+			<td align="LEFT"><br></td>
+		</tr>
+		<tr>
+			<td height="17" align="LEFT" bgcolor="#FFFF00">Rate Options: Default intercensal populations for years 2001-2009 (except Infant Age Groups)</td>
+			<td align="LEFT"><br></td>
+			<td align="LEFT"><br></td>
+			<td align="LEFT"><br></td>
+			<td align="LEFT"><br></td>
+			<td align="LEFT"><br></td>
+			<td align="LEFT"><br></td>
+			<td align="LEFT"><br></td>
+			<td align="LEFT"><br></td>
+			<td align="LEFT"><br></td>
+			<td align="LEFT"><br></td>
+			<td align="LEFT"><br></td>
+		</tr>
+		<tr>
+			<td height="17" align="LEFT">---</td>
+			<td align="LEFT"><br></td>
+			<td align="LEFT"><br></td>
+			<td align="LEFT"><br></td>
+			<td align="LEFT"><br></td>
+			<td align="LEFT"><br></td>
+			<td align="LEFT"><br></td>
+			<td align="LEFT"><br></td>
+			<td align="LEFT"><br></td>
+			<td align="LEFT"><br></td>
+			<td align="LEFT"><br></td>
+			<td align="LEFT"><br></td>
+		</tr>
+		<tr>
+			<td height="17" align="LEFT">Help: See http://wonder.cdc.gov/wonder/help/ucd-expanded.html for more information.</td>
+			<td align="LEFT"><br></td>
+			<td align="LEFT"><br></td>
+			<td align="LEFT"><br></td>
+			<td align="LEFT"><br></td>
+			<td align="LEFT"><br></td>
+			<td align="LEFT"><br></td>
+			<td align="LEFT"><br></td>
+			<td align="LEFT"><br></td>
+			<td align="LEFT"><br></td>
+			<td align="LEFT"><br></td>
+			<td align="LEFT"><br></td>
+		</tr>
+		<tr>
+			<td height="17" align="LEFT">---</td>
+			<td align="LEFT"><br></td>
+			<td align="LEFT"><br></td>
+			<td align="LEFT"><br></td>
+			<td align="LEFT"><br></td>
+			<td align="LEFT"><br></td>
+			<td align="LEFT"><br></td>
+			<td align="LEFT"><br></td>
+			<td align="LEFT"><br></td>
+			<td align="LEFT"><br></td>
+			<td align="LEFT"><br></td>
+			<td align="LEFT"><br></td>
+		</tr>
+		<tr>
+			<td height="17" align="LEFT">Query Date: Jun 6, 2022 6:03:20 PM</td>
+			<td align="LEFT"><br></td>
+			<td align="LEFT"><br></td>
+			<td align="LEFT"><br></td>
+			<td align="LEFT"><br></td>
+			<td align="LEFT"><br></td>
+			<td align="LEFT"><br></td>
+			<td align="LEFT"><br></td>
+			<td align="LEFT"><br></td>
+			<td align="LEFT"><br></td>
+			<td align="LEFT"><br></td>
+			<td align="LEFT"><br></td>
+		</tr>
+		<tr>
+			<td height="17" align="LEFT">---</td>
+			<td align="LEFT"><br></td>
+			<td align="LEFT"><br></td>
+			<td align="LEFT"><br></td>
+			<td align="LEFT"><br></td>
+			<td align="LEFT"><br></td>
+			<td align="LEFT"><br></td>
+			<td align="LEFT"><br></td>
+			<td align="LEFT"><br></td>
+			<td align="LEFT"><br></td>
+			<td align="LEFT"><br></td>
+			<td align="LEFT"><br></td>
+		</tr>
+		<tr>
+			<td height="17" align="LEFT">Suggested Citation: Centers for Disease Control and Prevention, National Center for Health Statistics. National Vital Statistics</td>
+			<td align="LEFT"><br></td>
+			<td align="LEFT"><br></td>
+			<td align="LEFT"><br></td>
+			<td align="LEFT"><br></td>
+			<td align="LEFT"><br></td>
+			<td align="LEFT"><br></td>
+			<td align="LEFT"><br></td>
+			<td align="LEFT"><br></td>
+			<td align="LEFT"><br></td>
+			<td align="LEFT"><br></td>
+			<td align="LEFT"><br></td>
+		</tr>
+		<tr>
+			<td height="17" align="LEFT">System, Mortality 2018-2020 on CDC WONDER Online Database, released in 2021. Data are from the Multiple Cause of Death Files,</td>
+			<td align="LEFT"><br></td>
+			<td align="LEFT"><br></td>
+			<td align="LEFT"><br></td>
+			<td align="LEFT"><br></td>
+			<td align="LEFT"><br></td>
+			<td align="LEFT"><br></td>
+			<td align="LEFT"><br></td>
+			<td align="LEFT"><br></td>
+			<td align="LEFT"><br></td>
+			<td align="LEFT"><br></td>
+			<td align="LEFT"><br></td>
+		</tr>
+		<tr>
+			<td height="17" align="LEFT">2018-2020, as compiled from data provided by the 57 vital statistics jurisdictions through the Vital Statistics Cooperative</td>
+			<td align="LEFT"><br></td>
+			<td align="LEFT"><br></td>
+			<td align="LEFT"><br></td>
+			<td align="LEFT"><br></td>
+			<td align="LEFT"><br></td>
+			<td align="LEFT"><br></td>
+			<td align="LEFT"><br></td>
+			<td align="LEFT"><br></td>
+			<td align="LEFT"><br></td>
+			<td align="LEFT"><br></td>
+			<td align="LEFT"><br></td>
+		</tr>
+		<tr>
+			<td height="17" align="LEFT">Program. Accessed at http://wonder.cdc.gov/ucd-icd10-expanded.html on Jun 6, 2022 6:03:20 PM</td>
+			<td align="LEFT"><br></td>
+			<td align="LEFT"><br></td>
+			<td align="LEFT"><br></td>
+			<td align="LEFT"><br></td>
+			<td align="LEFT"><br></td>
+			<td align="LEFT"><br></td>
+			<td align="LEFT"><br></td>
+			<td align="LEFT"><br></td>
+			<td align="LEFT"><br></td>
+			<td align="LEFT"><br></td>
+			<td align="LEFT"><br></td>
+		</tr>
+		<tr>
+			<td height="17" align="LEFT">---</td>
+			<td align="LEFT"><br></td>
+			<td align="LEFT"><br></td>
+			<td align="LEFT"><br></td>
+			<td align="LEFT"><br></td>
+			<td align="LEFT"><br></td>
+			<td align="LEFT"><br></td>
+			<td align="LEFT"><br></td>
+			<td align="LEFT"><br></td>
+			<td align="LEFT"><br></td>
+			<td align="LEFT"><br></td>
+			<td align="LEFT"><br></td>
+		</tr>
+		<tr>
+			<td height="17" align="LEFT">Messages:</td>
+			<td align="LEFT"><br></td>
+			<td align="LEFT"><br></td>
+			<td align="LEFT"><br></td>
+			<td align="LEFT"><br></td>
+			<td align="LEFT"><br></td>
+			<td align="LEFT"><br></td>
+			<td align="LEFT"><br></td>
+			<td align="LEFT"><br></td>
+			<td align="LEFT"><br></td>
+			<td align="LEFT"><br></td>
+			<td align="LEFT"><br></td>
+		</tr>
+		<tr>
+			<td height="17" align="LEFT">1. Totals are not available for these results due to suppression constraints. More Information:</td>
+			<td align="LEFT"><br></td>
+			<td align="LEFT"><br></td>
+			<td align="LEFT"><br></td>
+			<td align="LEFT"><br></td>
+			<td align="LEFT"><br></td>
+			<td align="LEFT"><br></td>
+			<td align="LEFT"><br></td>
+			<td align="LEFT"><br></td>
+			<td align="LEFT"><br></td>
+			<td align="LEFT"><br></td>
+			<td align="LEFT"><br></td>
+		</tr>
+		<tr>
+			<td height="17" align="LEFT">http://wonder.cdc.gov/wonder/help/faq.html#Privacy.</td>
+			<td align="LEFT"><br></td>
+			<td align="LEFT"><br></td>
+			<td align="LEFT"><br></td>
+			<td align="LEFT"><br></td>
+			<td align="LEFT"><br></td>
+			<td align="LEFT"><br></td>
+			<td align="LEFT"><br></td>
+			<td align="LEFT"><br></td>
+			<td align="LEFT"><br></td>
+			<td align="LEFT"><br></td>
+			<td align="LEFT"><br></td>
+		</tr>
+		<tr>
+			<td height="17" align="LEFT">2. Rows with suppressed Deaths are hidden. Use Quick Options above to show suppressed rows.</td>
+			<td align="LEFT"><br></td>
+			<td align="LEFT"><br></td>
+			<td align="LEFT"><br></td>
+			<td align="LEFT"><br></td>
+			<td align="LEFT"><br></td>
+			<td align="LEFT"><br></td>
+			<td align="LEFT"><br></td>
+			<td align="LEFT"><br></td>
+			<td align="LEFT"><br></td>
+			<td align="LEFT"><br></td>
+			<td align="LEFT"><br></td>
+		</tr>
+		<tr>
+			<td height="17" align="LEFT">---</td>
+			<td align="LEFT"><br></td>
+			<td align="LEFT"><br></td>
+			<td align="LEFT"><br></td>
+			<td align="LEFT"><br></td>
+			<td align="LEFT"><br></td>
+			<td align="LEFT"><br></td>
+			<td align="LEFT"><br></td>
+			<td align="LEFT"><br></td>
+			<td align="LEFT"><br></td>
+			<td align="LEFT"><br></td>
+			<td align="LEFT"><br></td>
+		</tr>
+		<tr>
+			<td height="17" align="LEFT">Caveats:</td>
+			<td align="LEFT"><br></td>
+			<td align="LEFT"><br></td>
+			<td align="LEFT"><br></td>
+			<td align="LEFT"><br></td>
+			<td align="LEFT"><br></td>
+			<td align="LEFT"><br></td>
+			<td align="LEFT"><br></td>
+			<td align="LEFT"><br></td>
+			<td align="LEFT"><br></td>
+			<td align="LEFT"><br></td>
+			<td align="LEFT"><br></td>
+		</tr>
+		<tr>
+			<td height="17" align="LEFT">1. Data are Suppressed when the data meet the criteria for confidentiality constraints. More information:</td>
+			<td align="LEFT"><br></td>
+			<td align="LEFT"><br></td>
+			<td align="LEFT"><br></td>
+			<td align="LEFT"><br></td>
+			<td align="LEFT"><br></td>
+			<td align="LEFT"><br></td>
+			<td align="LEFT"><br></td>
+			<td align="LEFT"><br></td>
+			<td align="LEFT"><br></td>
+			<td align="LEFT"><br></td>
+			<td align="LEFT"><br></td>
+		</tr>
+		<tr>
+			<td height="17" align="LEFT">http://wonder.cdc.gov/wonder/help/ucd-expanded.html#Assurance of Confidentiality.</td>
+			<td align="LEFT"><br></td>
+			<td align="LEFT"><br></td>
+			<td align="LEFT"><br></td>
+			<td align="LEFT"><br></td>
+			<td align="LEFT"><br></td>
+			<td align="LEFT"><br></td>
+			<td align="LEFT"><br></td>
+			<td align="LEFT"><br></td>
+			<td align="LEFT"><br></td>
+			<td align="LEFT"><br></td>
+			<td align="LEFT"><br></td>
+		</tr>
+		<tr>
+			<td height="17" align="LEFT">2. Death rates are flagged as Unreliable when the rate is calculated with a numerator of 20 or less. More information:</td>
+			<td align="LEFT"><br></td>
+			<td align="LEFT"><br></td>
+			<td align="LEFT"><br></td>
+			<td align="LEFT"><br></td>
+			<td align="LEFT"><br></td>
+			<td align="LEFT"><br></td>
+			<td align="LEFT"><br></td>
+			<td align="LEFT"><br></td>
+			<td align="LEFT"><br></td>
+			<td align="LEFT"><br></td>
+			<td align="LEFT"><br></td>
+		</tr>
+		<tr>
+			<td height="17" align="LEFT">http://wonder.cdc.gov/wonder/help/ucd-expanded.html#Unreliable.</td>
+			<td align="LEFT"><br></td>
+			<td align="LEFT"><br></td>
+			<td align="LEFT"><br></td>
+			<td align="LEFT"><br></td>
+			<td align="LEFT"><br></td>
+			<td align="LEFT"><br></td>
+			<td align="LEFT"><br></td>
+			<td align="LEFT"><br></td>
+			<td align="LEFT"><br></td>
+			<td align="LEFT"><br></td>
+			<td align="LEFT"><br></td>
+		</tr>
+		<tr>
+			<td height="17" align="LEFT">3. Deaths of persons with Hispanic origin "Not Stated" are included in "All" counts and rates, but are not distributed among</td>
+			<td align="LEFT"><br></td>
+			<td align="LEFT"><br></td>
+			<td align="LEFT"><br></td>
+			<td align="LEFT"><br></td>
+			<td align="LEFT"><br></td>
+			<td align="LEFT"><br></td>
+			<td align="LEFT"><br></td>
+			<td align="LEFT"><br></td>
+			<td align="LEFT"><br></td>
+			<td align="LEFT"><br></td>
+			<td align="LEFT"><br></td>
+		</tr>
+		<tr>
+			<td height="17" align="LEFT">Hispanic Origin groups, so are not included in the Hispanic Origin specific counts and rates. More information:</td>
+			<td align="LEFT"><br></td>
+			<td align="LEFT"><br></td>
+			<td align="LEFT"><br></td>
+			<td align="LEFT"><br></td>
+			<td align="LEFT"><br></td>
+			<td align="LEFT"><br></td>
+			<td align="LEFT"><br></td>
+			<td align="LEFT"><br></td>
+			<td align="LEFT"><br></td>
+			<td align="LEFT"><br></td>
+			<td align="LEFT"><br></td>
+		</tr>
+		<tr>
+			<td height="17" align="LEFT">http://wonder.cdc.gov/wonder/help/ucd-expanded.html#Not Stated.</td>
+			<td align="LEFT"><br></td>
+			<td align="LEFT"><br></td>
+			<td align="LEFT"><br></td>
+			<td align="LEFT"><br></td>
+			<td align="LEFT"><br></td>
+			<td align="LEFT"><br></td>
+			<td align="LEFT"><br></td>
+			<td align="LEFT"><br></td>
+			<td align="LEFT"><br></td>
+			<td align="LEFT"><br></td>
+			<td align="LEFT"><br></td>
+		</tr>
+		<tr>
+			<td height="17" align="LEFT">4. Information included on the death certificate about the race and Hispanic ethnicity of the decedent is reported by the</td>
+			<td align="LEFT"><br></td>
+			<td align="LEFT"><br></td>
+			<td align="LEFT"><br></td>
+			<td align="LEFT"><br></td>
+			<td align="LEFT"><br></td>
+			<td align="LEFT"><br></td>
+			<td align="LEFT"><br></td>
+			<td align="LEFT"><br></td>
+			<td align="LEFT"><br></td>
+			<td align="LEFT"><br></td>
+			<td align="LEFT"><br></td>
+		</tr>
+		<tr>
+			<td height="17" align="LEFT">funeral director as provided by an informant, often the surviving next of kin, or, in the absence of an informant, on the basis</td>
+			<td align="LEFT"><br></td>
+			<td align="LEFT"><br></td>
+			<td align="LEFT"><br></td>
+			<td align="LEFT"><br></td>
+			<td align="LEFT"><br></td>
+			<td align="LEFT"><br></td>
+			<td align="LEFT"><br></td>
+			<td align="LEFT"><br></td>
+			<td align="LEFT"><br></td>
+			<td align="LEFT"><br></td>
+			<td align="LEFT"><br></td>
+		</tr>
+		<tr>
+			<td height="17" align="LEFT">of observation. Race and ethnicity information from the census is by self-report. To the extent that race and Hispanic origin</td>
+			<td align="LEFT"><br></td>
+			<td align="LEFT"><br></td>
+			<td align="LEFT"><br></td>
+			<td align="LEFT"><br></td>
+			<td align="LEFT"><br></td>
+			<td align="LEFT"><br></td>
+			<td align="LEFT"><br></td>
+			<td align="LEFT"><br></td>
+			<td align="LEFT"><br></td>
+			<td align="LEFT"><br></td>
+			<td align="LEFT"><br></td>
+		</tr>
+		<tr>
+			<td height="17" align="LEFT">are inconsistent between these two data sources, death rates will be biased. More information:</td>
+			<td align="LEFT"><br></td>
+			<td align="LEFT"><br></td>
+			<td align="LEFT"><br></td>
+			<td align="LEFT"><br></td>
+			<td align="LEFT"><br></td>
+			<td align="LEFT"><br></td>
+			<td align="LEFT"><br></td>
+			<td align="LEFT"><br></td>
+			<td align="LEFT"><br></td>
+			<td align="LEFT"><br></td>
+			<td align="LEFT"><br></td>
+		</tr>
+		<tr>
+			<td height="17" align="LEFT">http://wonder.cdc.gov/wonder/help/ucd-expanded.html#Racial Differences.</td>
+			<td align="LEFT"><br></td>
+			<td align="LEFT"><br></td>
+			<td align="LEFT"><br></td>
+			<td align="LEFT"><br></td>
+			<td align="LEFT"><br></td>
+			<td align="LEFT"><br></td>
+			<td align="LEFT"><br></td>
+			<td align="LEFT"><br></td>
+			<td align="LEFT"><br></td>
+			<td align="LEFT"><br></td>
+			<td align="LEFT"><br></td>
+		</tr>
+		<tr>
+			<td height="17" align="LEFT">5. The population figures for year 2020 are single-race estimates of the July 1 resident population, from the Vintage 2020</td>
+			<td align="LEFT"><br></td>
+			<td align="LEFT"><br></td>
+			<td align="LEFT"><br></td>
+			<td align="LEFT"><br></td>
+			<td align="LEFT"><br></td>
+			<td align="LEFT"><br></td>
+			<td align="LEFT"><br></td>
+			<td align="LEFT"><br></td>
+			<td align="LEFT"><br></td>
+			<td align="LEFT"><br></td>
+			<td align="LEFT"><br></td>
+		</tr>
+		<tr>
+			<td height="17" align="LEFT">postcensal series released by the Census Bureau on July 27, 2021. The population figures for year 2019 are single-race estimates</td>
+			<td align="LEFT"><br></td>
+			<td align="LEFT"><br></td>
+			<td align="LEFT"><br></td>
+			<td align="LEFT"><br></td>
+			<td align="LEFT"><br></td>
+			<td align="LEFT"><br></td>
+			<td align="LEFT"><br></td>
+			<td align="LEFT"><br></td>
+			<td align="LEFT"><br></td>
+			<td align="LEFT"><br></td>
+			<td align="LEFT"><br></td>
+		</tr>
+		<tr>
+			<td height="17" align="LEFT">of the July 1 resident population, from the Vintage 2019 postcensal series released by the Census Bureau on June 25, 2020. The</td>
+			<td align="LEFT"><br></td>
+			<td align="LEFT"><br></td>
+			<td align="LEFT"><br></td>
+			<td align="LEFT"><br></td>
+			<td align="LEFT"><br></td>
+			<td align="LEFT"><br></td>
+			<td align="LEFT"><br></td>
+			<td align="LEFT"><br></td>
+			<td align="LEFT"><br></td>
+			<td align="LEFT"><br></td>
+			<td align="LEFT"><br></td>
+		</tr>
+		<tr>
+			<td height="17" align="LEFT">population figures for year 2018 are single-race estimates of the July 1 resident population, from the Vintage 2018 postcensal</td>
+			<td align="LEFT"><br></td>
+			<td align="LEFT"><br></td>
+			<td align="LEFT"><br></td>
+			<td align="LEFT"><br></td>
+			<td align="LEFT"><br></td>
+			<td align="LEFT"><br></td>
+			<td align="LEFT"><br></td>
+			<td align="LEFT"><br></td>
+			<td align="LEFT"><br></td>
+			<td align="LEFT"><br></td>
+			<td align="LEFT"><br></td>
+		</tr>
+		<tr>
+			<td height="17" align="LEFT">series released by the Census Bureau on June 20, 2019.</td>
+			<td align="LEFT"><br></td>
+			<td align="LEFT"><br></td>
+			<td align="LEFT"><br></td>
+			<td align="LEFT"><br></td>
+			<td align="LEFT"><br></td>
+			<td align="LEFT"><br></td>
+			<td align="LEFT"><br></td>
+			<td align="LEFT"><br></td>
+			<td align="LEFT"><br></td>
+			<td align="LEFT"><br></td>
+			<td align="LEFT"><br></td>
+		</tr>
+		<tr>
+			<td height="17" align="LEFT">6. The population figures used in the calculation of death rates for the age group 'under 1 year' are the estimates of the</td>
+			<td align="LEFT"><br></td>
+			<td align="LEFT"><br></td>
+			<td align="LEFT"><br></td>
+			<td align="LEFT"><br></td>
+			<td align="LEFT"><br></td>
+			<td align="LEFT"><br></td>
+			<td align="LEFT"><br></td>
+			<td align="LEFT"><br></td>
+			<td align="LEFT"><br></td>
+			<td align="LEFT"><br></td>
+			<td align="LEFT"><br></td>
+		</tr>
+		<tr>
+			<td height="17" align="LEFT">resident population that is under one year of age. More information: http://wonder.cdc.gov/wonder/help/ucd-expanded.html#Age</td>
+			<td align="LEFT"><br></td>
+			<td align="LEFT"><br></td>
+			<td align="LEFT"><br></td>
+			<td align="LEFT"><br></td>
+			<td align="LEFT"><br></td>
+			<td align="LEFT"><br></td>
+			<td align="LEFT"><br></td>
+			<td align="LEFT"><br></td>
+			<td align="LEFT"><br></td>
+			<td align="LEFT"><br></td>
+			<td align="LEFT"><br></td>
+		</tr>
+		<tr>
+			<td height="17" align="LEFT">Group.</td>
+			<td align="LEFT"><br></td>
+			<td align="LEFT"><br></td>
+			<td align="LEFT"><br></td>
+			<td align="LEFT"><br></td>
+			<td align="LEFT"><br></td>
+			<td align="LEFT"><br></td>
+			<td align="LEFT"><br></td>
+			<td align="LEFT"><br></td>
+			<td align="LEFT"><br></td>
+			<td align="LEFT"><br></td>
+			<td align="LEFT"><br></td>
+		</tr>
+	</tbody>
+</table>
